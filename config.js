@@ -21,23 +21,23 @@ global.APIKeys = {
 
 //═══════[modification]════════\\
 global.apilol = '' //YOUR APIKEY LolHuman
-global.owner = ['62895337316879','6283110011351'] //owner number, u can put multiple owner number, within quotations and seperated by comma.
-global.pemilik = ['62895337316879'] //another owner number
-global.premium = ['62895337316879'] //premium number
-global.pengguna = 'Bot Leo Ngen' //username
-global.botnma = 'Bot Leo Ngen' //bot name
-global.fake = 'Bot Bot Leo Ngen ' //FAKE fotter
-global.ownernma = 'LeoNgen' //owner name
-global.packname = 'Bot Leo Ngen' //sticker package name
-global.author = 'By LeoNgen' //sticker author name
+global.owner = ['6285893639416','6283110011351'] //owner number, u can put multiple owner number, within quotations and seperated by comma.
+global.pemilik = ['6285893639416'] //another owner number
+global.premium = ['6285893639416'] //premium number
+global.pengguna = 'RXil botZ' //username
+global.botnma = 'RXil botZ' //bot name
+global.fake = 'RXil botZ ' //FAKE fotter
+global.ownernma = 'RXil' //owner name
+global.packname = 'Bot RXil botZ' //sticker package name
+global.author = 'By RXil' //sticker author name
 global.autoread = 'on' //ganti 'on' untuk mengaktifkan auto tead, ganti 'off' untuk mematikan auto read
 
 //═══════[media sosial]════════\\
-global.groupwa = 'https://chat.whatsapp.com/DORxISN9D6APK0oPTibS' //group WhatsApp nya
+global.groupwa = 'https://chat.whatsapp.com/HpEApKBMspqLx4xG1Hl6ha' //group WhatsApp nya
 
-global.medsos1 = 'Instagram'
-global.medsos1nama = '@ini.lleo'
-global.medsos1url = 'https://instagram.com/ini.lleo?igshid=YmMyMTA2M2Y='
+global.medsos1 = 'Tiktok'
+global.medsos1nama = ''
+global.medsos1url = 'https://vm.tiktok.com/ZSd3YG1s5/'
 
 global.medsos2 = ''
 global.medsos2nama = ''
@@ -97,7 +97,7 @@ global.sewabot = `────❲ 𝚂𝚎𝚠𝚊 𝙱𝚘𝚝 ❳────
 //teks donasi
 global.donasi = `〔 𝙳𝙾𝙽𝙰𝚃𝙴 〕
                     
-⭔ PULSA : 081514622170
+⭔ PULSA : 085893639416
 
  𝘜𝘢𝘯𝘨 𝘥𝘰𝘯𝘢𝘴𝘪 𝘢𝘬𝘢𝘯 𝘥𝘪 𝘬𝘶𝘮𝘱𝘶𝘭𝘬𝘢𝘯 𝘥𝘢𝘯 𝘥𝘪 𝘬𝘦𝘭𝘰𝘭𝘢 𝘰𝘭𝘦𝘩 𝘍𝘭𝘦𝘺𝘷𝘪𝘯 𝘛𝘦𝘢𝘮 𝘶𝘯𝘵𝘶𝘬 𝘥𝘪𝘢𝘭𝘰𝘬𝘢𝘴𝘪𝘬𝘢𝘯 𝘥𝘢𝘭𝘢𝘮 𝘱𝘦𝘮𝘣𝘶𝘢𝘵𝘢𝘯 𝘴𝘦𝘳𝘵𝘢 𝘱𝘦𝘯𝘨𝘦𝘮𝘣𝘢𝘯𝘨𝘢𝘯 𝘴𝘰𝘧𝘵𝘸𝘢𝘳𝘦 𝘺𝘢𝘯𝘨 𝘣𝘦𝘳𝘮𝘢𝘯𝘧𝘢𝘢𝘵 𝘣𝘢𝘨𝘪 𝘣𝘢𝘯𝘺𝘢𝘬 𝘰𝘳𝘢𝘯𝘨.
  
